@@ -25,4 +25,4 @@ Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/home', function () {
     return view('home');
-});
+})->name('dashboard');
