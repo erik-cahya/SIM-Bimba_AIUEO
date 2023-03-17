@@ -14,7 +14,7 @@
 
             <div class="row">
                 <div class="col-12 col-xl-12 stretch-card">
-                    <div class="row flex-grow-1">
+                    <div class="row flex-grow-1 justify-content-center">
                         {{-- Total Murid --}}
                         <div class="col-md-4 grid-margin stretch-card">
                             <div class="card">
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-8">
-                                            <h3 class="mb-2">35,084</h3>
+                                            <h3 class="mb-2">45 Orang</h3>
 
                                         </div>
                                         <div class="col-2">
