@@ -24,5 +24,7 @@ Route::get('/', function () {
 Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/home', function () {
-    return view('home');
+    // auth : guru & kepala_staff
+    $data['auth'] = "kepala_staff";
+    return view('home', $data);
 })->name('dashboard');

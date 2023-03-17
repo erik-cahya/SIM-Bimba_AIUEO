@@ -20,9 +20,6 @@
                 </a>
             </li>
 
-            @php
-                $auth = 'kepala_staff';
-            @endphp
             @if ($auth == 'master')
                 <li class="nav-item nav-category">web apps</li>
                 <li class="nav-item">
@@ -325,6 +322,7 @@
                 </li>
             @endif
 
+            {{-- Authorization: Kepala Staff --}}
             @if ($auth == 'kepala_staff')
                 <li class="nav-item nav-category">master apps</li>
 
@@ -332,7 +330,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button"
                         aria-expanded="false" aria-controls="emails">
-                        <i class="link-icon" data-feather="mail"></i>
+                        <i class="link-icon" data-feather="pen-tool"></i>
                         <span class="link-title">Siswa</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
@@ -352,7 +350,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#spp" role="button"
                         aria-expanded="false" aria-controls="spp">
-                        <i class="link-icon" data-feather="mail"></i>
+                        <i class="link-icon" data-feather="credit-card"></i>
                         <span class="link-title">Pembayaran</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
@@ -371,7 +369,7 @@
                 {{-- Data Bimbel --}}
                 <li class="nav-item">
                     <a href="pages/apps/chat.html" class="nav-link">
-                        <i class="link-icon" data-feather="message-square"></i>
+                        <i class="link-icon" data-feather="book-open"></i>
                         <span class="link-title">Data Paket Bimbel</span>
                     </a>
                 </li>
@@ -386,21 +384,37 @@
                         <span class="link-title">Data User</span>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a href="pages/apps/chat.html" class="nav-link">
-                        <i class="link-icon" data-feather="info"></i>
-                        <span class="link-title">Profiles</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/apps/chat.html" class="nav-link">
-                        <i class="link-icon" data-feather="log-out"></i>
-                        <span class="link-title">Logout</span>
-                    </a>
-                </li>
             @endif
+
+            {{-- Authorization: Guru --}}
+            @if ($auth == 'guru')
+                <li class="nav-item nav-category">master apps</li>
+
+                {{-- Data Bimbel --}}
+                <li class="nav-item">
+                    <a href="pages/apps/chat.html" class="nav-link">
+                        <i class="link-icon" data-feather="book-open"></i>
+                        <span class="link-title">Data Perkembangan Siswa</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item nav-category">Special Menu</li>
+            @endif
+
+            <li class="nav-item">
+                <a href="pages/apps/chat.html" class="nav-link">
+                    <i class="link-icon" data-feather="info"></i>
+                    <span class="link-title">Profiles</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="pages/apps/chat.html" class="nav-link">
+                    <i class="link-icon" data-feather="log-out"></i>
+                    <span class="link-title">Logout</span>
+                </a>
+            </li>
 
         </ul>
     </div>
