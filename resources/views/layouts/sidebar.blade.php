@@ -340,7 +340,7 @@
                                 <a href="pages/email/inbox.html" class="nav-link">Data Siswa</a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/email/read.html" class="nav-link">Laporan Perkembangan Siswa</a>
+                                <a href="pages/email/read.html" class="nav-link">Data Perkembangan Siswa</a>
                             </li>
                         </ul>
                     </div>
