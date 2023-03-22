@@ -1,6 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
+            <img src="{{ asset('images/logo.png') }}" width="40px" alt="">
             Bimba<span>UI</span>
         </a>
         <div class="sidebar-toggler not-active">
