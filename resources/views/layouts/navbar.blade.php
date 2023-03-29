@@ -18,8 +18,8 @@
                                 src="https://source.unsplash.com/random/80x80?profiles" alt="">
                         </div>
                         <div class="text-center">
-                            <p class="tx-16 fw-bolder">Amiah Burton</p>
-                            <p class="tx-12 text-muted">amiahburton@gmail.com</p>
+                            <p class="tx-16 fw-bolder">Erik Cahya Pradana</p>
+                            <p class="tx-12 text-muted">erik.cahya841@gmail.com</p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
@@ -27,18 +27,6 @@
                             <a href="pages/general/profile.html" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="user"></i>
                                 <span>Profile</span>
-                            </a>
-                        </li>
-                        <li class="dropdown-item py-2">
-                            <a href="javascript:;" class="text-body ms-0">
-                                <i class="me-2 icon-md" data-feather="edit"></i>
-                                <span>Edit Profile</span>
-                            </a>
-                        </li>
-                        <li class="dropdown-item py-2">
-                            <a href="javascript:;" class="text-body ms-0">
-                                <i class="me-2 icon-md" data-feather="repeat"></i>
-                                <span>Switch User</span>
                             </a>
                         </li>
                         <li class="dropdown-item py-2">
@@ -54,3 +42,4 @@
     </div>
 </nav>
 <!-- Navbar -->
+<div class="page-content">

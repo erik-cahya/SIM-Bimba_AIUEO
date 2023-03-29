@@ -1,6 +1,6 @@
 <nav class="sidebar">
     <div class="sidebar-header">
-        <a href="#" class="sidebar-brand">
+        <a href="{{ route('dashboard') }}" class="sidebar-brand">
             <img src="{{ asset('images/logo.png') }}" width="40px" alt="">
             Bimba<span>UI</span>
         </a>
@@ -338,10 +338,11 @@
                     <div class="collapse" id="emails">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
-                                <a href="pages/email/inbox.html" class="nav-link">Data Siswa</a>
+                                <a href="{{ route('siswa') }}" class="nav-link">Data Siswa</a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/email/read.html" class="nav-link">Data Perkembangan Siswa</a>
+                                <a href="{{ route('siswa.perkembangan') }}" class="nav-link">Data Perkembangan
+                                    Siswa</a>
                             </li>
                         </ul>
                     </div>
@@ -358,10 +359,10 @@
                     <div class="collapse" id="spp">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
-                                <a href="pages/email/inbox.html" class="nav-link">Pembayaran SPP</a>
+                                <a href="{{ route('pembayaran') }}" class="nav-link">Pembayaran SPP</a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/email/read.html" class="nav-link">Laporan SPP Tahunan</a>
+                                <a href="{{ route('report') }}" class="nav-link">Laporan SPP Tahunan</a>
                             </li>
                         </ul>
                     </div>
@@ -369,7 +370,7 @@
 
                 {{-- Data Bimbel --}}
                 <li class="nav-item">
-                    <a href="pages/apps/chat.html" class="nav-link">
+                    <a href="{{ route('paket') }}" class="nav-link">
                         <i class="link-icon" data-feather="book-open"></i>
                         <span class="link-title">Data Paket Bimbel</span>
                     </a>
