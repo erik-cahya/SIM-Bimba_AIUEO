@@ -34,7 +34,6 @@
                                     <div class="row ">
                                         <div class="col-8">
                                             <h3 class="mb-2">45 Orang</h3>
-
                                         </div>
                                         <div class="col-2">
                                             <i data-feather="user" class="icon-xxl"></i>

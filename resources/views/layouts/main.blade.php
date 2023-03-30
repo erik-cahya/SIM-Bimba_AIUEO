@@ -23,7 +23,14 @@
     <link rel="stylesheet" href="{{ asset('fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/demo1/style.css') }}">
+
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('vendors/flatpickr/flatpickr.min.css') }}">
+    <!-- End plugin css for this page -->
+
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+
+
 </head>
 
 <body>
@@ -33,12 +40,18 @@
     </div>
 
     <!-- core:js -->
+
     <script src="{{ asset('vendors/core/core.js') }}"></script>
     <script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script>
     <script src="{{ asset('vendors/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('js/template.js') }}"></script>
     <script src="{{ asset('js/data-table.js') }}"></script>
+    <script src="{{ asset('js/dashboard-light.js') }}"></script>
+    <script src="{{ asset('vendors/flatpickr/flatpickr.min.js') }}"></script>
+
+
+
 
 
 </body>

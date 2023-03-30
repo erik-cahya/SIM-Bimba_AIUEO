@@ -342,7 +342,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('siswa.perkembangan') }}" class="nav-link">Data Perkembangan
-                                    Siswa</a>
+                                    Murid</a>
                             </li>
                         </ul>
                     </div>

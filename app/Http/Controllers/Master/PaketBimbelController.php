@@ -10,6 +10,6 @@ class PaketBimbelController extends Controller
     public function index()
     {
         $data["auth"] = "kepala_staff";
-        return view('master.paketBimbel.index', $data);
+        return view('master.paket_bimbel.index', $data);
     }
 }
