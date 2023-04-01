@@ -13,3 +13,5 @@ The commit type can include the following:
     ci – continuous integration related
     build – changes that affect the build system or external dependencies
     revert – reverts a previous commit 
+
+Template : NobleUI
