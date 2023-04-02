@@ -42,13 +42,11 @@
                                 </div>
                             </div>
                         </div>
-
                         {{-- Total Guru --}}
                         <div class="col-md-4 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-baseline">
-
                                         <h6 class="card-title mb-0">Total Guru</h6>
                                         <div class="dropdown mb-2">
                                             <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
@@ -62,14 +60,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-6 col-md-12 col-xl-5 text-center">
+                                    <div class="row ">
+                                        <div class="col-8">
                                             <h3 class="mb-2">10 Orang</h3>
+                                        </div>
+                                        <div class="col-2">
+                                            <i data-feather="user" class="icon-xxl"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
                 </div>

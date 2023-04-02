@@ -21,7 +21,7 @@ Route::get('/', [LoginController::class, 'index']);
 
 
 // ###################################################### Authentication
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 // ###################################################### Dashboard
 Route::get('/home', function () {

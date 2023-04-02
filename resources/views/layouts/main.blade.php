@@ -9,7 +9,6 @@
     <meta name="author" content="NobleUI">
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
     <title>Sistem informasi manajemen bimba aiueo</title>
     <link rel="website icon" href="{{ asset('images/logo.png') }}">
 
@@ -27,7 +26,6 @@
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('vendors/flatpickr/flatpickr.min.css') }}">
     <!-- End plugin css for this page -->
-
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
 
 

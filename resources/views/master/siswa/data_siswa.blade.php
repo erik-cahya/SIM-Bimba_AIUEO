@@ -19,8 +19,35 @@
 
                         <div class="d-flex justify-content-between">
                             <h6 class="card-title">Data Siswa</h6>
-                            <button class="btn btn-success ">Tambah Data Murid</button>
+                            <button type="button" data-bs-toggle="modal" class="btn btn-success"
+                                data-bs-target="#staticBackdrop">Tambah Data
+                                Murid</button>
                         </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h5 class="modal-title" id="varyingModalLabel">Tambah Data Murid</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="" method="POST" class="form-horizontal"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            @include('master.siswa._form')
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success">Send message</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
 
                         <div class="table-responsive mt-3">
                             <table id="dataTableExample" class="table">
