@@ -51,8 +51,8 @@
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item d-flex align-items-center"
-                                                            href="javascript:;"><i data-feather="eye"
-                                                                class="icon-sm me-2"></i> <span
+                                                            href="javascript:;">
+                                                            <i data-feather="eye" class="icon-sm me-2"></i> <span
                                                                 class="">View</span></a>
                                                         <a class="dropdown-item d-flex align-items-center"
                                                             href="javascript:;"><i data-feather="edit-2"

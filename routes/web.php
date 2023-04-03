@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Master\PaketBimbelController;
 use App\Http\Controllers\Master\PembayaranController;
 use App\Http\Controllers\Master\SiswaController;
@@ -22,13 +23,10 @@ Route::get('/', [LoginController::class, 'index']);
 
 // ###################################################### Authentication
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('login', [LoginController::class, 'authenticate']);
 
 // ###################################################### Dashboard
-Route::get('/home', function () {
-    // auth : guru & kepala_staff
-    $data['auth'] = "kepala_staff";
-    return view('home', $data);
-})->name('dashboard');
+Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 
 // ###################################################### Master Apps -> Siswa
 Route::get('/siswa', [SiswaController::class, 'showSiswa'])->name('siswa');

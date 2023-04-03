@@ -394,7 +394,7 @@
 
                 {{-- Data Bimbel --}}
                 <li class="nav-item">
-                    <a href="pages/apps/chat.html" class="nav-link">
+                    <a href="{{ route('siswa.perkembangan') }}" class="nav-link">
                         <i class="link-icon" data-feather="book-open"></i>
                         <span class="link-title">Data Perkembangan Siswa</span>
                     </a>

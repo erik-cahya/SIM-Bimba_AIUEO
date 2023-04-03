@@ -18,15 +18,16 @@
                                     <a href="#" class="noble-ui-logo d-block mb-2">Login <span>Page</span></a>
                                     <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
 
-                                    <form class="forms-sample" method="GET" action="/home">
+                                    <form class="forms-sample" method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="mb-3">
-                                            <label for="userEmail" class="form-label">Email address</label>
-                                            <input type="email" class="form-control" id="userEmail" placeholder="Email">
+                                            <label for="email" class="form-label">Email address</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Email">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="userPassword" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="userPassword"
+                                            <label for="password" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="password" name="password"
                                                 autocomplete="current-password" placeholder="Password">
                                         </div>
                                         <div class="form-check mb-3">
@@ -43,6 +44,8 @@
                                             </button>
                                         </div>
                                     </form>
+
+
                                 </div>
                             </div>
                         </div>

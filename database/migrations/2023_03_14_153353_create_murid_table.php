@@ -23,7 +23,6 @@ class CreateMuridTable extends Migration
             $table->string('no_telp');
             $table->string('nama_paket');
             $table->timestamps();
-
         });
     }
 

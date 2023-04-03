@@ -64,20 +64,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= 15; $i++)
+
+                                    @php
+                                        $number = 1;
+                                    @endphp
+                                    @foreach ($data_siswa as $siswa)
                                         <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>Ahmad</td>
-                                            <td>01 Agustus 2003</td>
-                                            <td>Jln. Tukad Badung XIV B. No 04</td>
-                                            <td>Komang Agus</td>
-                                            <td>08955268527</td>
-                                            <td>Standard 04</td>
+                                            <td>{{ $number }}</td>
+                                            <td>{{ $siswa->nama_murid }}</td>
+                                            <td>{{ $siswa->tanggal_lahir }}</td>
+                                            <td>{{ $siswa->alamat }}</td>
+                                            <td>{{ $siswa->nama_ortu }}</td>
+                                            <td>{{ $siswa->no_telp }}</td>
+                                            <td>{{ $siswa->nama_paket }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-warning">Ubah</button>
                                             </td>
                                         </tr>
-                                    @endfor
+                                        @php
+                                            $number++;
+                                        @endphp
+                                    @endforeach
 
                                 </tbody>
                             </table>

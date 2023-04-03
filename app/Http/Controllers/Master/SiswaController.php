@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Murid;
 
 class SiswaController extends Controller
 {
     // Menu siswa
     public function showSiswa()
     {
+        $data["data_siswa"] = Murid::all();
         $data['auth'] = 'kepala_staff';
         return view('master.siswa.data_siswa', $data);
     }
@@ -17,7 +18,7 @@ class SiswaController extends Controller
     // Menu Data Perkembangan Murid
     public function showPerkembangan()
     {
-        $data['auth'] = 'kepala_staff';
+        $data['auth'] = 'guru';
         return view('master.siswa.perkembangan_siswa', $data);
     }
 }
