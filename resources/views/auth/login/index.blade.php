@@ -17,7 +17,9 @@
                                 <div class="auth-form-wrapper px-4 py-5">
                                     <a href="#" class="noble-ui-logo d-block mb-2">Login <span>Page</span></a>
                                     <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                                    <form class="forms-sample">
+
+                                    <form class="forms-sample" method="GET" action="/home">
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="userEmail" class="form-label">Email address</label>
                                             <input type="email" class="form-control" id="userEmail" placeholder="Email">
@@ -34,7 +36,7 @@
                                             </label>
                                         </div>
                                         <div>
-                                            <button type="button"
+                                            <button type="submit"
                                                 class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
                                                 <i class="btn-icon-prepend" data-feather="log-in"></i>
                                                 Login

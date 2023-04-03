@@ -412,7 +412,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="pages/apps/chat.html" class="nav-link">
+                <a href="{{ route('login') }}" class="nav-link">
                     <i class="link-icon" data-feather="log-out"></i>
                     <span class="link-title">Logout</span>
                 </a>
