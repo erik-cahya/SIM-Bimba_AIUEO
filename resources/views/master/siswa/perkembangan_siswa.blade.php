@@ -47,15 +47,11 @@
                                     @for ($i = 1; $i <= 15; $i++)
                                         <tr>
                                             <td>{{ $i }}</td>
-<<<<<<< HEAD
-                                            <td>Sir Issac Newton</td>
-                                            <td>Bagus Budiarta</td>
-=======
                                             <td>Erik Cahya Pradana</td>
                                             <td>Komang Kadek</td>
->>>>>>> 1e00b4f32224a6ea26edc582601dadfa2d95af19
                                             <td>20 Agustus 2001</td>
-                                            <td>Sudah bisa membaca dan berhitung, perkembangan anak didik sangat pesat dan
+                                            <td>Sudah bisa membaca dan berhitung, perkembangan anak didik sangat pesat
+                                                dan
                                                 signifikan</td>
 
                                         </tr>
