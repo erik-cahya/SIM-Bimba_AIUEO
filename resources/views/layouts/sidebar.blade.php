@@ -1,8 +1,8 @@
 <nav class="sidebar">
     <div class="sidebar-header">
-        <a href="{{ route('dashboard') }}" class="sidebar-brand">
-            <img src="{{ asset('images/logo.png') }}" width="40px" alt="">
-            Bimba<span>UI</span>
+        <a href="{{ route('dashboard') }}" class="sidebar-brand fs-4">
+            <img src="{{ asset('images/logo.png') }}" width="44px" alt="">
+            Bimba<span>AIUEO</span>
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>

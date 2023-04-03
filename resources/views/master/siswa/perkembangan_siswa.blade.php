@@ -47,8 +47,8 @@
                                     @for ($i = 1; $i <= 15; $i++)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>Erik Cahya Pradana</td>
-                                            <td>Kadek Indah Melanie Dewi</td>
+                                            <td>Sir Issac Newton</td>
+                                            <td>Bagus Budiarta</td>
                                             <td>20 Agustus 2001</td>
                                             <td>Sudah bisa membaca dan berhitung, perkembangan anak didik sangat pesat dan
                                                 signifikan</td>

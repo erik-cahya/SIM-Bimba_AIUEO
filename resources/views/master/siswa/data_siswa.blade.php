@@ -40,10 +40,10 @@
                                     @for ($i = 1; $i <= 15; $i++)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>Erik Cahya Pradana</td>
+                                            <td>Ahmad</td>
                                             <td>01 Agustus 2003</td>
                                             <td>Jln. Tukad Badung XIV B. No 04</td>
-                                            <td>Achmad Supri Mushadi</td>
+                                            <td>Komang Agus</td>
                                             <td>08955268527</td>
                                             <td>Standard 04</td>
                                             <td>
