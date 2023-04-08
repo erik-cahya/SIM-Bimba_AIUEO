@@ -34,12 +34,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= 15; $i++)
+
+                                    @foreach ( $data_paket as $paket)
                                         <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>Standard 04</td>
-                                            <td>Reguler</td>
-                                            <td>Rp. 450.000/bulan</td>
+                                            <td>1</td>
+                                            <td>{{ $paket->nama_paket }}</td>
+                                            <td>{{ $paket->jenis_paket }}</td>
+                                            <td>Rp. {{ number_format( $paket->harga, 0, '', '.') }}/bulan</td>
                                             <td>
                                                 {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
 
@@ -66,7 +67,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endfor
+                                        @endforeach
+                                    
 
                                 </tbody>
                             </table>

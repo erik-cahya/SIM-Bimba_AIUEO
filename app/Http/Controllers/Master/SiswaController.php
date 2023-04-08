@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
 use App\Models\Murid;
+use App\Models\Paket;
 
 class SiswaController extends Controller
 {
@@ -11,6 +12,7 @@ class SiswaController extends Controller
     public function showSiswa()
     {
         $data["data_siswa"] = Murid::all();
+        $data["data_paket"] = Paket::all();
         $data['auth'] = 'kepala_staff';
         return view('master.siswa.data_siswa', $data);
     }
@@ -18,7 +20,7 @@ class SiswaController extends Controller
     // Menu Data Perkembangan Murid
     public function showPerkembangan()
     {
-        $data['auth'] = 'guru';
+        $data['auth'] = 'kepala_staff';
         return view('master.siswa.perkembangan_siswa', $data);
     }
 }

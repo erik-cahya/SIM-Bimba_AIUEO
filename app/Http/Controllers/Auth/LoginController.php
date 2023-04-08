@@ -30,7 +30,7 @@ class LoginController extends Controller
         // }
         // return back()->with('loginError', 'Login Failed');
 
-        $data['auth'] = 'guru';
+        $data['auth'] = 'kepala_staff';
         return view('home', $data);
     }
 }

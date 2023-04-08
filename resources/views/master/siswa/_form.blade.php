@@ -56,10 +56,9 @@
         <label for="nama_paket">Nama Paket</label>
         <select id="nama_paket" name="nama_paket" class="form-control">
             <option selected>Pilih Paket...</option>
-            <option>Standard 01</option>
-            <option>Standard 02</option>
-            <option>Standard 03</option>
-            <option>Standard 04</option>
+            @foreach ($data_paket as $paket)
+                <option value="{{ $paket->nama_paket }}">{{ $paket->nama_paket }}</option>
+            @endforeach
         </select>
     </div>
 </div>
