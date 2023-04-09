@@ -18,9 +18,44 @@
                     <div class="card-body">
 
                         <div class="d-flex justify-content-between">
-                            <h6 class="card-title">Paket Bimbel</h6>
-                            <button class="btn btn-success ">Tambah Data Paket Pembayaran</button>
+                            <h6 class="card-title">Data Paket</h6>
+                            <button type="button" data-bs-toggle="modal" class="btn btn-success"
+                                data-bs-target="#staticBackdrop">Tambah Data Paket</button>
                         </div>
+
+                        {{-- Alert Success --}}
+                        @if (session()->has('success'))
+                            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="btn-close"></button>
+                            </div>
+                        @endif
+
+                        <!-- Modal -->
+                        <form action="{{ route('paket.store') }}" method="POST" class="form-horizontal"
+                            enctype="multipart/form-data">
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header text-center">
+                                            <h5 class="modal-title" id="varyingModalLabel">Tambah Data Pembayaran</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            @csrf
+                                            @include('master.paket_bimbel._form')
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success">Send message</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
 
                         <div class="table-responsive mt-3">
                             <table id="dataTableExample" class="table">
@@ -35,12 +70,13 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ( $data_paket as $paket)
+                                    @php $number = 1; @endphp
+                                    @foreach ($data_paket as $paket)
                                         <tr>
-                                            <td>1</td>
+                                            <td>{{ $number }}</td>
                                             <td>{{ $paket->nama_paket }}</td>
                                             <td>{{ $paket->jenis_paket }}</td>
-                                            <td>Rp. {{ number_format( $paket->harga, 0, '', '.') }}/bulan</td>
+                                            <td>Rp. {{ number_format($paket->harga, 0, '', '.') }}/bulan</td>
                                             <td>
                                                 {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
 
@@ -67,8 +103,9 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        @endforeach
-                                    
+                                        @php $number++ @endphp
+                                    @endforeach
+
 
                                 </tbody>
                             </table>

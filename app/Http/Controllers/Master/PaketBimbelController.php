@@ -14,4 +14,14 @@ class PaketBimbelController extends Controller
         $data["auth"] = "kepala_staff";
         return view('master.paket_bimbel.index', $data);
     }
+
+    public function store(Request $request){
+        Paket::create($request->all());
+        
+        $message = [
+            'alert-type'=>'success',
+            'message'=> 'Data schedule created successfully'
+        ];  
+        return redirect()->route('paket')->with('success', 'Data Paket Berhasil Ditambahkan');
+    }
 }

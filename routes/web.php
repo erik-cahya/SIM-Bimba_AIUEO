@@ -39,3 +39,5 @@ Route::get('/report', [PembayaranController::class, 'showReport'])->name('report
 
 // ###################################################### Master Apps -> Paket Bimbel
 Route::get('/paket', [PaketBimbelController::class, 'index'])->name('paket');
+Route::post('/paket', [PaketBimbelController::class, 'store'])->name('paket.store');
+

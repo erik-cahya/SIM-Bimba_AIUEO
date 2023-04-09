@@ -62,3 +62,15 @@
         </select>
     </div>
 </div>
+<div class="row">
+    <div class="mb-3">
+        <label class="form-label">Single select box using select 2</label>
+        <select class="js-example-basic-single form-select" data-width="100%">
+            <option value="TX">Texas</option>
+            <option value="NY">New York</option>
+            <option value="FL">Florida</option>
+            <option value="KN">Kansas</option>
+            <option value="HW">Hawaii</option>
+        </select>
+    </div>
+</div>
