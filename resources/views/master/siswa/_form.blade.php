@@ -54,7 +54,7 @@
 <div class="row">
     <div class="form-group col mt-3">
         <label for="nama_paket">Nama Paket</label>
-        <select id="nama_paket" name="nama_paket" class="form-control">
+        <select id="nama_paket" name="nama_paket" class="form-control" class="js-example-basic-single form-select">
             <option selected>Pilih Paket...</option>
             @foreach ($data_paket as $paket)
                 <option value="{{ $paket->nama_paket }}">{{ $paket->nama_paket }}</option>
@@ -63,14 +63,17 @@
     </div>
 </div>
 <div class="row">
-    <div class="mb-3">
-        <label class="form-label">Single select box using select 2</label>
-        <select class="js-example-basic-single form-select" data-width="100%">
-            <option value="TX">Texas</option>
-            <option value="NY">New York</option>
-            <option value="FL">Florida</option>
-            <option value="KN">Kansas</option>
-            <option value="HW">Hawaii</option>
-        </select>
+    <div class="form-group col mt-3">
+       
+            <label class="form-label">Single select box using select 2</label>
+            <select class="js-example-basic-single form-select" data-width="100%">
+                <option value="TX">Texas</option>
+                <option value="NY">New York</option>
+                <option value="FL">Florida</option>
+                <option value="KN">Kansas</option>
+                <option value="HW">Hawaii</option>
+            </select>
+       
     </div>
 </div>
+

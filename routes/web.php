@@ -31,6 +31,7 @@ Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 // ###################################################### Master Apps -> Siswa
 Route::get('/siswa', [SiswaController::class, 'showSiswa'])->name('siswa');
 Route::get('/perkembangan', [SiswaController::class, 'showPerkembangan'])->name('siswa.perkembangan');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
 
 
 // ###################################################### Master Apps -> Pembayaran
