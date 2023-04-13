@@ -83,17 +83,23 @@
                                             <td>{{ $siswa->no_telp }}</td>
                                             <td>{{ $siswa->nama_paket }}</td>
 
+                                            <td>
+                                                {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
+
+                                                <div class="dropdown mb-2">
+                                                    <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="icon-lg text-muted pb-3px"
+                                                            data-feather="more-vertical"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
 
-                                            <td class="text-center">
-                                                <div class="btn-group dropend">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="link-icon" data-feather="align-justify"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <button type="button" data-bs-toggle="modal" class="dropdown-item"
-                                                            data-bs-target="#modalEditData{{ $siswa->id_murid }}">Ubah Data
+                                                        <button type="button" data-bs-toggle="modal"
+                                                            class="dropdown-item d-flex align-items-center"
+                                                            data-bs-target="#modalEditData{{ $siswa->id_murid }}"><i
+                                                                data-feather="edit-2" class="icon-sm me-2"></i> <span
+                                                                class="">Edit</span>
                                                         </button>
 
                                                         <form method="POST" action="/siswa/{{ $siswa->id_murid }}"
@@ -101,9 +107,11 @@
                                                             {{ csrf_field() }}
                                                             {{ method_field('DELETE') }}
                                                             <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
-                                                                class="dropdown-item">Delete Data</button>
+                                                                class="dropdown-item d-flex align-items-center"><i
+                                                                    data-feather="trash" class="icon-sm me-2"></i> <span
+                                                                    class="">Delete</span></button>
                                                         </form>
-                                                    </ul>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
