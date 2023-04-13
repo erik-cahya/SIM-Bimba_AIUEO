@@ -32,7 +32,7 @@
 
 
                         <div class="table-responsive mt-3">
-                            <table class="table">
+                            <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
                                         <th>Nim</th>
@@ -44,18 +44,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= 15; $i++)
+                                    @php
+                                        $number = 1;
+                                    @endphp
+                                    @foreach ($data_siswa as $siswa)
                                         <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>Erik Cahya Pradana</td>
+                                            <td>{{ $number }}</td>
+                                            <td>{{ $siswa->nama_murid }}</td>
                                             <td>Komang Kadek</td>
                                             <td>20 Agustus 2001</td>
                                             <td>Sudah bisa membaca dan berhitung, perkembangan anak didik sangat pesat
                                                 dan
                                                 signifikan</td>
-
                                         </tr>
-                                    @endfor
+                                        @php
+                                            $number++;
+                                        @endphp
+                                    @endforeach
+
 
                                 </tbody>
                             </table>

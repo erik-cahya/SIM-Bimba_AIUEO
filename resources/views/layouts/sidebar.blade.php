@@ -341,7 +341,7 @@
                                 <a href="/siswa" class="nav-link">Data Siswa</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/perkembangan" class="nav-link">Data Perkembangan
+                                <a href="/perkembangan" class="nav-link">Laporan Perkembangan
                                     Murid</a>
                             </li>
                         </ul>
