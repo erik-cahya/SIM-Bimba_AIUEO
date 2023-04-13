@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
+use App\Models\Murid;
 use Illuminate\Http\Request;
 
 class PerkembanganController extends Controller
@@ -14,6 +15,7 @@ class PerkembanganController extends Controller
      */
     public function index()
     {
+        $data["data_siswa"] = Murid::all();
         $data['auth'] = 'kepala_staff';
         return view('master.siswa.perkembangan_siswa', $data);
     }
