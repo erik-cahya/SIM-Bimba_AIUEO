@@ -19,16 +19,16 @@ class UserSeeder extends Seeder
 
         $data_user = [
             [
-                'email' => $faker->freeEmail(), 'password' => bcrypt('password'), 'hak_akses' => $faker->randomElement(['guru', 'kepala_staff'])
+                'name_user' => $faker->name, 'username' => $faker->freeEmail(), 'password' => bcrypt('password'), 'hak_akses' => $faker->randomElement(['guru', 'kepala_staff'])
             ],
             [
-                'email' => $faker->freeEmail(), 'password' => bcrypt('password'), 'hak_akses' => $faker->randomElement(['guru', 'kepala_staff'])
+                'name_user' => $faker->name,'username' => $faker->freeEmail(), 'password' => bcrypt('password'), 'hak_akses' => $faker->randomElement(['guru', 'kepala_staff'])
             ],
             [
-                'email' => $faker->freeEmail(), 'password' => bcrypt('password'), 'hak_akses' => $faker->randomElement(['guru', 'kepala_staff'])
+                'name_user' => $faker->name,'username' => $faker->freeEmail(), 'password' => bcrypt('password'), 'hak_akses' => $faker->randomElement(['guru', 'kepala_staff'])
             ],
             [
-                'email' => $faker->freeEmail(), 'password' => bcrypt('password'), 'hak_akses' => $faker->randomElement(['guru', 'kepala_staff'])
+                'name_user' => $faker->name,'username' => $faker->freeEmail(), 'password' => bcrypt('password'), 'hak_akses' => $faker->randomElement(['guru', 'kepala_staff'])
             ],
 
         ];
