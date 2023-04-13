@@ -25,7 +25,7 @@
                                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
+                                                <a class="dropdown-item d-flex align-items-center" href="/siswa"><i
                                                         data-feather="eye" class="icon-sm me-2"></i>
                                                     <span class="">View</span></a>
                                             </div>
