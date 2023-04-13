@@ -18,8 +18,8 @@
                                 src="https://source.unsplash.com/random/80x80?profiles" alt="">
                         </div>
                         <div class="text-center">
-                            <p class="tx-16 fw-bolder">Erik Cahya Pradana</p>
-                            <p class="tx-12 text-muted">erik.cahya841@gmail.com</p>
+                            <p class="tx-16 fw-bolder">Gede Putu Jaya</p>
+                            <p class="tx-12 text-muted">putujaya@gmail.com</p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
