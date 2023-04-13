@@ -338,10 +338,10 @@
                     <div class="collapse" id="emails">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
-                                <a href="{{ route('siswa') }}" class="nav-link">Data Siswa</a>
+                                <a href="/siswa" class="nav-link">Data Siswa</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('siswa.perkembangan') }}" class="nav-link">Data Perkembangan
+                                <a href="/perkembangan" class="nav-link">Data Perkembangan
                                     Murid</a>
                             </li>
                         </ul>

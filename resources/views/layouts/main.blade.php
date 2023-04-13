@@ -53,12 +53,14 @@
     <script src="{{ asset('js/dashboard-light.js') }}"></script>
     <script src="{{ asset('vendors/flatpickr/flatpickr.min.js') }}"></script>
 
-    
-    @yield('script')
-    
 
-    
-    
+
+
+    @yield('script')
+
+
+
+
 
 
 
