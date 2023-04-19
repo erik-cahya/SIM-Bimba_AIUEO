@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('content')
     @include('layouts.sidebar')
@@ -70,7 +70,33 @@
                                             <td>02/12/2022</td>
                                             <td>Standard 04</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning">Ubah</button>
+                                                {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
+
+                                                <div class="dropdown mb-2">
+                                                    <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="icon-lg text-muted pb-3px"
+                                                            data-feather="more-vertical"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+
+                                                        <button type="button" data-bs-toggle="modal"
+                                                            class="dropdown-item d-flex align-items-center"
+                                                            data-bs-target="#modalEditData"><i data-feather="edit-2"
+                                                                class="icon-sm me-2"></i> <span class="">Edit</span>
+                                                        </button>
+
+                                                        <form method="POST" action="/siswa/" class="d-inline">
+                                                            {{ csrf_field() }}
+                                                            {{ method_field('DELETE') }}
+                                                            <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
+                                                                class="dropdown-item d-flex align-items-center"><i
+                                                                    data-feather="trash" class="icon-sm me-2"></i> <span
+                                                                    class="">Delete</span></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endfor

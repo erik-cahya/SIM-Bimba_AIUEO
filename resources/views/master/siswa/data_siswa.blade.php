@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('content')
     @include('layouts.sidebar')
@@ -94,7 +94,6 @@
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-
                                                         <button type="button" data-bs-toggle="modal"
                                                             class="dropdown-item d-flex align-items-center"
                                                             data-bs-target="#modalEditData{{ $siswa->id_murid }}"><i
@@ -126,8 +125,8 @@
 
                                                 <form action="{{ route('siswa.update', $siswa->id_murid) }}"
                                                     method="POST">
-                                                    @csrf
-                                                    @method('patch')
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('PATCH') }}
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
                                                             <h5 class="modal-title" id="varyingModalLabel">Ubah Data Murid
