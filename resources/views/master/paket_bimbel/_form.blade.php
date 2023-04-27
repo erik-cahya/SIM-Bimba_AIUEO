@@ -2,7 +2,6 @@
     <div class="form-group">
         <label for="nama_paket">Nama Paket</label>
         <input type="text" name="nama_paket" id="nama_paket" class="form-control">
-        <input type="hidden" name="id_user" id="id_user" value="1" class="form-control">
     </div>
 </div>
 

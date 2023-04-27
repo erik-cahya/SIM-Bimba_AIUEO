@@ -11,4 +11,9 @@ class Murid extends Model
     protected $guarded = ['id_murid'];
     protected $primaryKey = 'id_murid';
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

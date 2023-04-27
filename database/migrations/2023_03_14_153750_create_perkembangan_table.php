@@ -17,7 +17,7 @@ class CreatePerkembanganTable extends Migration
             $table->increments('id_perkembangan');
             $table->unsignedInteger('id_user');
             $table->unsignedInteger('id_murid');
-            $table->date('tanggal');
+            $table->date('tgl_perkembangan');
             $table->string('deskripsi');
             $table->timestamps();
 

@@ -11,17 +11,20 @@ class PaketBimbelController extends Controller
     public function index()
     {
         $data["data_paket"] = Paket::all();
-        $data["auth"] = "kepala_staff";
+        $data["auth"] = env('APP_AUTH', 'Kepala_staff');
         return view('master.paket_bimbel.index', $data);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         Paket::create($request->all());
-        
-        $message = [
-            'alert-type'=>'success',
-            'message'=> 'Data schedule created successfully'
-        ];  
-        return redirect()->route('paket')->with('success', 'Data Paket Berhasil Ditambahkan');
+        return redirect('/paket')->with('success', 'Data Paket Berhasil Ditambahkan');
+    }
+
+
+    public function destroy(Paket $paket)
+    {
+        Paket::destroy($paket->id_paket);
+        return redirect('/paket')->with('success', 'Data Paket Berhasil Dihapus');
     }
 }

@@ -33,14 +33,13 @@
                         @endif
 
                         <!-- Modal -->
-                        <form action="{{ route('paket.store') }}" method="POST" class="form-horizontal"
-                            enctype="multipart/form-data">
+                        <form action="/paket" method="POST" class="form-horizontal" enctype="multipart/form-data">
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header text-center">
-                                            <h5 class="modal-title" id="varyingModalLabel">Tambah Data Pembayaran</h5>
+                                            <h5 class="modal-title" id="varyingModalLabel">Tambah Data Paket</h5>
                                         </div>
                                         <div class="modal-body">
                                             @csrf
@@ -49,7 +48,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success">Send message</button>
+                                            <button type="submit" class="btn btn-success">Tambah Data Paket</button>
                                         </div>
                                     </div>
 
@@ -88,17 +87,19 @@
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item d-flex align-items-center"
-                                                            href="javascript:;">
-                                                            <i data-feather="eye" class="icon-sm me-2"></i> <span
-                                                                class="">View</span></a>
-                                                        <a class="dropdown-item d-flex align-items-center"
                                                             href="javascript:;"><i data-feather="edit-2"
                                                                 class="icon-sm me-2"></i> <span
                                                                 class="">Edit</span></a>
-                                                        <a class="dropdown-item d-flex align-items-center"
-                                                            href="javascript:;"><i data-feather="trash"
-                                                                class="icon-sm me-2"></i> <span
-                                                                class="">Delete</span></a>
+
+                                                        <form action="/paket/{{ $paket->id_paket }}" method="POST">
+                                                            {{ csrf_field() }}
+                                                            {{ method_field('DELETE') }}
+                                                            <button type="submit"
+                                                                class="dropdown-item d-flex align-items-center">
+                                                                <i data-feather="trash" class="icon-sm me-2"></i> <span
+                                                                    class="">Delete</span>
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </td>

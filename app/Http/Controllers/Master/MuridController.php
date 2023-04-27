@@ -7,7 +7,7 @@ use App\Models\Murid;
 use App\Models\Paket;
 use Illuminate\Http\Request;
 
-class SiswaController extends Controller
+class MuridController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $data["data_siswa"] = Murid::all();
+        $data["data_murid"] = Murid::all();
         $data["data_paket"] = Paket::all();
-        $data['auth'] = 'kepala_staff';
-        return view('master.siswa.data_siswa', $data);
+        $data['auth'] = env('APP_AUTH', 'kepala_staff'); // ################################### ini disesuaikan
+        return view('master.murid.data_murid', $data);
     }
 
 
@@ -52,6 +52,7 @@ class SiswaController extends Controller
             'nama_paket' => 'required'
         ]);
         $form_data = [
+            'id_user' => 1, // ################################### ini disesuaikan
             'nama_murid' => $request->nama_murid,
             'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
             'tanggal_masuk' => date('Y-m-d', strtotime($request->tanggal_masuk)),
@@ -60,13 +61,10 @@ class SiswaController extends Controller
             'no_telp' => $request->no_telp,
             'nama_paket' => $request->nama_paket,
         ];
+
         Murid::create($form_data);
 
-        $message = [
-            'alert-type' => 'success',
-            'message' => 'Data schedule created successfully'
-        ];
-        return redirect('/siswa')->with('success', 'Data Murid Berhasil Ditambahkan');
+        return redirect('/murid')->with('success', 'Data Murid Berhasil Ditambahkan');
     }
 
     /**
@@ -98,7 +96,7 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Murid $siswa)
+    public function update(Request $request, Murid $murid)
     {
         // dd($request->all());
         $request->validate([
@@ -111,8 +109,8 @@ class SiswaController extends Controller
             'nama_paket' => 'required'
         ]);
 
-        $siswa->update($request->all());
-        return redirect('/siswa')->with('success', 'Data Murid Berhasil Diupdate');
+        $murid->update($request->all());
+        return redirect('/murid')->with('success', 'Data Murid Berhasil Diupdate');
     }
 
     /**
@@ -122,9 +120,9 @@ class SiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy(Murid $siswa)
+    public function destroy(Murid $murid)
     {
-        Murid::destroy($siswa->id_murid);
-        return redirect('/siswa')->with('success', 'Data Murid Berhasil Dihapus');
+        Murid::destroy($murid->id_murid);
+        return redirect('/murid')->with('success', 'Data Murid Berhasil Dihapus');
     }
 }

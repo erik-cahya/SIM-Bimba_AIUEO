@@ -15,14 +15,21 @@ class CreatePaketTable extends Migration
     {
         Schema::create('paket', function (Blueprint $table) {
             $table->increments('id_paket');
-            $table->unsignedInteger('id_user');
             $table->string('nama_paket');
             $table->string('jenis_paket');
             $table->integer('harga');
             $table->timestamps();
-
-            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
+        // Schema::create('paket', function (Blueprint $table) {
+        //     $table->increments('id_paket');
+        //     $table->unsignedInteger('id_user');
+        //     $table->string('nama_paket');
+        //     $table->string('jenis_paket');
+        //     $table->integer('harga');
+        //     $table->timestamps();
+
+        //     $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
+        // });
     }
 
     /**

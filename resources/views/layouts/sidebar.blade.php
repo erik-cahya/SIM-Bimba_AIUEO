@@ -327,18 +327,18 @@
             @if ($auth == 'kepala_staff')
                 <li class="nav-item nav-category">master apps</li>
 
-                {{-- Data Menu Siswa --}}
+                {{-- Data Menu murid --}}
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button"
                         aria-expanded="false" aria-controls="emails">
                         <i class="link-icon" data-feather="pen-tool"></i>
-                        <span class="link-title">Siswa</span>
+                        <span class="link-title">Murid</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
                     <div class="collapse" id="emails">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
-                                <a href="/siswa" class="nav-link">Data Siswa</a>
+                                <a href="/murid" class="nav-link">Data Murid</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/perkembangan" class="nav-link">Laporan Perkembangan
@@ -370,7 +370,7 @@
 
                 {{-- Data Bimbel --}}
                 <li class="nav-item">
-                    <a href="{{ route('paket') }}" class="nav-link">
+                    <a href="/paket" class="nav-link">
                         <i class="link-icon" data-feather="book-open"></i>
                         <span class="link-title">Data Paket Bimbel</span>
                     </a>
@@ -394,22 +394,15 @@
 
                 {{-- Data Bimbel --}}
                 <li class="nav-item">
-                    <a href="{{ route('siswa.perkembangan') }}" class="nav-link">
+                    <a href="{{ '/perkembangan' }}" class="nav-link">
                         <i class="link-icon" data-feather="book-open"></i>
-                        <span class="link-title">Data Perkembangan Siswa</span>
+                        <span class="link-title">Data Perkembangan Murid</span>
                     </a>
                 </li>
 
 
                 <li class="nav-item nav-category">Special Menu</li>
             @endif
-
-            <li class="nav-item">
-                <a href="pages/apps/chat.html" class="nav-link">
-                    <i class="link-icon" data-feather="info"></i>
-                    <span class="link-title">Profiles</span>
-                </a>
-            </li>
 
             <li class="nav-item">
                 <a href="{{ route('login') }}" class="nav-link">

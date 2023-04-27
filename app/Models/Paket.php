@@ -9,5 +9,6 @@ class Paket extends Model
 {
     protected $table = 'paket';
     protected $guarded = ['id_paket'];
+    protected $primaryKey = 'id_paket';
     use HasFactory;
 }

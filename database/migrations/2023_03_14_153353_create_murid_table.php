@@ -15,6 +15,7 @@ class CreateMuridTable extends Migration
     {
         Schema::create('murid', function (Blueprint $table) {
             $table->increments('id_murid');
+            $table->unsignedInteger('id_user');
             $table->string('nama_murid');
             $table->date('tanggal_lahir');
             $table->date('tanggal_masuk');
@@ -23,6 +24,8 @@ class CreateMuridTable extends Migration
             $table->string('no_telp');
             $table->string('nama_paket');
             $table->timestamps();
+
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

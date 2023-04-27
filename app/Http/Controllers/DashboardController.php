@@ -11,7 +11,7 @@ class DashboardController extends Controller
     {
         // auth : guru & kepala_staff
         $data["count_murid"] = Murid::count();
-        $data['auth'] = "kepala_staff";
+        $data['auth'] = env('APP_AUTH', 'kepala_staff');
         return view('home', $data);
     }
 }

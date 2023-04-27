@@ -7,8 +7,8 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><span style="color:#fd7e14;">Siswa</span></li>
-                <li class="breadcrumb-item active" aria-current="page">Data Siswa</li>
+                <li class="breadcrumb-item"><span style="color:#fd7e14;">Murid</span></li>
+                <li class="breadcrumb-item active" aria-current="page">Data Murid</li>
             </ol>
         </nav>
 
@@ -18,7 +18,7 @@
                     <div class="card-body">
 
                         <div class="d-flex justify-content-between">
-                            <h6 class="card-title">Data Siswa</h6>
+                            <h6 class="card-title">Data Murid</h6>
                             <button type="button" data-bs-toggle="modal" class="btn btn-success"
                                 data-bs-target="#staticBackdrop">Tambah Data
                                 Murid</button>
@@ -26,7 +26,7 @@
                         <!-- Modal Add Data Murid-->
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
-                            <form action="/siswa" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="/murid" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
@@ -34,7 +34,7 @@
                                             <h5 class="modal-title" id="varyingModalLabel">Tambah Data Murid</h5>
                                         </div>
                                         <div class="modal-body">
-                                            @include('master.siswa._form')
+                                            @include('master.murid._form')
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -72,16 +72,16 @@
                                     @php
                                         $number = 1;
                                     @endphp
-                                    @foreach ($data_siswa as $siswa)
+                                    @foreach ($data_murid as $murid)
                                         <tr>
 
                                             <td>{{ $number }}</td>
-                                            <td>{{ $siswa->nama_murid }}</td>
-                                            <td>{{ date('d-m-Y', strtotime($siswa->tanggal_lahir)) }}</td>
-                                            <td>{{ $siswa->alamat }}</td>
-                                            <td>{{ $siswa->nama_ortu }}</td>
-                                            <td>{{ $siswa->no_telp }}</td>
-                                            <td>{{ $siswa->nama_paket }}</td>
+                                            <td>{{ $murid->nama_murid }}</td>
+                                            <td>{{ date('d-m-Y', strtotime($murid->tanggal_lahir)) }}</td>
+                                            <td>{{ $murid->alamat }}</td>
+                                            <td>{{ $murid->nama_ortu }}</td>
+                                            <td>{{ $murid->no_telp }}</td>
+                                            <td>{{ $murid->nama_paket }}</td>
 
                                             <td>
                                                 {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
@@ -96,12 +96,12 @@
 
                                                         <button type="button" data-bs-toggle="modal"
                                                             class="dropdown-item d-flex align-items-center"
-                                                            data-bs-target="#modalEditData{{ $siswa->id_murid }}"><i
+                                                            data-bs-target="#modalEditData{{ $murid->id_murid }}"><i
                                                                 data-feather="edit-2" class="icon-sm me-2"></i> <span
                                                                 class="">Edit</span>
                                                         </button>
 
-                                                        <form method="POST" action="/siswa/{{ $siswa->id_murid }}"
+                                                        <form method="POST" action="/murid/{{ $murid->id_murid }}"
                                                             class="d-inline">
                                                             {{ csrf_field() }}
                                                             {{ method_field('DELETE') }}
@@ -110,6 +110,7 @@
                                                                     data-feather="trash" class="icon-sm me-2"></i> <span
                                                                     class="">Delete</span></button>
                                                         </form>
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -118,12 +119,12 @@
 
                                         {{-- Modal edit data --}}
 
-                                        <div class="modal fade" id="modalEditData{{ $siswa->id_murid }}"
+                                        <div class="modal fade" id="modalEditData{{ $murid->id_murid }}"
                                             data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
 
-                                                <form action="{{ route('siswa.update', $siswa->id_murid) }}"
+                                                <form action="{{ route('murid.update', $murid->id_murid) }}"
                                                     method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('PATCH') }}
@@ -134,7 +135,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
-                                                                @include('master.siswa._form')
+                                                                @include('master.murid._form')
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
