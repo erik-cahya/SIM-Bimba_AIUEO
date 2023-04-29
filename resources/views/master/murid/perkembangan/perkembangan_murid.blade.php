@@ -5,7 +5,7 @@
     <div class="page-wrapper">
         @include('layouts.navbar')
 
-        {{-- ############################################################################################ Auth Kepala Staff --}}
+        {{-- ##################################################################### Auth Kepala Staff --}}
         @if ($auth == 'kepala_staff')
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
@@ -82,7 +82,7 @@
             </div>
         @endif
 
-        {{-- ############################################################################################ Auth Guru --}}
+        {{-- ################################################################################# Auth Guru --}}
         @if ($auth == 'guru')
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
@@ -98,6 +98,7 @@
                             </div>
 
                             <!-- Modal -->
+
                             <form action="/paket" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
@@ -109,12 +110,13 @@
                                             </div>
                                             <div class="modal-body">
                                                 @csrf
-                                                @include('master.murid.perkembangan._form')
+                                                @include('master.murid.perkembangan._addform')
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-success">Tambah Data Paket</button>
+                                                <button type="submit" class="btn btn-success">Tambah Data
+                                                    Paket</button>
                                             </div>
                                         </div>
 

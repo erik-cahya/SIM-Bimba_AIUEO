@@ -47,7 +47,7 @@ class MuridController extends Controller
             'tanggal_lahir' => 'required',
             'tanggal_masuk' => 'required',
             'alamat' => 'required',
-            'nama_ortu' => 'required|unique:murid',
+            'nama_ortu' => 'required',
             'no_telp' => 'required',
             'nama_paket' => 'required'
         ]);
@@ -123,6 +123,6 @@ class MuridController extends Controller
     public function destroy(Murid $murid)
     {
         Murid::destroy($murid->id_murid);
-        return redirect('/murid')->with('success', 'Data Murid Berhasil Dihapus');
+        return redirect('/murid')->with('delete', 'Data Murid Berhasil Dihapus');
     }
 }

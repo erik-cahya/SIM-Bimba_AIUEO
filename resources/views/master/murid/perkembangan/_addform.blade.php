@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="form-group">
-        <label for="nama_murid">Nama Murid</label>
-
-
-        <input class="form-control" id="disabledInput" type="text" placeholder="{{ $data_murid[0]->nama_murid ?? '' }}">
-
-        <input type="hidden" name="id_murid" id="id_murid" value="{{ $data_murid[0]->id_murid ?? '' }}"
-            class="form-control">
+    <div class="form-group col mt-3">
+        <label for="nama_paket">Nama Murid</label>
+        <select id="nama_paket" name="nama_paket" class="form-control form-select">
+            <option selected> Pilih Murid...</option>
+            @foreach ($data_murid as $murid)
+                <option value="{{ $murid->id_murid }}">{{ $murid->nama_murid }}</option>
+            @endforeach
+        </select>
     </div>
 </div>
 

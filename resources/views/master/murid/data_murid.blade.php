@@ -53,6 +53,11 @@
                                 {{ session('success') }}
                             </div>
                         @endif
+                        @if (session()->has('delete'))
+                            <div class="alert alert-danger col-lg-12 mt-2" role="alert">
+                                {{ session('delete') }}
+                            </div>
+                        @endif
                         <div class="table-responsive mt-3">
                             <table id="dataTableExample" class="table">
                                 <thead>

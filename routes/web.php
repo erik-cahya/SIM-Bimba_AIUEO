@@ -29,20 +29,20 @@ Route::post('login', [LoginController::class, 'authenticate']);
 // ###################################################### Dashboard
 Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 
-// ###################################################### Master Apps -> Murid
+// ###################################################### Murid
 Route::resource('/murid', MuridController::class);
 Route::patch('/murid/{murid}/update', [MuridController::class, 'update'])->name('murid.update');
 
-// ###################################################### Master Apps -> Perkembangan
+// ###################################################### Perkembangan
 Route::resource('/perkembangan', PerkembanganController::class);
 Route::get('perkembangan/detail/{id_murid}', [PerkembanganController::class, 'detail'])->name('perkembangan.detail');
 Route::post('perkembangan/filter', [PerkembanganController::class, 'filter'])->name('perkembangan.filter');
 
-// ###################################################### Master Apps -> Pembayaran
+// ###################################################### Pembayaran
 Route::get('/pembayaran', [PembayaranController::class, 'showPembayaran'])->name('pembayaran');
 Route::get('/report', [PembayaranController::class, 'showReport'])->name('report');
 
-// ###################################################### Master Apps -> Paket Bimbel
+// ###################################################### Paket Bimbel
 // Route::get('/paket', [PaketBimbelController::class, 'index'])->name('paket');
 // Route::post('/paket', [PaketBimbelController::class, 'store'])->name('paket.store');
 Route::resource('/paket', PaketBimbelController::class);

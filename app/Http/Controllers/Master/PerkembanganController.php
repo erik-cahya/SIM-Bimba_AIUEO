@@ -17,11 +17,18 @@ class PerkembanganController extends Controller
      */
     public function index()
     {
-        $data['auth'] = env('APP_AUTH', 'Kepala_staff');;
+        $data['auth'] = env('APP_AUTH', 'Kepala_staff');
         $data["data_perkembangan"] = Perkembangan::all();
+        $data['data_murid'] = DB::table('murid')->get();
         $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'tgl_perkembangan as tgl', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid',  'id_user', 'tgl', 'id_murid')->having('muridname', '>=', 1)->get();
 
-        // dd($data["get_name"]);
+        if (Murid::where('id_murid', '=', 4)->exists()) {
+            echo 'user ada';
+        } else {
+            echo 'user tidak ada';
+        }
+        dd($data);
+        // dd($data["data_murid"]);
 
         return view('master.murid.perkembangan.perkembangan_murid', $data);
     }
@@ -78,6 +85,8 @@ class PerkembanganController extends Controller
     public function edit($id)
     {
         //
+
+
     }
 
     /**
@@ -108,7 +117,7 @@ class PerkembanganController extends Controller
      */
     public function detail($id_murid, Request $request)
     {
-        $data['auth'] = env('APP_AUTH', 'Kepala_staff');;
+        $data['auth'] = env('APP_AUTH', 'Kepala_staff');
         $data['data_murid'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->where('perkembangan.id_murid', '=', $id_murid)->get();
 
         $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->where('perkembangan.id_murid', '=', $id_murid)->first('nama_murid');
@@ -120,7 +129,7 @@ class PerkembanganController extends Controller
     {
         // convert format date
         $filter_date = date('Y-m-d', strtotime($request->filter_date));
-        $data['auth'] = env('APP_AUTH', 'Kepala_staff');;
+        $data['auth'] = env('APP_AUTH', 'Kepala_staff');
 
         $data["get_name"] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->where('tgl_perkembangan', $filter_date)->get();
 
