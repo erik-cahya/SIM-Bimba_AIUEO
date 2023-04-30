@@ -23,8 +23,12 @@ Route::get('/', [LoginController::class, 'index']);
 
 
 // ###################################################### Authentication
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('login', [LoginController::class, 'authenticate']);
+Route::get('dashboard', [LoginController::class, 'dashboard']);
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('custom-login', [LoginController::class, 'customLogin'])->name('login.custom');
+Route::get('registration', [LoginController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [LoginController::class, 'customRegistration'])->name('register.custom');
+Route::get('signout', [LoginController::class, 'signOut'])->name('signout');
 
 // ###################################################### Dashboard
 Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
