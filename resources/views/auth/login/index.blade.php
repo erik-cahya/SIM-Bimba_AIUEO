@@ -3,9 +3,9 @@
 @section('content')
     <div class="page-wrapper full-page">
         <div class="page-content d-flex align-items-center justify-content-center">
-            <div class="row w-100 mx-0 auth-page">
+            <div class="row w-50 ">
                 <div class="col-md-8 col-xl-6 mx-auto">
-                    <div class="card" style=" width:800px; height: 400px">
+                    <div class="card" style=" width:650px; height:400px">
                         <div class="row justify-content-center">
 
                             <div class="col-md-12 ps-md-0 text-center align-items-center justify-content-center ">
@@ -17,7 +17,7 @@
                                         {{-- Bimba <span>A I U E O</span> --}}
                                     </a>
                                     <form class="forms-sample mt-4" method="GET" action="{{ route('dashboard') }}"
-                                        style="width: 600px;">
+                                        style="width: 500px;">
                                         @csrf
                                         <div class="mb-3">
                                             <input type="email" class="form-control" id="email" name="email"

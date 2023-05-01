@@ -22,12 +22,12 @@ class PerkembanganController extends Controller
         $data['data_murid'] = DB::table('murid')->get();
         $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'tgl_perkembangan as tgl', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid',  'id_user', 'tgl', 'id_murid')->having('muridname', '>=', 1)->get();
 
-        if (Murid::where('id_murid', '=', 4)->exists()) {
-            echo 'user ada';
-        } else {
-            echo 'user tidak ada';
-        }
-        dd($data);
+        // if (Murid::where('id_murid', '=', 4)->exists()) {
+        //     echo 'user ada';
+        // } else {
+        //     echo 'user tidak ada';
+        // }
+        // dd($data);
         // dd($data["data_murid"]);
 
         return view('master.murid.perkembangan.perkembangan_murid', $data);

@@ -18,8 +18,7 @@
                         <div class="d-flex justift-content-between position-relative">
 
                             <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                data-bs-target="#staticBackdrop">Tambah Data
-                                Murid</button>
+                                data-bs-target="#staticBackdrop">Tambah Data Perkembangan</button>
                         </div>
 
                         @if (session()->has('success'))
