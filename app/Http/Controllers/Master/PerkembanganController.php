@@ -18,9 +18,15 @@ class PerkembanganController extends Controller
     public function index()
     {
         $data['auth'] = env('APP_AUTH', 'Kepala_staff');
-        $data["data_perkembangan"] = Perkembangan::all();
+
         $data['data_murid'] = DB::table('murid')->get();
-        $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'tgl_perkembangan as tgl', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid',  'id_user', 'tgl', 'id_murid')->having('muridname', '>=', 1)->get();
+
+        // untuk menampilkan duplicate data
+        $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid', 'id_user', 'id_murid')->having('muridname', '>=', 1)->get();
+
+        $data["data_perkembangan"] = DB::table('perkembangan')->orderBy('tgl_perkembangan', 'DESC')->get();
+        // dd($data["data_perkembangan"]->firstWhere('id_murid', 2));
+
 
         // if (Murid::where('id_murid', '=', 4)->exists()) {
         //     echo 'user ada';
@@ -53,9 +59,11 @@ class PerkembanganController extends Controller
     public function store(Request $request)
     {
 
+
+
         $form_data = [
             'id_murid' => $request->id_murid,
-            'id_user' => 3,
+            'id_user' => 1,
             'tanggal_perkembangan' => $request->tanggal_perkembangan,
             'tgl_perkembangan' => $request->tanggal_perkembangan,
             'deskripsi' => $request->deskripsi,

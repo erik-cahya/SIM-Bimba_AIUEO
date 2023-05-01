@@ -106,7 +106,7 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header text-center">
-                                                <h5 class="modal-title" id="varyingModalLabel">Tambah Data Paket</h5>
+                                                <h5 class="modal-title" id="varyingModalLabel">Tambah Data Perkembangan</h5>
                                             </div>
                                             <div class="modal-body">
                                                 @csrf
@@ -116,7 +116,7 @@
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-success">Tambah Data
-                                                    Paket</button>
+                                                    Perkembangan</button>
                                             </div>
                                         </div>
 
@@ -143,7 +143,9 @@
                                             <tr>
                                                 <td>{{ $number }}</td>
                                                 <td>{{ $murid->nama_murid }}</td>
-                                                <td> 01/12/2022</td>
+                                                <td>
+                                                    {{ $data_perkembangan->firstWhere('id_murid', $murid->id_murid)->tgl_perkembangan }}
+                                                </td>
                                                 <td>
                                                     <a href="{{ route('perkembangan.detail', $murid->id_murid) }}"
                                                         class="btn btn-success">
