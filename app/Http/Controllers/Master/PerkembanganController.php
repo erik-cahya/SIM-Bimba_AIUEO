@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Murid;
 use App\Models\Perkembangan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PerkembanganController extends Controller
@@ -17,12 +18,12 @@ class PerkembanganController extends Controller
      */
     public function index()
     {
-        $data['auth'] = env('APP_AUTH', 'Kepala_staff');
+        // $data['auth'] = env('APP_AUTH', 'Kepala_staff');
 
         $data['data_murid'] = DB::table('murid')->get();
 
         // untuk menampilkan duplicate data
-        $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid', 'id_user', 'id_murid')->having('muridname', '>=', 1)->get();
+        $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid', 'id_user', 'id_murid')->having('muridname', '>=', 1)->where('perkembangan.id_user', Auth::user()->id_user)->get();
 
         $data["data_perkembangan"] = DB::table('perkembangan')->orderBy('tgl_perkembangan', 'DESC')->get();
         // dd($data["data_perkembangan"]->firstWhere('id_murid', 2));
@@ -36,7 +37,7 @@ class PerkembanganController extends Controller
         // dd($data);
         // dd($data["data_murid"]);
 
-        return view('master.murid.perkembangan.perkembangan_murid', $data);
+        return view('master.perkembangan.perkembangan_murid', $data);
     }
 
 
@@ -58,16 +59,34 @@ class PerkembanganController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+        if (Perkembangan::where('id_murid', $request->id_murid)->count() >= 1) {
 
+            if (Perkembangan::where('id_user', '=', Auth::user()->id_user)->exists()) {
+                dd('data murid sudah diambil');
+            }
 
+            $form_data = [
+                'id_user' => Auth::user()->id_user,
+                'id_murid' => $request->id_murid,
+                'tgl_perkembangan' => $request->tanggal_perkembangan,
+                'deskripsi' => $request->deskripsi,
+            ];
 
+            // dd($form_data);
+
+            Perkembangan::create($form_data);
+            return redirect()->back()->with('success', 'Data Perkembangan Berhasil ditambahkan');
+        }
+        // dd($request->all());
         $form_data = [
+            'id_user' => Auth::user()->id_user,
             'id_murid' => $request->id_murid,
-            'id_user' => 1,
-            'tanggal_perkembangan' => $request->tanggal_perkembangan,
             'tgl_perkembangan' => $request->tanggal_perkembangan,
             'deskripsi' => $request->deskripsi,
         ];
+
+        // dd($form_data);
 
         Perkembangan::create($form_data);
         return redirect()->back()->with('success', 'Data Perkembangan Berhasil ditambahkan');
@@ -125,22 +144,22 @@ class PerkembanganController extends Controller
      */
     public function detail($id_murid, Request $request)
     {
-        $data['auth'] = env('APP_AUTH', 'Kepala_staff');
+        // $data['auth'] = env('APP_AUTH', 'Kepala_staff');
         $data['data_murid'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->where('perkembangan.id_murid', '=', $id_murid)->get();
 
         $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->where('perkembangan.id_murid', '=', $id_murid)->first('nama_murid');
 
-        return view('master.murid.perkembangan.detail_perkembangan', $data);
+        return view('master.perkembangan.detail_perkembangan', $data);
     }
 
     public function filter(Request $request)
     {
         // convert format date
         $filter_date = date('Y-m-d', strtotime($request->filter_date));
-        $data['auth'] = env('APP_AUTH', 'Kepala_staff');
+        // $data['auth'] = env('APP_AUTH', 'Kepala_staff');
 
         $data["get_name"] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->where('tgl_perkembangan', $filter_date)->get();
 
-        return view('master.murid.perkembangan.perkembangan_murid', $data);
+        return view('master.perkembangan.perkembangan_murid', $data);
     }
 }

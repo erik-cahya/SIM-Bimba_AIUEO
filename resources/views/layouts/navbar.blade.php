@@ -18,8 +18,14 @@
                                 src="https://source.unsplash.com/random/80x80?profiles" alt="">
                         </div>
                         <div class="text-center">
-                            <p class="tx-16 fw-bolder">Gede Putu Jaya</p>
-                            <p class="tx-12 text-muted">putujaya@gmail.com</p>
+                            <p class="tx-16 fw-bolder">{{ Auth::user()->nama_user }}</p>
+                            <p class="tx-12 text-muted">
+                                @if (Auth::user()->hak_akses === 'kepala_staff')
+                                    {{ 'Kepala Staff' }}
+                                @elseif (Auth::user()->hak_akses === 'guru')
+                                    {{ 'Guru' }}
+                                @endif
+                            </p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
@@ -30,7 +36,7 @@
                             </a>
                         </li>
                         <li class="dropdown-item py-2">
-                            <a href="javascript:;" class="text-body ms-0">
+                            <a href="{{ route('signout') }}" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="log-out"></i>
                                 <span>Log Out</span>
                             </a>

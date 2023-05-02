@@ -42,7 +42,7 @@
                                             </h5>
                                         </div>
                                         <div class="modal-body">
-                                            @include('master.murid.perkembangan._form')
+                                            @include('master.perkembangan._form')
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -75,7 +75,7 @@
                                         <tr>
                                             <td>{{ $number }}</td>
                                             <td>{{ $murid->deskripsi }}</td>
-                                            <td>{{ $murid->tgl_perkembangan }}</td>
+                                            <td>{{ date('d-m-Y', strtotime($murid->tgl_perkembangan)) }}</td>
                                             <td>
                                                 <a href="#" class="btn btn-success">
                                                     Ubah

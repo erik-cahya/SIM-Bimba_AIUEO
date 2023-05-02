@@ -10,7 +10,7 @@
         </div>
 
         <div class="row">
-            @if ($auth == 'kepala_staff')
+            @if (Auth::user()->hak_akses === 'kepala_staff')
                 <div class="col-12 col-xl-12 stretch-card">
                     <div class="row flex-grow-1 justify-content-center">
                         {{-- Total Murid --}}
@@ -77,7 +77,7 @@
                 </div>
             @endif
 
-            @if ($auth == 'guru')
+            @if (Auth::user()->hak_akses === 'guru')
                 <div class="col-12 col-xl-12 stretch-card">
                     <div class="row flex-grow-1 justify-content-center">
                         {{-- Total Murid --}}
@@ -100,8 +100,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-8">
-                                            <h3 class="mb-2">{{ $count_murid }} Orang</h3>
-
+                                            <h3 class="mb-2">{{ $count_perkembangan_murid }} Orang</h3>
                                         </div>
                                         <div class="col-2">
                                             <i data-feather="user" class="icon-xxl"></i>

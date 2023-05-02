@@ -6,7 +6,7 @@
         @include('layouts.navbar')
 
         {{-- ##################################################################### Auth Kepala Staff --}}
-        @if ($auth == 'kepala_staff')
+        @if (Auth::user()->hak_akses === 'kepala_staff')
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
@@ -83,7 +83,7 @@
         @endif
 
         {{-- ################################################################################# Auth Guru --}}
-        @if ($auth == 'guru')
+        @if (Auth::user()->hak_akses === 'guru')
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
@@ -99,7 +99,8 @@
 
                             <!-- Modal -->
 
-                            <form action="/paket" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="/perkembangan" method="POST" class="form-horizontal"
+                                enctype="multipart/form-data">
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
@@ -110,7 +111,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 @csrf
-                                                @include('master.murid.perkembangan._addform')
+                                                @include('master.perkembangan._addform')
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -119,7 +120,6 @@
                                                     Perkembangan</button>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </form>
@@ -144,7 +144,7 @@
                                                 <td>{{ $number }}</td>
                                                 <td>{{ $murid->nama_murid }}</td>
                                                 <td>
-                                                    {{ $data_perkembangan->firstWhere('id_murid', $murid->id_murid)->tgl_perkembangan }}
+                                                    {{ date('d-m-Y', strtotime($data_perkembangan->firstWhere('id_murid', $murid->id_murid)->tgl_perkembangan)) }}
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('perkembangan.detail', $murid->id_murid) }}"

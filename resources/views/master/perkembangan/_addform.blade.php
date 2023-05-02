@@ -1,7 +1,7 @@
 <div class="row">
     <div class="form-group col mt-3">
-        <label for="nama_paket">Nama Murid</label>
-        <select id="nama_paket" name="nama_paket" class="form-control form-select">
+        <label for="id_murid">Nama Murid</label>
+        <select id="id_murid" name="id_murid" class="form-control form-select">
             <option selected> Pilih Murid...</option>
             @foreach ($data_murid as $murid)
                 <option value="{{ $murid->id_murid }}">{{ $murid->nama_murid }}</option>

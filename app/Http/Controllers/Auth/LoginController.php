@@ -15,8 +15,12 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if (Auth::check()) {
+            // dd(Auth::user()->name);
+            return redirect('dashboard');
+        }
+        // return view('auth.login.index');
         return view('auth.login.index');
-        // return view('auth.login');
     }
 
     public function customLogin(Request $request)
@@ -73,15 +77,15 @@ class LoginController extends Controller
         ]);
     }
 
-    public function dashboard()
-    {
-        if (Auth::check()) {
-            // dd(Auth::user()->name);
-            return view('auth.index');
-        }
+    // public function dashboard()
+    // {
+    //     if (Auth::check()) {
+    //         // dd(Auth::user()->name);
+    //         return view('auth.index');
+    //     }
 
-        return redirect("login")->withSuccess('You are not allowed to access');
-    }
+    //     return redirect("login")->withSuccess('You are not allowed to access');
+    // }
 
     public function signOut()
     {

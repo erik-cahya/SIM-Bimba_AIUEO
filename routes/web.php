@@ -24,7 +24,7 @@ Route::get('/', [LoginController::class, 'index']);
 
 
 // ###################################################### Authentication
-Route::get('dashboard', [LoginController::class, 'dashboard']);
+// Route::get('dashboard', [LoginController::class, 'dashboard']);
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('custom-login', [LoginController::class, 'customLogin'])->name('login.custom');
 Route::get('registration', [LoginController::class, 'registration'])->name('register-user');
@@ -32,7 +32,7 @@ Route::post('custom-registration', [LoginController::class, 'customRegistration'
 Route::get('signout', [LoginController::class, 'signOut'])->name('signout');
 
 // ###################################################### Dashboard
-Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // ###################################################### Murid
 Route::resource('/murid', MuridController::class);

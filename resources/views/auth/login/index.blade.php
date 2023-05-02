@@ -16,16 +16,23 @@
                                         <img src="{{ asset('images/logo.png') }}" width="100px" alt="">
                                         {{-- Bimba <span>A I U E O</span> --}}
                                     </a>
-                                    <form class="forms-sample mt-4" method="GET" action="{{ route('dashboard') }}"
+                                    <form class="forms-sample mt-4" method="POST" action="{{ route('login.custom') }}"
                                         style="width: 500px;">
                                         @csrf
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" id="email" name="email"
-                                                placeholder="Masukkan Username">
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                placeholder="Masukkan Username" required autofocus>
+                                            @if ($errors->has('username'))
+                                                <span class="text-danger">{{ $errors->first('username') }}</span>
+                                            @endif
                                         </div>
+
                                         <div class="mb-3">
                                             <input type="password" class="form-control" id="password" name="password"
-                                                autocomplete="current-password" placeholder="Masukkan Password">
+                                                autocomplete="current-password" placeholder="Masukkan Password" required>
+                                            @if ($errors->has('password'))
+                                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                            @endif
                                         </div>
 
                                         <div class="d-flex justify-content-end">

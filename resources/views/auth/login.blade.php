@@ -17,6 +17,9 @@
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
+
+
+
                                 <div class="form-group mb-3">
                                     <input type="password" placeholder="Password" id="password" class="form-control"
                                         name="password" required>
@@ -24,6 +27,9 @@
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
+
+
+
                                 <div class="form-group mb-3">
                                     <div class="checkbox">
                                         <label>

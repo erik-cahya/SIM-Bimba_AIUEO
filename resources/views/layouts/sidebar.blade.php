@@ -21,7 +21,8 @@
                 </a>
             </li>
 
-            @if ($auth == 'master')
+            {{-- ######################################################################## master --}}
+            @if (Auth::user()->hak_akses === 'master')
                 <li class="nav-item nav-category">web apps</li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
@@ -324,7 +325,8 @@
             @endif
 
             {{-- Authorization: Kepala Staff --}}
-            @if ($auth == 'kepala_staff')
+            {{-- @if ($auth == 'kepala_staff') --}}
+            @if (Auth::user()->hak_akses === 'kepala_staff')
                 <li class="nav-item nav-category">master apps</li>
 
                 {{-- Data Menu murid --}}
@@ -389,7 +391,8 @@
             @endif
 
             {{-- Authorization: Guru --}}
-            @if ($auth == 'guru')
+            {{-- @if ($auth == 'guru') --}}
+            @if (Auth::user()->hak_akses === 'guru')
                 <li class="nav-item nav-category">master apps</li>
 
                 {{-- Data Bimbel --}}
@@ -405,7 +408,7 @@
             @endif
 
             <li class="nav-item">
-                <a href="{{ route('login') }}" class="nav-link">
+                <a href="{{ route('signout') }}" class="nav-link">
                     <i class="link-icon" data-feather="log-out"></i>
                     <span class="link-title">Logout</span>
                 </a>
