@@ -20,8 +20,8 @@
                         <div class="d-flex justify-content-between">
                             <h6 class="card-title">Data Murid</h6>
                             <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                data-bs-target="#staticBackdrop">Tambah Data
-                                Murid</button>
+                                data-bs-target="#staticBackdrop">
+                                <i class="btn-icon-prepend" data-feather="user-plus"></i> Tambah Data Murid</button>
                         </div>
                         <!-- Modal Add Data Murid-->
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -64,6 +64,7 @@
                                     <tr>
                                         <th>Nim</th>
                                         <th>Nama Murid</th>
+                                        <th>Tanggal Lahir</th>
                                         <th>Tanggal Masuk</th>
                                         <th>Alamat</th>
                                         <th>Nama Ortu</th>
@@ -82,7 +83,12 @@
 
                                             <td>{{ $number }}</td>
                                             <td>{{ $murid->nama_murid }}</td>
-                                            <td>{{ date('d-m-Y', strtotime($murid->tanggal_lahir)) }}</td>
+                                            <td>{{ $murid->tempat_lahir }},
+                                                {{ date('d-m-Y', strtotime($murid->tanggal_lahir)) }}
+                                            </td>
+                                            <td>
+                                                {{ date('d-m-Y', strtotime($murid->tanggal_masuk)) }}
+                                            </td>
                                             <td>{{ $murid->alamat }}</td>
                                             <td>{{ $murid->nama_ortu }}</td>
                                             <td>{{ $murid->no_telp }}</td>
@@ -120,7 +126,6 @@
                                                 </div>
                                             </td>
                                         </tr>
-
 
                                         {{-- Modal edit data --}}
 

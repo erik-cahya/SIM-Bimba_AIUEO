@@ -44,6 +44,7 @@ class MuridController extends Controller
     {
         $request->validate([
             'nama_murid' => 'required|unique:murid',
+            'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'tanggal_masuk' => 'required',
             'alamat' => 'required',
@@ -54,6 +55,7 @@ class MuridController extends Controller
         $form_data = [
             'id_user' => 1, // ################################### ini disesuaikan
             'nama_murid' => $request->nama_murid,
+            'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
             'tanggal_masuk' => date('Y-m-d', strtotime($request->tanggal_masuk)),
             'alamat' => $request->alamat,

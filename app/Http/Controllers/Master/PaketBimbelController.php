@@ -21,6 +21,24 @@ class PaketBimbelController extends Controller
         return redirect('/paket')->with('success', 'Data Paket Berhasil Ditambahkan');
     }
 
+    public function update(Request $request, Paket $paket)
+    {
+        // dd($request->all());
+
+        // $request->validate([
+        //     'nama_murid' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'tanggal_masuk' => 'required',
+        //     'alamat' => 'required',
+        //     'nama_ortu' => 'required',
+        //     'no_telp' => 'required',
+        //     'nama_paket' => 'required'
+        // ]);
+
+        $paket->update($request->all());
+        return redirect('/paket')->with('success', 'Data Murid Berhasil Diupdate');
+    }
+
 
     public function destroy(Paket $paket)
     {

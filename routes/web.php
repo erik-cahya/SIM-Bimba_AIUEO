@@ -6,6 +6,7 @@ use App\Http\Controllers\Master\MuridController;
 use App\Http\Controllers\Master\PaketBimbelController;
 use App\Http\Controllers\Master\PembayaranController;
 use App\Http\Controllers\Master\PerkembanganController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,3 +51,6 @@ Route::get('/report', [PembayaranController::class, 'showReport'])->name('report
 // Route::get('/paket', [PaketBimbelController::class, 'index'])->name('paket');
 // Route::post('/paket', [PaketBimbelController::class, 'store'])->name('paket.store');
 Route::resource('/paket', PaketBimbelController::class);
+
+// ###################################################### Data User
+Route::resource('/user', UserController::class);

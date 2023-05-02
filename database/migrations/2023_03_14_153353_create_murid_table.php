@@ -17,6 +17,7 @@ class CreateMuridTable extends Migration
             $table->increments('id_murid');
             $table->unsignedInteger('id_user');
             $table->string('nama_murid');
+            $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->date('tanggal_masuk');
             $table->string('alamat');

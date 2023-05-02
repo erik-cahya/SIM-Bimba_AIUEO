@@ -381,7 +381,7 @@
 
 
                 <li class="nav-item">
-                    <a href="pages/apps/chat.html" class="nav-link">
+                    <a href="/user" class="nav-link">
                         <i class="link-icon" data-feather="users"></i>
                         <span class="link-title">Data User</span>
                     </a>

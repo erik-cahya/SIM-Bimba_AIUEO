@@ -15,12 +15,21 @@
 
 <div class="row">
     <div class="form-group col mt-3">
+        <label for="tempat_lahir">Tempat Lahir</label>
+        <input type="text" name="tempat_lahir" id="tempat_lahir"
+            class="form-control {{ $errors->has('tempat_lahir') ? ' is-invalid' : '' }}"
+            value="{{ old('tempat_lahir', $murid->tempat_lahir ?? '') }}">
+    </div>
+    <div class="form-group col mt-3">
         <label for="tanggal_lahir">Tanggal Lahir</label>
         <div class="input-group flatpickr " id="dashboardDate">
             <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
                 value="{{ old('tanggal_lahir', $murid->tanggal_lahir ?? '') }}">
         </div>
     </div>
+
+</div>
+<div class="row">
     <div class="form-group col mt-3">
         <label for="tanggal_masuk">Tanggal Masuk</label>
         <div class="input-group flatpickr " id="dashboardDate">
