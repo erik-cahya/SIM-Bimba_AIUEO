@@ -43,11 +43,20 @@
 </div>
 
 <div class="row">
-    <div class="form-group col mt-3">
+    <div class="col-12 mt-3">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password"
-            class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
-            value="{{ old('password', $user->password ?? '') }}">
+        <div class="input-group mb-3">
+            <input name="password" type="password"
+                class="input form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="password"
+                required="true" aria-label="password" aria-describedby="basic-addon1"
+                value="{{ old('password', $user->password ?? '') }}" />
+            <div class="input-group-append">
+                <span class="input-group-text" style="height: 100%" onclick="password_show_hide();">
+                    <i class="fas fa-eye" id="show_eye"></i>
+                    <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                </span>
+            </div>
+        </div>
 
         @if ($errors->has('password'))
             <span class="invalid-feedback" role="alert">
@@ -56,3 +65,37 @@
         @endif
     </div>
 </div>
+
+<script>
+    function password_show_hide() {
+        var x = document.getElementById("password");
+        var show_eye = document.getElementById("show_eye");
+        var hide_eye = document.getElementById("hide_eye");
+        hide_eye.classList.remove("d-none");
+        if (x.type === "password") {
+            x.type = "text";
+            show_eye.style.display = "none";
+            hide_eye.style.display = "block";
+        } else {
+            x.type = "password";
+            show_eye.style.display = "block";
+            hide_eye.style.display = "none";
+        }
+    }
+
+    function password_show_hide() {
+        var x = document.getElementById("password");
+        var show_eye = document.getElementById("show_eye");
+        var hide_eye = document.getElementById("hide_eye");
+        hide_eye.classList.remove("d-none");
+        if (x.type === "password") {
+            x.type = "text";
+            show_eye.style.display = "none";
+            hide_eye.style.display = "block";
+        } else {
+            x.type = "password";
+            show_eye.style.display = "block";
+            hide_eye.style.display = "none";
+        }
+    }
+</script>

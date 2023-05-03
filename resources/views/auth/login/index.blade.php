@@ -16,12 +16,16 @@
                                         <img src="{{ asset('images/logo.png') }}" width="100px" alt="">
                                         {{-- Bimba <span>A I U E O</span> --}}
                                     </a>
+
+
+
+
                                     <form class="forms-sample mt-4" method="POST" action="{{ route('login.custom') }}"
                                         style="width: 500px;">
                                         @csrf
                                         <div class="mb-3">
                                             <input type="text" class="form-control" id="username" name="username"
-                                                placeholder="Masukkan Username" required autofocus>
+                                                placeholder="Masukkan Username" autofocus>
                                             @if ($errors->has('username'))
                                                 <span class="text-danger">{{ $errors->first('username') }}</span>
                                             @endif
@@ -29,10 +33,17 @@
 
                                         <div class="mb-3">
                                             <input type="password" class="form-control" id="password" name="password"
-                                                autocomplete="current-password" placeholder="Masukkan Password" required>
+                                                autocomplete="current-password" placeholder="Masukkan Password">
                                             @if ($errors->has('password'))
                                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                                             @endif
+                                        </div>
+
+
+                                        <div class="d-flex justify-content-start">
+                                            <div class="card text-bg-danger mb-3 d-flex" style="">
+                                                <div class="card-header">Login Gagal! Harap Cek Username/Password</div>
+                                            </div>
                                         </div>
 
                                         <div class="d-flex justify-content-end">
@@ -41,6 +52,8 @@
                                                 Login
                                             </button>
                                         </div>
+
+
                                     </form>
                                 </div>
                             </div>

@@ -19,7 +19,6 @@ class MuridController extends Controller
     {
         $data["data_murid"] = Murid::all();
         $data["data_paket"] = Paket::all();
-        $data['auth'] = env('APP_AUTH', 'kepala_staff'); // ################################### ini disesuaikan
         return view('master.murid.data_murid', $data);
     }
 

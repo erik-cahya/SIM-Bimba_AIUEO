@@ -12,8 +12,8 @@
                                 @csrf
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Email" id="username" class="form-control"
-                                        name="username" required autofocus>
-                                    @if ($errors->has('email'))
+                                        name="username" autofocus>
+                                    @if ($errors->has('username'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
