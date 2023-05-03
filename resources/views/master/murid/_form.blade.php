@@ -19,12 +19,22 @@
         <input type="text" name="tempat_lahir" id="tempat_lahir"
             class="form-control {{ $errors->has('tempat_lahir') ? ' is-invalid' : '' }}"
             value="{{ old('tempat_lahir', $murid->tempat_lahir ?? '') }}">
+        @if ($errors->has('tempat_lahir'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('tempat_lahir') }}</strong>
+            </span>
+        @endif
     </div>
     <div class="form-group col mt-3">
         <label for="tanggal_lahir">Tanggal Lahir</label>
         <div class="input-group flatpickr " id="dashboardDate">
             <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
                 value="{{ old('tanggal_lahir', $murid->tanggal_lahir ?? '') }}">
+            @if ($errors->has('tanggal_lahir'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('tanggal_lahir') }}</strong>
+                </span>
+            @endif
         </div>
     </div>
 
@@ -35,6 +45,11 @@
         <div class="input-group flatpickr " id="dashboardDate">
             <input type="date" class="form-control" id="tanggal_masuk" name="tanggal_masuk"
                 value="{{ old('tanggal_masuk', $murid->tanggal_masuk ?? '') }}">
+            @if ($errors->has('tanggal_masuk'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('tanggal_masuk') }}</strong>
+                </span>
+            @endif
         </div>
     </div>
 </div>
@@ -81,11 +96,13 @@
     <div class="form-group col mt-3">
         <label for="nama_paket">Nama Paket</label>
         <select id="nama_paket" name="nama_paket" class="form-control form-select">
-            <option value="{{ old('nama_paket', $murid->nama_paket ?? '') }}" selected>
-                {{ old('nama_paket', $murid->nama_paket ?? 'Pilih Paket...') }}</option>
+            <option value="{{ old('nama_paket', $murid->nama_paket ?? '') }}" selected disabled>
+                {{ old('nama_paket', $murid->nama_paket ?? 'Pilih Paket...') }}
+            </option>
             @foreach ($data_paket as $paket)
                 <option value="{{ $paket->nama_paket }}">{{ $paket->nama_paket }}</option>
             @endforeach
         </select>
+
     </div>
 </div>

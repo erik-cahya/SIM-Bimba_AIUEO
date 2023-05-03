@@ -71,8 +71,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             @endif
@@ -142,8 +140,6 @@
                 </div>
             @endif
         </div> <!-- row -->
-
-
         @include('layouts.footer')
     </div>
 @endsection

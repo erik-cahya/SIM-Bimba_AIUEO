@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Murid;
 use App\Models\Paket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MuridController extends Controller
 {
@@ -42,18 +43,32 @@ class MuridController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_murid' => 'required|unique:murid',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'tanggal_masuk' => 'required',
-            'alamat' => 'required',
-            'nama_ortu' => 'required',
-            'no_telp' => 'required',
-            'nama_paket' => 'required'
-        ]);
+        $request->validate(
+            [
+                'nama_murid'    => 'required|unique:murid',
+                'tempat_lahir'  => 'required',
+                'tanggal_lahir' => 'required',
+                'tanggal_masuk' => 'required',
+                'alamat'        => 'required',
+                'nama_ortu'     => 'required',
+                'no_telp'       => 'required',
+                'nama_paket'    => 'required',
+            ],
+            [
+                'nama_murid.required'   => 'Kolom Tidak Boleh Kosong',
+                'nama_murid.unique'     => 'Nama Murid Sudah Ada',
+                'tempat_lahir.required'   => 'Kolom Tidak Boleh Kosong',
+                'tanggal_lahir.required'   => 'Kolom Tidak Boleh Kosong',
+                'tanggal_masuk.required'   => 'Kolom Tidak Boleh Kosong',
+                'alamat.required'   => 'Kolom Tidak Boleh Kosong',
+                'nama_ortu.required'   => 'Kolom Tidak Boleh Kosong',
+                'no_telp.required'   => 'Kolom Tidak Boleh Kosong',
+                'nama_paket.required'   => 'Kolom Tidak Boleh Kosong',
+
+            ]
+        );
         $form_data = [
-            'id_user' => 1, // ################################### ini disesuaikan
+            'id_user' => Auth::user()->id_user, // ################################### ini disesuaikan
             'nama_murid' => $request->nama_murid,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
@@ -68,6 +83,8 @@ class MuridController extends Controller
 
         return redirect('/murid')->with('success', 'Data Murid Berhasil Ditambahkan');
     }
+
+
 
     /**
      * Display the specified resource.

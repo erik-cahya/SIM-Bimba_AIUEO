@@ -87,10 +87,12 @@ class LoginController extends Controller
     //     return redirect("login")->withSuccess('You are not allowed to access');
     // }
 
-    public function signOut()
+    public function signOut(Request $request)
     {
         Session::flush();
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
         return Redirect('login');
     }
