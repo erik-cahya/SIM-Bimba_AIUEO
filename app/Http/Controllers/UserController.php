@@ -95,8 +95,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        User::destroy($user->id_user);
+        return redirect('/user')->with('success', 'Data Murid Berhasil Dihapus');
     }
 }

@@ -79,9 +79,9 @@
                                             <td>{{ $user->nama_user }}</td>
                                             <td>
                                                 @if ($user->hak_akses === 'kepala_staff')
-                                                    {{ $user->hak_akses = 'Kepala Staff' }}
+                                                    {{ 'Kepala Staff' }}
                                                 @elseif ($user->hak_akses === 'guru')
-                                                    {{ $user->hak_akses = 'Guru' }}
+                                                    {{ 'Guru' }}
                                                 @endif
                                             </td>
                                             <td>{{ $user->username }}</td>
@@ -108,7 +108,8 @@
                                                             <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
                                                                 class="dropdown-item d-flex align-items-center"><i
                                                                     data-feather="trash" class="icon-sm me-2"></i> <span
-                                                                    class="">Delete</span></button>
+                                                                    class="">Delete</span>
+                                                            </button>
                                                         </form>
 
                                                     </div>

@@ -19,16 +19,23 @@
                         <h6 class="card-title">Laporan SPP Tahunan</h6>
 
                         <div class="d-flex justift-content-between position-relative">
-                            <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
-                                <span class="input-group-text input-group-addon bg-transparent border-dark border-end-0"
-                                    data-toggle><i data-feather="calendar" class="text-dark"></i></span>
-                                <input type="text" class="form-control bg-transparent border-dark"
-                                    placeholder="Select date" data-input>
-                            </div>
-                            <button type="button" class="btn btn-success btn-icon-text mb-2 mb-md-0">
-                                <i class="btn-icon-prepend" data-feather="search"></i>
-                                Cari
-                            </button>
+
+
+                            <form action="{{ route('perkembangan.filter') }}" method="POST" class="d-flex">
+                                {{ csrf_field() }}
+                                <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
+                                    <span class="input-group-text input-group-addon bg-transparent border-dark border-end-0"
+                                        data-toggle><i data-feather="calendar" class="text-dark"></i></span>
+                                    <input type="text" class="form-control bg-transparent border-dark"
+                                        placeholder="Select date" name="filter_date" data-input>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">
+                                    <i class="btn-icon-prepend" data-feather="search"></i>
+                                    Cari
+                                </button>
+                            </form>
+
+
                             <button class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
                                 <i class="btn-icon-prepend" data-feather="download-cloud"></i>
                                 Unduh

@@ -11,13 +11,10 @@
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-
                             <h6 class="card-title">Data Perkembangan</h6>
 
                             <div class="d-flex justift-content-between position-relative">
-
-
-                                <form action="{{ route('perkembangan.filter') }}" method="POST" class="d-inline">
+                                <form action="{{ route('perkembangan.filter') }}" method="POST" class="d-flex">
                                     {{ csrf_field() }}
                                     <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
                                         <span
@@ -31,8 +28,6 @@
                                         Cari
                                     </button>
                                 </form>
-
-
                                 <button class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
                                     <i class="btn-icon-prepend" data-feather="download-cloud"></i>
                                     Unduh
@@ -158,8 +153,6 @@
                                                 $number++;
                                             @endphp
                                         @endforeach
-
-
                                     </tbody>
                                 </table>
                             </div>
@@ -168,11 +161,6 @@
                 </div>
             </div>
         @endif
-
-
-
-
-
         @include('layouts.footer')
     </div>
 @endsection
