@@ -20,151 +20,151 @@ class MuridSeeder extends Seeder
 
         $data_murid = [
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
             [
-                'nama_murid' => $faker->name, 'id_user' => $faker->numberBetween(1, 4), 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
+                'nama_murid' => $faker->name, 'id_user' => 1, 'tempat_lahir' => 'denpasar', 'tanggal_lahir' => $faker->dateTime(), 'tanggal_masuk' => $faker->dateTime(), 'alamat' => $faker->address, 'nama_ortu' => $faker->name, 'no_telp' => $faker->numerify('+628##########'), 'nama_paket' => 'standard 0' . $faker->randomDigitNot(0)
             ],
         ];
         foreach ($data_murid as $row) {

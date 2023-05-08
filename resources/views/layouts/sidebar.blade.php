@@ -343,8 +343,7 @@
                                 <a href="/murid" class="nav-link">Data Murid</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/perkembangan" class="nav-link">Laporan Perkembangan
-                                    Murid</a>
+                                <a href="/perkembangan" class="nav-link"> Laporan Perkembangan Murid </a>
                             </li>
                         </ul>
                     </div>
@@ -352,8 +351,7 @@
 
                 {{-- Data Laporan Pembayaran SPP --}}
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#spp" role="button"
-                        aria-expanded="false" aria-controls="spp">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#spp" role="button" aria-expanded="false" aria-controls="spp">
                         <i class="link-icon" data-feather="credit-card"></i>
                         <span class="link-title">Pembayaran</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
@@ -370,14 +368,25 @@
                     </div>
                 </li>
 
-                {{-- Data Bimbel --}}
+             {{-- Data Laporan Pembayaran SPP --}}
                 <li class="nav-item">
-                    <a href="/paket" class="nav-link">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#paket" role="button"
+                        aria-expanded="false" aria-controls="paket">
                         <i class="link-icon" data-feather="book-open"></i>
                         <span class="link-title">Data Paket Bimbel</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
+                    <div class="collapse" id="paket">
+                        <ul class="nav sub-menu">
+                            <li class="nav-item">
+                                <a href="/paket" class="nav-link">Paket Bimbel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Jenis Paket Bimbel</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-
 
                 <li class="nav-item nav-category">Special Menu</li>
 
@@ -394,16 +403,13 @@
             {{-- @if ($auth == 'guru') --}}
             @if (Auth::user()->hak_akses === 'guru')
                 <li class="nav-item nav-category">master apps</li>
-
                 {{-- Data Bimbel --}}
-                <li class="nav-item">
+                <li class="nav-item {{ request()->segment(1) == 'perkembangan' ? 'active' : '' }}">
                     <a href="{{ '/perkembangan' }}" class="nav-link">
                         <i class="link-icon" data-feather="book-open"></i>
                         <span class="link-title">Data Perkembangan Murid</span>
                     </a>
                 </li>
-
-
                 <li class="nav-item nav-category">Special Menu</li>
             @endif
 

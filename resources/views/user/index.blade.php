@@ -138,7 +138,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
-                                                                @include('user._form')
+                                                                @include('user._edit_form')
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">

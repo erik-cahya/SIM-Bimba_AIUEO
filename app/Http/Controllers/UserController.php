@@ -84,9 +84,28 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        // dd($request->all());
+
+        if ($request->password === null) {
+            $request = [
+                'id_user' => $request->id_user,
+                'nama_user' => $request->nama_user,
+                'hak_akses' => $request->hak_akses,
+                'username' => $request->username,
+            ];
+        } else {
+            $request = [
+                'id_user' => $request->id_user,
+                'nama_user' => $request->nama_user,
+                'hak_akses' => $request->hak_akses,
+                'username' => $request->username,
+                'password' => bcrypt($request->password)
+            ];
+        }
+        $user->update($request);
+        return redirect('/user')->with('success', 'Data User Berhasil Diubah');
     }
 
     /**
@@ -98,6 +117,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id_user);
-        return redirect('/user')->with('success', 'Data Murid Berhasil Dihapus');
+        return redirect('/user')->with('success', 'Data User Berhasil Dihapus');
     }
 }

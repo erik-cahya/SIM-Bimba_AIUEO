@@ -59,25 +59,29 @@ class PerkembanganController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            ['deskripsi' => 'required'],
+            ['tgl_perkembangan' => 'required']
+        );
         // dd($request->all());
-        if (Perkembangan::where('id_murid', $request->id_murid)->count() >= 1) {
+        // if (Perkembangan::where('id_murid', $request->id_murid)->count() >= 1) {
 
-            if (Perkembangan::where('id_user', '=', Auth::user()->id_user)->exists()) {
-                dd('data murid sudah diambil');
-            }
+        //     if (Perkembangan::where('id_user', '=', Auth::user()->id_user)->exists()) {
+        //         dd('data murid sudah diambil');
+        //     }
 
-            $form_data = [
-                'id_user' => Auth::user()->id_user,
-                'id_murid' => $request->id_murid,
-                'tgl_perkembangan' => $request->tanggal_perkembangan,
-                'deskripsi' => $request->deskripsi,
-            ];
+        //     $form_data = [
+        //         'id_user' => Auth::user()->id_user,
+        //         'id_murid' => $request->id_murid,
+        //         'tgl_perkembangan' => $request->tanggal_perkembangan,
+        //         'deskripsi' => $request->deskripsi,
+        //     ];
 
-            // dd($form_data);
+        //     // dd($form_data);
 
-            Perkembangan::create($form_data);
-            return redirect()->back()->with('success', 'Data Perkembangan Berhasil ditambahkan');
-        }
+        //     Perkembangan::create($form_data);
+        //     return redirect()->back()->with('success', 'Data Perkembangan Berhasil ditambahkan');
+        // }
         // dd($request->all());
         $form_data = [
             'id_user' => Auth::user()->id_user,
@@ -139,7 +143,7 @@ class PerkembanganController extends Controller
         //
     }
 
-    /** 
+    /**
      * view data detail perkembangan
      */
     public function detail($id_murid, Request $request)

@@ -19,6 +19,6 @@
 <div class="row">
     <div class="form-group mt-3">
         <label for="deskripsi">Perkembangan</label>
-        <textarea class="form-control" id="deskripsi" name="deskripsi"></textarea>
+        <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
     </div>
 </div>
