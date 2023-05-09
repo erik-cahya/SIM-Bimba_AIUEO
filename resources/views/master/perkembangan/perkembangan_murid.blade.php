@@ -13,8 +13,6 @@
                         <div class="card-body">
                             <h6 class="card-title">Data Perkembangan</h6>
 
-
-
                             <div class="d-flex justift-content-between position-relative">
                                 <form action="{{ route('perkembangan.filter') }}" method="POST" class="d-flex">
                                     {{ csrf_field() }}

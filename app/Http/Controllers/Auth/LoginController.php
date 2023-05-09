@@ -38,7 +38,7 @@ class LoginController extends Controller
                 ->withSuccess('Signed in');
         }
 
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("login")->with('success', 'Login details are not valid');
     }
 
     public function registration()

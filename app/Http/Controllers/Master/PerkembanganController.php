@@ -18,24 +18,10 @@ class PerkembanganController extends Controller
      */
     public function index()
     {
-        // $data['auth'] = env('APP_AUTH', 'Kepala_staff');
-
         $data['data_murid'] = DB::table('murid')->get();
 
-        // untuk menampilkan duplicate data
         $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid', 'id_user', 'id_murid')->having('muridname', '>=', 1)->where('perkembangan.id_user', Auth::user()->id_user)->get();
-
         $data["data_perkembangan"] = DB::table('perkembangan')->orderBy('tgl_perkembangan', 'DESC')->get();
-        // dd($data["data_perkembangan"]->firstWhere('id_murid', 2));
-
-
-        // if (Murid::where('id_murid', '=', 4)->exists()) {
-        //     echo 'user ada';
-        // } else {
-        //     echo 'user tidak ada';
-        // }
-        // dd($data);
-        // dd($data["data_murid"]);
 
         return view('master.perkembangan.perkembangan_murid', $data);
     }
@@ -59,9 +45,10 @@ class PerkembanganController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate(
             ['deskripsi' => 'required'],
-            ['tgl_perkembangan' => 'required']
+            ['tanggal_perkembangan' => 'required']
         );
         // dd($request->all());
         // if (Perkembangan::where('id_murid', $request->id_murid)->count() >= 1) {
@@ -83,10 +70,15 @@ class PerkembanganController extends Controller
         //     return redirect()->back()->with('success', 'Data Perkembangan Berhasil ditambahkan');
         // }
         // dd($request->all());
+        if ($request->tanggal_perkembangan === null) {
+            $tanggal_perkembangan = date('Y-m-d');
+        } else {
+            $tanggal_perkembangan = $request->tanggal_perkembangan;
+        }
         $form_data = [
             'id_user' => Auth::user()->id_user,
             'id_murid' => $request->id_murid,
-            'tgl_perkembangan' => $request->tanggal_perkembangan,
+            'tgl_perkembangan' => $tanggal_perkembangan,
             'deskripsi' => $request->deskripsi,
         ];
 

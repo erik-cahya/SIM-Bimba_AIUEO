@@ -330,20 +330,22 @@
                 <li class="nav-item nav-category">master apps</li>
 
                 {{-- Data Menu murid --}}
-                <li class="nav-item">
+                <li class="nav-item {{ request()->segment(1) == 'perkembangan' ? 'active' : '' }}">
                     <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button"
                         aria-expanded="false" aria-controls="emails">
                         <i class="link-icon" data-feather="pen-tool"></i>
                         <span class="link-title">Murid</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
-                    <div class="collapse" id="emails">
-                        <ul class="nav sub-menu">
+                    <div class="collapse {{ request()->segment(1) == 'perkembangan' ? 'show' : '' }}" id="emails">
+                        <ul class="nav sub-menu active">
                             <li class="nav-item">
                                 <a href="/murid" class="nav-link">Data Murid</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="/perkembangan" class="nav-link"> Laporan Perkembangan Murid </a>
+                            <li class="nav-item ">
+                                <a href="/perkembangan"
+                                    class="nav-link {{ request()->segment(1) == 'perkembangan' ? 'active' : '' }}">
+                                    Laporan Perkembangan Murid </a>
                             </li>
                         </ul>
                     </div>
@@ -351,7 +353,8 @@
 
                 {{-- Data Laporan Pembayaran SPP --}}
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#spp" role="button" aria-expanded="false" aria-controls="spp">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#spp" role="button"
+                        aria-expanded="false" aria-controls="spp">
                         <i class="link-icon" data-feather="credit-card"></i>
                         <span class="link-title">Pembayaran</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
@@ -368,7 +371,7 @@
                     </div>
                 </li>
 
-             {{-- Data Laporan Pembayaran SPP --}}
+                {{-- Data Laporan Pembayaran SPP --}}
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#paket" role="button"
                         aria-expanded="false" aria-controls="paket">
