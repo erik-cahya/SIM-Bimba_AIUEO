@@ -15,7 +15,7 @@
             <li class="nav-item nav-category">Main</li>
 
             <li class="nav-item">
-                <a href="{{ route('dashboard') }}" class="nav-link">
+                <a href="/dashboard" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
@@ -417,11 +417,13 @@
             @endif
 
             <li class="nav-item">
-                <a href="{{ route('signout') }}" class="nav-link">
+                <a href="/signout" class="nav-link">
                     <i class="link-icon" data-feather="log-out"></i>
                     <span class="link-title">Logout</span>
                 </a>
             </li>
+
+
 
         </ul>
     </div>
