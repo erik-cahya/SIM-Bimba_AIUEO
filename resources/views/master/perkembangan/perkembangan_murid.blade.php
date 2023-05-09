@@ -34,8 +34,6 @@
                                 </button>
                             </div>
 
-
-
                             <div class="table-responsive mt-3">
                                 <table id="dataTableExample" class="table">
                                     <thead>
@@ -45,31 +43,24 @@
                                             <th>Nama Guru</th>
                                             <th>Tanggal</th>
                                             <th>Deskripsi</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @php
                                             $number = 1;
                                         @endphp
-                                        @foreach ($get_name as $murid)
+                                        @foreach ($get_data_perkembangan as $perkembangan)
                                             <tr>
                                                 <td>{{ $number }}</td>
-                                                <td>{{ $murid->nama_murid }}</td>
-                                                {{-- <td>{{ $murid->nama_user }}</td>
-                                                <td>{{ date('d-m-Y', strtotime($murid->tanggal)) }}</td>
-                                                <td>{{ $murid->deskripsi }}</td> --}}
-
-                                                <td>test</td>
-                                                <td>test</td>
-                                                <td>test</td>
+                                                <td>{{ $perkembangan->nama_murid }}</td>
+                                                <td>{{ $perkembangan->nama_user }}</td>
+                                                <td>{{ date('d-m-Y', strtotime($perkembangan->tgl_perkembangan)) }}</td>
+                                                <td>{{ $perkembangan->deskripsi }}</td>
                                             </tr>
                                             @php
                                                 $number++;
                                             @endphp
                                         @endforeach
-
-
                                     </tbody>
                                 </table>
                             </div>
@@ -95,9 +86,7 @@
                             </div>
 
                             <!-- Modal -->
-
-                            <form action="/perkembangan" method="POST" class="form-horizontal"
-                                enctype="multipart/form-data">
+                            <form action="/perkembangan" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">

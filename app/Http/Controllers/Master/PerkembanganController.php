@@ -19,9 +19,9 @@ class PerkembanganController extends Controller
     public function index()
     {
         $data['data_murid'] = DB::table('murid')->get();
-
         $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid', 'id_user', 'id_murid')->having('muridname', '>=', 1)->where('perkembangan.id_user', Auth::user()->id_user)->get();
         $data["data_perkembangan"] = DB::table('perkembangan')->orderBy('tgl_perkembangan', 'DESC')->get();
+        $data['get_data_perkembangan'] = DB::table('perkembangan')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->orderBy('tgl_perkembangan', 'DESC')->get();
 
         return view('master.perkembangan.perkembangan_murid', $data);
     }
@@ -121,7 +121,7 @@ class PerkembanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -130,9 +130,10 @@ class PerkembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Perkembangan $perkembangan)
     {
-        //
+        Perkembangan::destroy($perkembangan->id_perkembangan);
+        return back()->with('delete', 'Data Murid Berhasil Dihapus');
     }
 
     /**
@@ -142,7 +143,6 @@ class PerkembanganController extends Controller
     {
         // $data['auth'] = env('APP_AUTH', 'Kepala_staff');
         $data['data_murid'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->where('perkembangan.id_murid', '=', $id_murid)->get();
-
         $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->where('perkembangan.id_murid', '=', $id_murid)->first('nama_murid');
 
         return view('master.perkembangan.detail_perkembangan', $data);
@@ -152,9 +152,8 @@ class PerkembanganController extends Controller
     {
         // convert format date
         $filter_date = date('Y-m-d', strtotime($request->filter_date));
-        // $data['auth'] = env('APP_AUTH', 'Kepala_staff');
 
-        $data["get_name"] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->where('tgl_perkembangan', $filter_date)->get();
+        $data["get_data_perkembangan"] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->where('tgl_perkembangan', $filter_date)->get();
 
         return view('master.perkembangan.perkembangan_murid', $data);
     }

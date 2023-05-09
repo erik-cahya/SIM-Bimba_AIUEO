@@ -40,7 +40,7 @@ Route::patch('/murid/{murid}/update', [MuridController::class, 'update'])->name(
 
 // ###################################################### Perkembangan
 Route::resource('/perkembangan', PerkembanganController::class);
-Route::get('perkembangan/detail/{id_murid}', [PerkembanganController::class, 'detail'])->name('perkembangan.detail');
+Route::get('/perkembangan/detail/{id_murid}', [PerkembanganController::class, 'detail'])->name('perkembangan.detail');
 Route::post('perkembangan/filter', [PerkembanganController::class, 'filter'])->name('perkembangan.filter');
 
 // ###################################################### Pembayaran

@@ -27,10 +27,16 @@ class LoginController extends Controller
     {
         // dd($request->all());
 
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
+        $request->validate(
+            [
+                'username' => 'required',
+                'password' => 'required',
+            ],
+            [
+                'username.required'   => 'Login Gagal! Kolom Username Kosong!',
+                'password.required'   => 'Login Gagal! Kolom Password Kosong!',
+            ]
+        );
 
         $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
