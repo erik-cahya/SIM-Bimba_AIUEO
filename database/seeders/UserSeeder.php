@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
         User::create([
             'nama_user' => 'master',
             'username' => 'master',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('master'),
             'hak_akses' => 'kepala_staff'
         ]);
     }

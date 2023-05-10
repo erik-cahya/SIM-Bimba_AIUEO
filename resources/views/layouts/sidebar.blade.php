@@ -385,7 +385,7 @@
                                 <a href="/paket" class="nav-link">Paket Bimbel</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Jenis Paket Bimbel</a>
+                                <a href="/jenis" class="nav-link">Jenis Paket Bimbel</a>
                             </li>
                         </ul>
                     </div>

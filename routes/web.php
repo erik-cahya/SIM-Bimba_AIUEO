@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Master\JenisPaketBimbelController;
 use App\Http\Controllers\Master\MuridController;
 use App\Http\Controllers\Master\PaketBimbelController;
 use App\Http\Controllers\Master\PembayaranController;
@@ -51,6 +52,9 @@ Route::get('/report', [PembayaranController::class, 'showReport'])->name('report
 // Route::get('/paket', [PaketBimbelController::class, 'index'])->name('paket');
 // Route::post('/paket', [PaketBimbelController::class, 'store'])->name('paket.store');
 Route::resource('/paket', PaketBimbelController::class);
+
+// ###################################################### Jenis Paket Bimbel
+Route::resource('/jenis', JenisPaketBimbelController::class);
 
 // ###################################################### Data User
 Route::resource('/user', UserController::class);

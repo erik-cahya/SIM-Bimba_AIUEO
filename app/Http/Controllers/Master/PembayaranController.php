@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PembayaranController extends Controller
 {
     // show pembayaran SPP
     public function showPembayaran()
     {
-        $data['auth'] = env('APP_AUTH', 'Kepala_staff');;
+        $data['auth'] = Auth::user()->hak_akses;
         return view('master.pembayaran.index', $data);
     }
 
