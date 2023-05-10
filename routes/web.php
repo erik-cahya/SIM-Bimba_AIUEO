@@ -56,5 +56,6 @@ Route::resource('/paket', PaketBimbelController::class);
 // ###################################################### Jenis Paket Bimbel
 Route::resource('/jenis', JenisPaketBimbelController::class);
 
+
 // ###################################################### Data User
 Route::resource('/user', UserController::class);

@@ -8,13 +8,14 @@
 
 <div class="row">
     <div class="form-group col mt-3">
-        <label for="jenis_paket" disabled>Jenis Paket</label>
-        <select id="jenis_paket" name="jenis_paket" class="form-control form-select">
+        <label for="id_jenis" disabled>Jenis Paket</label>
+        <select id="id_jenis" name="id_jenis" class="form-control form-select">
 
             <option value="{{ old('jenis_paket', $paket->jenis_paket ?? '') }}" selected>
                 {{ old('jenis_paket', $paket->jenis_paket ?? 'Pilih Paket...') }}</option>
-            <option value="Standard">Standard</option>
-            <option value="Khusus">Khusus</option>
+            @foreach ($data_jenis as $jenis)
+                <option value="{{ $jenis->id_jenis }}">{{ $jenis->nama_jenis }}</option>
+            @endforeach
 
         </select>
     </div>

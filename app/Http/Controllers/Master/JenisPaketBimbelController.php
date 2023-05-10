@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Master;
 
-use App\Http\Controllers\Controller;
+use App\Models\Jenis;
 use App\Models\Paket;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class JenisPaketBimbelController extends Controller
 {
@@ -18,7 +19,7 @@ class JenisPaketBimbelController extends Controller
     public function index()
     {
         $data['data_paket'] = DB::table('paket')->join('jenis', 'jenis.id_jenis', '=', 'paket.id_jenis')->get();
-        $data["auth"] = Auth::user()->hak_akses;
+        $data['data_jenis'] = Jenis::all();
         return view('master.jenis_paket.index', $data);
     }
 
@@ -40,7 +41,9 @@ class JenisPaketBimbelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+        Jenis::create($request->all());
+        return redirect('/jenis')->with('success', 'Jenis Paket Baru Berhasil Ditambahkan');
     }
 
     /**
@@ -72,9 +75,13 @@ class JenisPaketBimbelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Jenis $jenis)
     {
-        //
+
+        if ($jenis->update($request->all()) === true) {
+            dd('data updated');
+        }
+        return redirect('/jenis')->with('success', 'Data Jenis Berhasil di Update');
     }
 
     /**
@@ -83,8 +90,12 @@ class JenisPaketBimbelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jenis $jenis)
     {
-        //
+        dd($jenis->id_jenis);
+        if (Jenis::destroy($jenis->id_jenis) === true) {
+            dd('harusnya kehapus');
+        }
+        return redirect('/jenis')->with('success', 'Data Paket Berhasil Dihapus');
     }
 }

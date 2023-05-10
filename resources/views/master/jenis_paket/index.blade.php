@@ -8,7 +8,7 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><span style="color:#fd7e14;">Master</span></li>
-                <li class="breadcrumb-item active" aria-current="page">Jenis Paket Bimbel</li>
+                <li class="breadcrumb-item active" aria-current="page">Jenis jenis Bimbel</li>
             </ol>
         </nav>
 
@@ -27,6 +27,15 @@
                         @if (session()->has('success'))
                             <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
                                 {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="btn-close"></button>
+                            </div>
+                        @endif
+
+                        {{-- Alert Delete/Danger --}}
+                        @if (session()->has('delete'))
+                            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                                {{ session('delete') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="btn-close"></button>
                             </div>
@@ -68,13 +77,11 @@
                                 <tbody>
 
                                     @php $number = 1; @endphp
-                                    @foreach ($data_paket as $paket)
+                                    @foreach ($data_jenis as $jenis)
                                         <tr>
                                             <td>{{ $number }}</td>
-                                            <td>{{ $paket->nama_paket }}</td>
+                                            <td>{{ $jenis->nama_jenis }}</td>
                                             <td>
-                                                {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
-
                                                 <div class="dropdown mb-2">
                                                     <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
@@ -82,16 +89,14 @@
                                                             data-feather="more-vertical"></i>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-
                                                         <button type="button" data-bs-toggle="modal"
                                                             class="dropdown-item d-flex align-items-center"
-                                                            data-bs-target="#modalEditData{{ $paket->id_paket }}"><i
+                                                            data-bs-target="#modalEditData{{ $jenis->id_jenis }}"><i
                                                                 data-feather="edit-2" class="icon-sm me-2"></i> <span
                                                                 class="">Edit</span>
                                                         </button>
 
-                                                        <form action="/paket/{{ $paket->id_paket }}" method="POST">
+                                                        <form action="/jenis/{{ $jenis->id_jenis }}" method="POST">
                                                             {{ csrf_field() }}
                                                             {{ method_field('DELETE') }}
                                                             <button type="submit"
@@ -108,35 +113,35 @@
 
                                         {{-- Modal edit data --}}
 
-                                        <div class="modal fade" id="modalEditData{{ $paket->id_paket }}"
+                                        <div class="modal fade" id="modalEditData{{ $jenis->id_jenis }}"
                                             data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
 
-                                                <form action="{{ route('paket.update', $paket->id_paket) }}" method="POST">
+                                                <form action="{{ route('jenis.update', $jenis->id_jenis) }}" method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('PATCH') }}
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data Murid
+                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data Jenis
                                                             </h5>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
-                                                                @include('master.paket_bimbel._form')
+                                                                @include('master.jenis_paket._form')
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Close</button>
                                                             <button type="submit" class="btn btn-success">Ubah
-                                                                Data Paket</button>
+                                                                Data jenis</button>
                                                         </div>
                                                     </div>
-
                                                 </form>
                                             </div>
                                         </div>
+
                                         @php $number++ @endphp
                                     @endforeach
 

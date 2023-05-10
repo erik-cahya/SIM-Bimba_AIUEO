@@ -11,4 +11,9 @@ class Paket extends Model
     protected $guarded = ['id_paket'];
     protected $primaryKey = 'id_paket';
     use HasFactory;
+
+    public function jenis()
+    {
+        return $this->belongsTo(Jenis::class);
+    }
 }

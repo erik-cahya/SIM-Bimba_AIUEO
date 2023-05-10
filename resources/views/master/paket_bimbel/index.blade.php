@@ -74,7 +74,7 @@
                                         <tr>
                                             <td>{{ $number }}</td>
                                             <td>{{ $paket->nama_paket }}</td>
-                                            <td>{{ $paket->jenis_paket }}</td>
+                                            <td>{{ $paket->nama_jenis }}</td>
                                             <td>Rp. {{ number_format($paket->harga, 0, '', '.') }}/bulan</td>
                                             <td>
                                                 {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}

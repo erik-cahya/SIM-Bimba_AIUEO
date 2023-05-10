@@ -6,36 +6,26 @@ use App\Http\Controllers\Controller;
 use App\Models\Paket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PaketBimbelController extends Controller
 {
     public function index()
     {
-        $data["data_paket"] = Paket::all();
-        $data["auth"] = Auth::user()->hak_akses;
+        $data["data_paket"] = Paket::join('jenis', 'jenis.id_jenis', '=', 'paket.id_jenis')->get();
+        $data['data_jenis'] = DB::table('jenis')->get();
         return view('master.paket_bimbel.index', $data);
     }
 
     public function store(Request $request)
     {
+        // dd($request->all());
         Paket::create($request->all());
         return redirect('/paket')->with('success', 'Data Paket Berhasil Ditambahkan');
     }
 
     public function update(Request $request, Paket $paket)
     {
-        // dd($request->all());
-
-        // $request->validate([
-        //     'nama_murid' => 'required',
-        //     'tanggal_lahir' => 'required',
-        //     'tanggal_masuk' => 'required',
-        //     'alamat' => 'required',
-        //     'nama_ortu' => 'required',
-        //     'no_telp' => 'required',
-        //     'nama_paket' => 'required'
-        // ]);
-
         $paket->update($request->all());
         return redirect('/paket')->with('success', 'Data Murid Berhasil Diupdate');
     }
@@ -43,6 +33,8 @@ class PaketBimbelController extends Controller
 
     public function destroy(Paket $paket)
     {
+        dd($paket->id_paket);
+
         Paket::destroy($paket->id_paket);
         return redirect('/paket')->with('success', 'Data Paket Berhasil Dihapus');
     }
