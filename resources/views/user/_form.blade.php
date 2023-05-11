@@ -22,6 +22,7 @@
                 {{ old('hak_akses', $user->hak_akses ?? 'Pilih Role User...') }}</option>
             <option value="kepala_staff">Kepala Staff</option>
             <option value="guru">Guru</option>
+            <option value="wali_murid">Wali Murid</option>
 
         </select>
     </div>

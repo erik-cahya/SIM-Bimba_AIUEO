@@ -5,13 +5,6 @@
     <div class="page-wrapper">
         @include('layouts.navbar')
 
-        <nav class="page-breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><span style="color:#fd7e14;">Master</span></li>
-                <li class="breadcrumb-item active" aria-current="page">Jenis jenis Bimbel</li>
-            </ol>
-        </nav>
-
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -96,10 +89,12 @@
                                                                 class="">Edit</span>
                                                         </button>
 
-                                                        <form action="{{ route('jenis.delete', $jenis->id_jenis) }}" method="POST">
+                                                        <form action="{{ route('jenis.delete', $jenis->id_jenis) }}"
+                                                            method="POST">
                                                             {{ csrf_field() }}
                                                             {{ method_field('DELETE') }}
-                                                            <input type="hidden" name="id_jenis" value="{{ $jenis->id_jenis }}">
+                                                            <input type="hidden" name="id_jenis"
+                                                                value="{{ $jenis->id_jenis }}">
                                                             <button type="submit"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Paket ?')"
                                                                 class="dropdown-item d-flex align-items-center">
@@ -119,7 +114,8 @@
                                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
 
-                                                <form action="{{ route('jenis.update', $jenis->id_jenis) }}" method="POST">
+                                                <form action="{{ route('jenis.update', $jenis->id_jenis) }}"
+                                                    method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('PATCH') }}
                                                     <div class="modal-content">

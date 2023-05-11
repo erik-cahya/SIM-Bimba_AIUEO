@@ -5,13 +5,6 @@
     <div class="page-wrapper">
         @include('layouts.navbar')
 
-        <nav class="page-breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><span style="color:#fd7e14;">Murid</span></li>
-                <li class="breadcrumb-item active" aria-current="page">Data Murid</li>
-            </ol>
-        </nav>
-
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">

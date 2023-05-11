@@ -12,9 +12,6 @@
             </ol>
         </nav>
 
-
-
-
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -85,6 +82,8 @@
                                                     {{ 'Kepala Staff' }}
                                                 @elseif ($user->hak_akses === 'guru')
                                                     {{ 'Guru' }}
+                                                @elseif ($user->hak_akses === 'wali_murid')
+                                                    {{ 'Wali Murid' }}
                                                 @endif
                                             </td>
                                             <td>{{ $user->username }}</td>

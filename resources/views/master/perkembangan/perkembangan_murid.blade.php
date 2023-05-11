@@ -25,7 +25,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">
                                         <i class="btn-icon-prepend" data-feather="search"></i>
-                                        Cari
+                                        Filter
                                     </button>
                                 </form>
                                 <button class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
@@ -86,7 +86,8 @@
                             </div>
 
                             <!-- Modal -->
-                            <form action="/perkembangan" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="/perkembangan" method="POST" class="form-horizontal"
+                                enctype="multipart/form-data">
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">

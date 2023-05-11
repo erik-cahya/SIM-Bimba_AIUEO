@@ -4,7 +4,7 @@
         <i data-feather="menu"></i>
     </a>
     <div class="navbar-content mt-3">
-        {{ Auth::user()->nama_user .' ------------- ' . Auth::user()->hak_akses }}
+        {{-- {{ Auth::user()->nama_user .' ------------- ' . Auth::user()->hak_akses }} --}}
     </div>
 </nav>
 <!-- Navbar -->

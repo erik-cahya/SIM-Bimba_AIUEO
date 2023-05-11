@@ -8,6 +8,9 @@ use App\Http\Controllers\Master\PaketBimbelController;
 use App\Http\Controllers\Master\PembayaranController;
 use App\Http\Controllers\Master\PerkembanganController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Wali\WaliPembayaranController;
+use App\Http\Controllers\Wali\WaliPerkembanganContoller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +50,7 @@ Route::patch('perkembangan/update/{id_perkembangan}', [PerkembanganController::c
 
 // ###################################################### Pembayaran
 // Route::get('/pembayaran', [PembayaranController::class, 'showPembayaran'])->name('pembayaran');
+Route::delete('/pembayaran/{id_pembayaran}', [PembayaranController::class, 'destroy'])->name('pembayaran.delete');
 Route::resource('/pembayaran', PembayaranController::class);
 
 Route::get('/report', [PembayaranController::class, 'showReport'])->name('report');
@@ -63,3 +67,8 @@ Route::resource('/jenis', JenisPaketController::class);
 
 // ###################################################### Data User
 Route::resource('/user', UserController::class);
+
+// ###################################################### Menu Wali Murid
+// ###################################################### Data Perkembangan Murid
+Route::get('/perkembanganwali', [WaliPerkembanganContoller::class, 'index']);
+Route::get('/pembayaranwali', [WaliPembayaranController::class, 'index']);

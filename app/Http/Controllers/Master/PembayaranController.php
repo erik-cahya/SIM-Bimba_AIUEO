@@ -32,7 +32,23 @@ class PembayaranController extends Controller
         ];
 
         Pembayaran::create($form_data);
-        return back()->with('success', 'Data Murid Berhasil Ditambahkan');
+        return back()->with('success', 'Data Pembayaran Berhasil Ditambahkan');
+    }
+
+    public function update(Request $request)
+    {
+        dd($request->all());
+        DB::table('pembayaran')->where('id_pembayaran', $request->id_pembayaran)->update(
+            ['jumlah_bayar' => $request->jumlah_bayar],
+            ['tanggal_bayar' => $request->tanggal_bayar]
+        );
+        return back()->with('success', 'Data Pembayaran Berhasil Diubah');
+    }
+
+    public function destroy(Request $request)
+    {
+        Pembayaran::destroy($request->id_pembayaran);
+        return back()->with('delete', 'Data Pembayaran Berhasil Dihapus');
     }
 
     // Show Laporan SPP Tahunan

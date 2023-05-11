@@ -5,12 +5,17 @@
     <div class="page-wrapper">
         @include('layouts.navbar')
 
+
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Laporan SPP Tahunan</h6>
+
+                        <h6 class="card-title">Pembayaran Gede Putu Jaya</h6>
+
                         <div class="d-flex justift-content-between position-relative">
+
+
                             <form action="{{ route('perkembangan.filter') }}" method="POST" class="d-flex">
                                 {{ csrf_field() }}
                                 <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
@@ -24,10 +29,6 @@
                                     Cari
                                 </button>
                             </form>
-                            <button class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
-                                <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                                Unduh
-                            </button>
                         </div>
 
                         <div class="table-responsive mt-3">
@@ -43,14 +44,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= 5; $i++)
+                                    @for ($i = 1; $i <= 3; $i++)
                                         <tr>
                                             <td>{{ $i }}</td>
                                             <td>Gede Putu Jaya</td>
                                             <td>Rp.310.000</td>
                                             <td>02/12/2022</td>
                                             <td>Standard 4</td>
-
                                         </tr>
                                     @endfor
 

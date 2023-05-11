@@ -12,14 +12,16 @@
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-            <li class="nav-item nav-category">Main</li>
 
-            <li class="nav-item">
-                <a href="/dashboard" class="nav-link">
-                    <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Dashboard</span>
-                </a>
-            </li>
+            @if (Auth::user()->hak_akses === 'kepala_staff' || Auth::user()->hak_akses === 'guru')
+                <li class="nav-item nav-category">Main</li>
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">
+                        <i class="link-icon" data-feather="box"></i>
+                        <span class="link-title">Dashboard</span>
+                    </a>
+                </li>
+            @endif
 
             {{-- ######################################################################## master --}}
             @if (Auth::user()->hak_akses === 'master')
@@ -325,7 +327,6 @@
             @endif
 
             {{-- Authorization: Kepala Staff --}}
-            {{-- @if ($auth == 'kepala_staff') --}}
             @if (Auth::user()->hak_akses === 'kepala_staff')
                 <li class="nav-item nav-category">master apps</li>
 
@@ -403,7 +404,6 @@
             @endif
 
             {{-- Authorization: Guru --}}
-            {{-- @if ($auth == 'guru') --}}
             @if (Auth::user()->hak_akses === 'guru')
                 <li class="nav-item nav-category">master apps</li>
                 {{-- Data Bimbel --}}
@@ -411,6 +411,26 @@
                     <a href="{{ '/perkembangan' }}" class="nav-link">
                         <i class="link-icon" data-feather="book-open"></i>
                         <span class="link-title">Data Perkembangan Murid</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-category">Special Menu</li>
+            @endif
+
+
+            {{-- Authorization: Wali Murid --}}
+            @if (Auth::user()->hak_akses === 'wali_murid')
+                <li class="nav-item nav-category">master apps</li>
+                {{-- Data Bimbel --}}
+                <li class="nav-item {{ request()->segment(1) == 'perkembangan' ? 'active' : '' }}">
+                    <a href="{{ '/perkembanganwali' }}" class="nav-link">
+                        <i class="link-icon" data-feather="book-open"></i>
+                        <span class="link-title">Data Perkembangan Murid</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->segment(1) == 'pembayaran' ? 'active' : '' }}">
+                    <a href="{{ '/pembayaranwali' }}" class="nav-link">
+                        <i class="link-icon" data-feather="credit-card"></i>
+                        <span class="link-title">Data Pembayaran Murid</span>
                     </a>
                 </li>
                 <li class="nav-item nav-category">Special Menu</li>
