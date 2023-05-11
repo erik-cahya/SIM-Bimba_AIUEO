@@ -1,6 +1,6 @@
 <div class="row">
     <div class="form-group">
-        <input type="text" name="id_murid" id="id_murid" value="{{ $perkembangan->id_perkembangan ?? '' }}"
+        <input type="hidden" name="id_perkembangan" id="id_perkembangan" value="{{ $perkembangan->id_perkembangan ?? '' }}"
             class="form-control">
 
         <label for="nama_murid">Nama Murid</label>

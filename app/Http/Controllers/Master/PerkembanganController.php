@@ -119,9 +119,13 @@ class PerkembanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Perkembangan $perkembangan)
     {
-        dd($request->all());
+        DB::table('perkembangan')->where('id_perkembangan', $request->id_perkembangan)->update(
+            ['tgl_perkembangan' => date('Y-m-d', strtotime($request->tanggal_perkembangan))],
+            ['deskripsi' => $request->deskripsi]
+        );
+        return back()->with('success', 'Data Perkembangan Berhasil di Update');
     }
 
     /**

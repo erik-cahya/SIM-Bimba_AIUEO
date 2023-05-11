@@ -31,19 +31,21 @@
                                     <div class="modal-header text-center">
                                         <h5 class="modal-title" id="varyingModalLabel">Tambah Data Pembayaran</h5>
                                     </div>
+
                                     <div class="modal-body">
                                         <form action="" method="POST" class="form-horizontal"
                                             enctype="multipart/form-data">
                                             @csrf
                                             @include('master.pembayaran._form')
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-success">Send message</button>
+                                            <button type="submit" class="btn btn-success">Tambah Pembayaran</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
 
                             </div>
                         </div>
@@ -62,13 +64,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= 15; $i++)
+
+                                    @foreach ($data_pembayaran as $bayar)
                                         <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>Erik Cahya Pradana</td>
-                                            <td>Rp. 3.000.000</td>
-                                            <td>02/12/2022</td>
-                                            <td>Standard 04</td>
+                                            <td>1</td>
+                                            <td>{{ $bayar->nama_murid }}</td>
+                                            <td>Rp. {{ number_format($bayar->jumlah_bayar, 0, '', '.') }}</td>
+                                            <td>{{ date('d-m-Y', strtotime($bayar->tanggal_bayar))}}</td>
+                                            <td>{{ $bayar->nama_paket }}</td>
                                             <td>
                                                 {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
 
@@ -99,7 +102,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endfor
+                                        @endforeach
+
 
                                 </tbody>
                             </table>

@@ -33,8 +33,8 @@ class LoginController extends Controller
                 'password' => 'required',
             ],
             [
-                'username.required'   => 'Login Gagal! Kolom Username Kosong!',
-                'password.required'   => 'Login Gagal! Kolom Password Kosong!',
+                'username.required'   => 'Login Gagal! Harap Masukkan Username & Password!',
+                'password.required'   => 'Login Gagal! Harap Masukkan Username & Password',
             ]
         );
 

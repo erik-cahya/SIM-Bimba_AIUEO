@@ -19,11 +19,12 @@ class CreatePembayaranTable extends Migration
             $table->unsignedInteger('id_user');
             $table->integer('jumlah_bayar');
             $table->date('tanggal_bayar');
-            $table->string('nama_paket');
+            $table->unsignedInteger('id_paket');
             $table->timestamps();
 
             $table->foreign('id_murid')->references('id_murid')->on('murid')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_paket')->references('id_paket')->on('paket')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

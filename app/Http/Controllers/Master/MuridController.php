@@ -7,6 +7,7 @@ use App\Models\Murid;
 use App\Models\Paket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MuridController extends Controller
 {
@@ -17,7 +18,7 @@ class MuridController extends Controller
      */
     public function index()
     {
-        $data["data_murid"] = Murid::all();
+        $data["data_murid"] = DB::table('murid')->join('paket', 'paket.id_paket', '=', 'murid.nama_paket')->orderBy('id_murid', 'ASC')->get();
         $data["data_paket"] = Paket::all();
         return view('master.murid.data_murid', $data);
     }

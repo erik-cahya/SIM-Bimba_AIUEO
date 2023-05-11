@@ -96,9 +96,10 @@
                                                                 class="">Edit</span>
                                                         </button>
 
-                                                        <form action="/jenis/{{ $jenis->id_jenis }}" method="POST">
+                                                        <form action="{{ route('jenis.delete', $jenis->id_jenis) }}" method="POST">
                                                             {{ csrf_field() }}
                                                             {{ method_field('DELETE') }}
+                                                            <input type="hidden" name="id_jenis" value="{{ $jenis->id_jenis }}">
                                                             <button type="submit"
                                                                 onclick="return confirm('Yakin Ingin Menghapus Data Paket ?')"
                                                                 class="dropdown-item d-flex align-items-center">

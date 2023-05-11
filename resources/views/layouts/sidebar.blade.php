@@ -362,7 +362,7 @@
                     <div class="collapse" id="spp">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
-                                <a href="{{ route('pembayaran') }}" class="nav-link">Pembayaran SPP</a>
+                                <a href="/pembayaran" class="nav-link">Pembayaran SPP</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('report') }}" class="nav-link">Laporan SPP Tahunan</a>

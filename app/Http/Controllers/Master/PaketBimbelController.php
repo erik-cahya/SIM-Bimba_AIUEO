@@ -19,7 +19,6 @@ class PaketBimbelController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         Paket::create($request->all());
         return redirect('/paket')->with('success', 'Data Paket Berhasil Ditambahkan');
     }
@@ -30,11 +29,8 @@ class PaketBimbelController extends Controller
         return redirect('/paket')->with('success', 'Data Murid Berhasil Diupdate');
     }
 
-
     public function destroy(Paket $paket)
     {
-        dd($paket->id_paket);
-
         Paket::destroy($paket->id_paket);
         return redirect('/paket')->with('success', 'Data Paket Berhasil Dihapus');
     }

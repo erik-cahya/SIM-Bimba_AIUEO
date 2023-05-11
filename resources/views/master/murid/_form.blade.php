@@ -95,12 +95,13 @@
 <div class="row">
     <div class="form-group col mt-3">
         <label for="nama_paket">Nama Paket</label>
+
         <select id="nama_paket" name="nama_paket" class="form-control form-select">
             <option value="{{ old('nama_paket', $murid->nama_paket ?? '') }}" selected>
                 {{ old('nama_paket', $murid->nama_paket ?? 'Pilih Paket...') }}
             </option>
             @foreach ($data_paket as $paket)
-                <option value="{{ $paket->nama_paket }}">{{ $paket->nama_paket }}</option>
+                <option value="{{ $paket->id_paket }}">{{ $paket->nama_paket }}</option>
             @endforeach
         </select>
     </div>

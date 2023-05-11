@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Master\JenisPaketBimbelController;
+use App\Http\Controllers\Master\JenisPaketController;
 use App\Http\Controllers\Master\MuridController;
 use App\Http\Controllers\Master\PaketBimbelController;
 use App\Http\Controllers\Master\PembayaranController;
@@ -43,9 +43,12 @@ Route::patch('/murid/{murid}/update', [MuridController::class, 'update'])->name(
 Route::resource('/perkembangan', PerkembanganController::class);
 Route::get('/perkembangan/detail/{id_murid}', [PerkembanganController::class, 'detail'])->name('perkembangan.detail');
 Route::post('perkembangan/filter', [PerkembanganController::class, 'filter'])->name('perkembangan.filter');
+Route::patch('perkembangan/update/{id_perkembangan}', [PerkembanganController::class, 'update'])->name('perkembangan.update');
 
 // ###################################################### Pembayaran
-Route::get('/pembayaran', [PembayaranController::class, 'showPembayaran'])->name('pembayaran');
+// Route::get('/pembayaran', [PembayaranController::class, 'showPembayaran'])->name('pembayaran');
+Route::resource('/pembayaran', PembayaranController::class);
+
 Route::get('/report', [PembayaranController::class, 'showReport'])->name('report');
 
 // ###################################################### Paket Bimbel
@@ -54,8 +57,9 @@ Route::get('/report', [PembayaranController::class, 'showReport'])->name('report
 Route::resource('/paket', PaketBimbelController::class);
 
 // ###################################################### Jenis Paket Bimbel
-Route::resource('/jenis', JenisPaketBimbelController::class);
-
+// Route::resource('/jenis', JenisPaketBimbelController::class);
+Route::delete('/jenis/{id_jenis}', [JenisPaketController::class, 'destroy'])->name('jenis.delete');
+Route::resource('/jenis', JenisPaketController::class);
 
 // ###################################################### Data User
 Route::resource('/user', UserController::class);

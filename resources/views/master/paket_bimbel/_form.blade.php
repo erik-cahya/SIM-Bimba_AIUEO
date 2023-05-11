@@ -11,8 +11,10 @@
         <label for="id_jenis" disabled>Jenis Paket</label>
         <select id="id_jenis" name="id_jenis" class="form-control form-select">
 
-            <option value="{{ old('jenis_paket', $paket->jenis_paket ?? '') }}" selected>
-                {{ old('jenis_paket', $paket->jenis_paket ?? 'Pilih Paket...') }}</option>
+            <option value="{{ old('id_jenis', $paket->id_jenis ?? '') }}" selected>
+                {{ old('id_jenis', $paket->nama_jenis ?? 'Pilih Paket...') }}
+            </option>
+
             @foreach ($data_jenis as $jenis)
                 <option value="{{ $jenis->id_jenis }}">{{ $jenis->nama_jenis }}</option>
             @endforeach
@@ -25,7 +27,7 @@
         <div class="input-group">
             <div class="input-group-text">Rp.</div>
             <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="harga"
-                placeholder="Masukkan Harga Paket" value="{{ old('harga_paket', $paket->harga ?? '') }}" />
+                placeholder="Masukkan Harga Paket" value="{{ old('harga_paket', $paket->harga ?? '') }}" required />
         </div>
     </div>
 
