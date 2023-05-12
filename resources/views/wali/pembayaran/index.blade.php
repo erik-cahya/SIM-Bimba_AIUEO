@@ -38,7 +38,7 @@
                                         <th>Nim</th>
                                         <th>Nama Murid</th>
                                         <th>Jumlah Uang</th>
-                                        <th>Tgl Bayar</th>
+                                        <th>Tanggal Bayar</th>
                                         <th>Nama Paket</th>
 
                                     </tr>

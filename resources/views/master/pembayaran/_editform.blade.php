@@ -1,7 +1,7 @@
 <div class="row">
     <div class="form-group col ">
         <label for="id_murid">Nama Murid</label>
-        <input type="hidden" name="id_pembayaran" value="'{{ $bayar->id_pembayaran }}">
+        <input type="hidden" name="id_pembayaran" value="{{ $bayar->id_pembayaran }}">
         <input type="text" class="form-control" value="{{ $bayar->nama_murid }}" disabled readonly>
     </div>
 </div>

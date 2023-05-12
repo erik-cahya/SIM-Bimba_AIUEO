@@ -7,6 +7,7 @@ use App\Http\Controllers\Master\MuridController;
 use App\Http\Controllers\Master\PaketBimbelController;
 use App\Http\Controllers\Master\PembayaranController;
 use App\Http\Controllers\Master\PerkembanganController;
+use App\Http\Controllers\Master\ReportPembayaranController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Wali\WaliPembayaranController;
 use App\Http\Controllers\Wali\WaliPerkembanganContoller;
@@ -53,7 +54,11 @@ Route::patch('perkembangan/update/{id_perkembangan}', [PerkembanganController::c
 Route::delete('/pembayaran/{id_pembayaran}', [PembayaranController::class, 'destroy'])->name('pembayaran.delete');
 Route::resource('/pembayaran', PembayaranController::class);
 
-Route::get('/report', [PembayaranController::class, 'showReport'])->name('report');
+
+// ###################################################### Report Pembayaran
+Route::get('/report', [ReportPembayaranController::class, 'index'])->name('report');
+Route::post('report/filter', [ReportPembayaranController::class, 'filter'])->name('report.filter');
+
 
 // ###################################################### Paket Bimbel
 // Route::get('/paket', [PaketBimbelController::class, 'index'])->name('paket');

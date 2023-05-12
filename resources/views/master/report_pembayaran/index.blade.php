@@ -11,17 +11,17 @@
                     <div class="card-body">
                         <h6 class="card-title">Laporan SPP Tahunan</h6>
                         <div class="d-flex justift-content-between position-relative">
-                            <form action="{{ route('perkembangan.filter') }}" method="POST" class="d-flex">
+
+                            <form action="{{ route('report.filter') }}" method="POST" class="d-flex">
                                 {{ csrf_field() }}
                                 <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
-                                    <span class="input-group-text input-group-addon bg-transparent border-dark border-end-0"
-                                        data-toggle><i data-feather="calendar" class="text-dark"></i></span>
-                                    <input type="text" class="form-control bg-transparent border-dark"
-                                        placeholder="Select date" name="filter_date" data-input>
+
+                                    <input type="month" class="form-control bg-transparent border-dark"
+                                        placeholder="Select date" name="filter_date" value="{{ date('Y-m') }}">
                                 </div>
                                 <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">
-                                    <i class="btn-icon-prepend" data-feather="search"></i>
-                                    Cari
+                                    <i class="btn-icon-prepend" data-feather="filter"></i>
+                                    Filter
                                 </button>
                             </form>
                             <button class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="table-responsive mt-3">
-                            <table class="table">
+                            <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
                                         <th>Nim</th>
@@ -43,16 +43,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= 5; $i++)
+                                    @foreach ($get_data_pembayaran as $pembayaran)
                                         <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>Gede Putu Jaya</td>
-                                            <td>Rp.310.000</td>
-                                            <td>02/12/2022</td>
-                                            <td>Standard 4</td>
-
+                                            <td>1</td>
+                                            <td>{{ $pembayaran->nama_murid }}</td>
+                                            <td>Rp. {{ number_format($pembayaran->jumlah_bayar, 0, '', '.') }}</td>
+                                            <td>{{ date('d-m-Y', strtotime($pembayaran->tanggal_bayar)) }}</td>
+                                            <td>{{ $pembayaran->nama_paket }}</td>
                                         </tr>
-                                    @endfor
+                                    @endforeach
+
 
                                 </tbody>
                             </table>

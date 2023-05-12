@@ -50,26 +50,6 @@ class PerkembanganController extends Controller
             ['deskripsi' => 'required'],
             ['tanggal_perkembangan' => 'required']
         );
-        // dd($request->all());
-        // if (Perkembangan::where('id_murid', $request->id_murid)->count() >= 1) {
-
-        //     if (Perkembangan::where('id_user', '=', Auth::user()->id_user)->exists()) {
-        //         dd('data murid sudah diambil');
-        //     }
-
-        //     $form_data = [
-        //         'id_user' => Auth::user()->id_user,
-        //         'id_murid' => $request->id_murid,
-        //         'tgl_perkembangan' => $request->tanggal_perkembangan,
-        //         'deskripsi' => $request->deskripsi,
-        //     ];
-
-        //     // dd($form_data);
-
-        //     Perkembangan::create($form_data);
-        //     return redirect()->back()->with('success', 'Data Perkembangan Berhasil ditambahkan');
-        // }
-        // dd($request->all());
         if ($request->tanggal_perkembangan === null) {
             $tanggal_perkembangan = date('Y-m-d');
         } else {
@@ -121,9 +101,12 @@ class PerkembanganController extends Controller
      */
     public function update(Request $request, Perkembangan $perkembangan)
     {
+        // dd($request->all());
         DB::table('perkembangan')->where('id_perkembangan', $request->id_perkembangan)->update(
-            ['tgl_perkembangan' => date('Y-m-d', strtotime($request->tanggal_perkembangan))],
-            ['deskripsi' => $request->deskripsi]
+            [
+                'tgl_perkembangan' => date('Y-m-d', strtotime($request->tanggal_perkembangan)),
+                'deskripsi' => $request->deskripsi
+            ]
         );
         return back()->with('success', 'Data Perkembangan Berhasil di Update');
     }
@@ -145,7 +128,6 @@ class PerkembanganController extends Controller
      */
     public function detail($id_murid, Request $request)
     {
-        // $data['auth'] = env('APP_AUTH', 'Kepala_staff');
         $data['data_murid'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->where('perkembangan.id_murid', '=', $id_murid)->get();
         $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->where('perkembangan.id_murid', '=', $id_murid)->first('nama_murid');
 
@@ -154,10 +136,11 @@ class PerkembanganController extends Controller
 
     public function filter(Request $request)
     {
-        // convert format date
-        $filter_date = date('Y-m-d', strtotime($request->filter_date));
 
-        $data["get_data_perkembangan"] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->where('tgl_perkembangan', $filter_date)->get();
+        // convert format date
+        $filter_date = date('Y-m', strtotime($request->filter_date));
+
+        $data["get_data_perkembangan"] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->where('tgl_perkembangan', 'LIKE', $filter_date . '%')->get();
 
         return view('master.perkembangan.perkembangan_murid', $data);
     }

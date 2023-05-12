@@ -353,20 +353,22 @@
                 </li>
 
                 {{-- Data Laporan Pembayaran SPP --}}
-                <li class="nav-item">
+                <li class="nav-item {{ request()->segment(1) == 'report' ? 'active' : '' }}">
                     <a class="nav-link" data-bs-toggle="collapse" href="#spp" role="button"
                         aria-expanded="false" aria-controls="spp">
                         <i class="link-icon" data-feather="credit-card"></i>
                         <span class="link-title">Pembayaran</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
-                    <div class="collapse" id="spp">
+                    <div class="collapse {{ request()->segment(1) == 'report' ? 'show' : '' }}" id="spp">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
                                 <a href="/pembayaran" class="nav-link">Pembayaran SPP</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('report') }}" class="nav-link">Laporan SPP Tahunan</a>
+                                <a href="/report"
+                                    class="nav-link {{ request()->segment(1) == 'report' ? 'active' : '' }}">Laporan
+                                    SPP Tahunan</a>
                             </li>
                         </ul>
                     </div>

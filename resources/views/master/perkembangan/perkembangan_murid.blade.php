@@ -17,14 +17,12 @@
                                 <form action="{{ route('perkembangan.filter') }}" method="POST" class="d-flex">
                                     {{ csrf_field() }}
                                     <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
-                                        <span
-                                            class="input-group-text input-group-addon bg-transparent border-dark border-end-0"
-                                            data-toggle><i data-feather="calendar" class="text-dark"></i></span>
-                                        <input type="text" class="form-control bg-transparent border-dark"
-                                            placeholder="Select date" name="filter_date" data-input>
+
+                                        <input type="month" class="form-control bg-transparent border-dark"
+                                            placeholder="Select date" name="filter_date" value="{{ date('Y-m') }}">
                                     </div>
                                     <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">
-                                        <i class="btn-icon-prepend" data-feather="search"></i>
+                                        <i class="btn-icon-prepend" data-feather="filter"></i>
                                         Filter
                                     </button>
                                 </form>

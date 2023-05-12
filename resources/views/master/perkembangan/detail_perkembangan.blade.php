@@ -55,9 +55,9 @@
                         </div>
 
                         @if (session()->has('delete'))
-                        <div class="alert alert-danger col-lg-12 mt-2" role="alert">
-                            {{ session('delete') }}
-                        </div>
+                            <div class="alert alert-danger col-lg-12 mt-2" role="alert">
+                                {{ session('delete') }}
+                            </div>
                         @endif
 
                         <div class="table-responsive mt-3">
@@ -94,19 +94,20 @@
                                                         <button type="button" data-bs-toggle="modal"
                                                             class="dropdown-item d-flex align-items-center"
                                                             data-bs-target="#modalEditData{{ $perkembangan->id_perkembangan }}">
-                                                                <i data-feather="edit-2" class="icon-sm me-2"></i>
-                                                                <span class="">Edit</span>
+                                                            <i data-feather="edit-2" class="icon-sm me-2"></i>
+                                                            <span class="">Edit</span>
                                                         </button>
 
-                                                        <form method="POST" action="/perkembangan/{{ $perkembangan->id_perkembangan }}"
+                                                        <form method="POST"
+                                                            action="/perkembangan/{{ $perkembangan->id_perkembangan }}"
                                                             class="d-inline">
                                                             {{ csrf_field() }}
                                                             {{ method_field('DELETE') }}
-                                                                <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
-                                                                    class="dropdown-item d-flex align-items-center">
-                                                                    <i data-feather="trash" class="icon-sm me-2"></i>
-                                                                    <span class="">Delete</span>
-                                                                </button>
+                                                            <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
+                                                                class="dropdown-item d-flex align-items-center">
+                                                                <i data-feather="trash" class="icon-sm me-2"></i>
+                                                                <span class="">Delete</span>
+                                                            </button>
                                                         </form>
 
                                                     </div>
@@ -121,13 +122,15 @@
                                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
 
-                                                <form action="{{ route('perkembangan.update', $perkembangan->id_perkembangan) }}"
+                                                <form
+                                                    action="{{ route('perkembangan.update', $perkembangan->id_perkembangan) }}"
                                                     method="POST">
                                                     {{ csrf_field() }}
                                                     {{ method_field('PATCH') }}
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data Perkembangan</h5>
+                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data
+                                                                Perkembangan</h5>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
@@ -137,7 +140,8 @@
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-success">Ubah Data</button>
+                                                            <button type="submit" class="btn btn-success">Ubah
+                                                                Data</button>
                                                         </div>
                                                     </div>
 

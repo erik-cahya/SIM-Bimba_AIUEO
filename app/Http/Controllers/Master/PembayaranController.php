@@ -37,11 +37,13 @@ class PembayaranController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
         DB::table('pembayaran')->where('id_pembayaran', $request->id_pembayaran)->update(
-            ['jumlah_bayar' => $request->jumlah_bayar],
-            ['tanggal_bayar' => $request->tanggal_bayar]
+            [
+                'jumlah_bayar' => $request->jumlah_bayar,
+                'tanggal_bayar' => $request->tanggal_bayar
+            ]
         );
+
         return back()->with('success', 'Data Pembayaran Berhasil Diubah');
     }
 
@@ -49,12 +51,5 @@ class PembayaranController extends Controller
     {
         Pembayaran::destroy($request->id_pembayaran);
         return back()->with('delete', 'Data Pembayaran Berhasil Dihapus');
-    }
-
-    // Show Laporan SPP Tahunan
-    public function showReport()
-    {
-        $data['auth'] = env('APP_AUTH', 'Kepala_staff');
-        return view('master.pembayaran.report', $data);
     }
 }
