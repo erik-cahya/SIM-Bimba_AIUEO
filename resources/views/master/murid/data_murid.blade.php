@@ -138,7 +138,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row">
-                                                                @include('master.murid._form')
+                                                                @include('master.murid._edit_form')
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
@@ -169,4 +169,44 @@
 
         @include('layouts.footer')
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        // Toggle form add murid
+        $(document).ready(function() {
+            var el = document.getElementsByClassName('toggle-form-user')[0];
+            if (el.checked) {
+                $('#form-user').show();
+                $('#form-user input').removeAttr('disabled');
+            }
+        });
+
+        $('.toggle-form-user').change(function() {
+            $('#form-user').toggle();
+            if (this.checked) {
+                $('#form-user input').removeAttr('disabled');
+                $('#form-user input[type=radio]:last').attr('checked', true);
+            } else {
+                $('#form-user input').attr('disabled', true);
+            }
+        });
+
+        // Toggle form edit murid
+        $(document).ready(function() {
+            var el = document.getElementsByClassName('toggle-form-edit-user')[0];
+            if (el.checked) {
+                $('#form-edit-user').show();
+                $('#form-edit-user input').removeAttr('disabled');
+            }
+        });
+
+        $('.toggle-form-edit-user').change(function() {
+            $('#form-edit-user').toggle();
+            if (this.checked) {
+                $('#form-edit-user input').removeAttr('disabled');
+                $('#form-edit-user input[type=radio]:last').attr('checked', true);
+            } else {
+                $('#form-edit-user input').attr('disabled', true);
+            }
+        });
+    </script>
 @endsection
