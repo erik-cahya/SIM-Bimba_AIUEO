@@ -109,69 +109,57 @@
 
 <div class="row">
     <div class="form-group col mt-3">
-        <input type="checkbox" class="form-check-input toggle-form-edit-user" name="makeUserAccount"
-            id="form-edit-check" value="true">
-        <label class="form-check-label" for="form-edit-check">Buat Akun Wali Murid Edit</label>
-    </div>
-</div>
+        <details>
+            <summary>Wali Murid Account</summary>
+            <div class="row">
+                <div class="form-group col mt-3">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username"
+                        class="form-control {{ $errors->has('username') ? ' is-invalid' : '' }}">
 
+                    @if ($errors->has('username'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('username') }}</strong>
+                        </span>
+                    @endif
+                </div>
 
-<div class="row" id="form-edit-user" style="display:none;">
-    <div class="form-group col mt-3">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username"
-            class="form-control {{ $errors->has('username') ? ' is-invalid' : '' }}" value="{{ old('username') }}">
+                <div class="form-group col mt-3">
+                    <label for="password">Password</label>
+                    <div class="input-group mb-3">
+                        <input name="password" type="password"
+                            class="input form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="password_edit"
+                            aria-label="password" aria-describedby="basic-addon1"/>
 
-        @if ($errors->has('username'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('username') }}</strong>
-            </span>
-        @endif
-    </div>
-    <div class="form-group col mt-3">
-        <label for="password">Password</label>
-        <div class="input-group mb-3">
-            <input name="password" type="password"
-                class="input form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="password"
-                required="true" aria-label="password" aria-describedby="basic-addon1"
-                value="{{ old('password') }}" />
-            <div class="input-group-append">
-                <span class="input-group-text" style="height: 100%" onclick="password_show_hide();">
-                    <i class="fas fa-eye" id="show_eye"></i>
-                    <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
-                </span>
+                        <div class="input-group-append">
+                            <span class="input-group-text" style="height: 100%" onclick="password_edit_hide();">
+                                <i class="fas fa-eye" id="show_eye1"></i>
+                                <i class="fas fa-eye-slash d-none" id="hide_eye1"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+
+                </div>
             </div>
-        </div>
 
-        @if ($errors->has('password'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-        @endif
+        </details>
     </div>
+
 
 </div>
 <script>
-    function password_show_hide() {
-        var x = document.getElementById("password");
-        var show_eye = document.getElementById("show_eye");
-        var hide_eye = document.getElementById("hide_eye");
-        hide_eye.classList.remove("d-none");
-        if (x.type === "password") {
-            x.type = "text";
-            show_eye.style.display = "none";
-            hide_eye.style.display = "block";
-        } else {
-            x.type = "password";
-            show_eye.style.display = "block";
-            hide_eye.style.display = "none";
-        }
-    }
 
-    function password_show_hide() {
-        var x = document.getElementById("password");
-        var show_eye = document.getElementById("show_eye");
-        var hide_eye = document.getElementById("hide_eye");
+    // password show hide
+    function password_edit_hide() {
+        var x = document.getElementById("password_edit");
+        var show_eye = document.getElementById("show_eye1");
+        var hide_eye = document.getElementById("hide_eye1");
         hide_eye.classList.remove("d-none");
         if (x.type === "password") {
             x.type = "text";

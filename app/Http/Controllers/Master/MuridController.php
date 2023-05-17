@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Master;
 use App\Http\Controllers\Controller;
 use App\Models\Murid;
 use App\Models\Paket;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -43,6 +44,7 @@ class MuridController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate(
             [
                 'nama_murid'    => 'required|unique:murid',
@@ -67,21 +69,43 @@ class MuridController extends Controller
 
             ]
         );
-        $form_data = [
-            'id_user' => Auth::user()->id_user, // ################################### ini disesuaikan
-            'nama_murid' => $request->nama_murid,
-            'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
-            'tanggal_masuk' => date('Y-m-d', strtotime($request->tanggal_masuk)),
-            'alamat' => $request->alamat,
-            'nama_ortu' => $request->nama_ortu,
-            'no_telp' => $request->no_telp,
-            'nama_paket' => $request->nama_paket,
-        ];
 
-        Murid::create($form_data);
+        if ($request->makeUserAccount === null) {
+            $request = [
+                'id_user' => Auth::user()->id_user, // ################################### ini disesuaikan
+                'nama_murid' => $request->nama_murid,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
+                'tanggal_masuk' => date('Y-m-d', strtotime($request->tanggal_masuk)),
+                'alamat' => $request->alamat,
+                'nama_ortu' => $request->nama_ortu,
+                'no_telp' => $request->no_telp,
+                'nama_paket' => $request->nama_paket,
+            ];
 
-        return redirect('/murid')->with('success', 'Data Murid Berhasil Ditambahkan');
+            Murid::create($request);
+            return redirect('/murid')->with('success', 'Data Murid Berhasil Ditambahkan');
+        } else {
+            $dataUserID = DB::table('users')->insertGetId([
+                'nama_user' => $request->nama_murid,
+                'username' => $request->username,
+                'password' => bcrypt($request->password),
+                'hak_akses' => 'wali_murid'
+            ]);
+
+            DB::table('murid')->insert([
+                'id_user' => $dataUserID, // ################################### ini disesuaikan
+                'nama_murid' => $request->nama_murid,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
+                'tanggal_masuk' => date('Y-m-d', strtotime($request->tanggal_masuk)),
+                'alamat' => $request->alamat,
+                'nama_ortu' => $request->nama_ortu,
+                'no_telp' => $request->no_telp,
+                'nama_paket' => $request->nama_paket,
+            ]);
+            return redirect('/murid')->with('success', 'Data Murid Berhasil Ditambahkan');
+        }
     }
 
 

@@ -105,14 +105,21 @@
                                                                 class="">Edit</span>
                                                         </button>
 
+                                                        <button type="button" data-bs-toggle="modal"
+                                                            class="dropdown-item d-flex align-items-center"
+                                                            data-bs-target="#modalEditData{{ $murid->id_murid }}"><i
+                                                                data-feather="user" class="icon-sm me-2"></i> <span
+                                                                class="">Add User Account</span>
+                                                        </button>
+
                                                         <form method="POST" action="/murid/{{ $murid->id_murid }}"
                                                             class="d-inline">
                                                             {{ csrf_field() }}
                                                             {{ method_field('DELETE') }}
                                                             <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
                                                                 class="dropdown-item d-flex align-items-center"><i
-                                                                    data-feather="trash" class="icon-sm me-2"></i> <span
-                                                                    class="">Delete</span></button>
+                                                                    data-feather="trash" class="icon-sm me-2"></i>
+                                                                    <span class="">Delete</span></button>
                                                         </form>
 
                                                     </div>
@@ -121,7 +128,6 @@
                                         </tr>
 
                                         {{-- Modal edit data --}}
-
                                         <div class="modal fade" id="modalEditData{{ $murid->id_murid }}"
                                             data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -152,10 +158,10 @@
                                                 </form>
                                             </div>
                                         </div>
-
                                         @php
                                             $number++;
                                         @endphp
+
                                     @endforeach
                                 </tbody>
                             </table>
@@ -190,23 +196,23 @@
             }
         });
 
-        // Toggle form edit murid
-        $(document).ready(function() {
-            var el = document.getElementsByClassName('toggle-form-edit-user')[0];
-            if (el.checked) {
-                $('#form-edit-user').show();
-                $('#form-edit-user input').removeAttr('disabled');
-            }
-        });
+        // // Toggle form edit murid
+        // $(document).ready(function() {
+        //     var el = document.getElementsByClassName('toggle-form-edit-user')[0];
+        //     if (el.checked) {
+        //         $('#form-edit-user').show();
+        //         $('#form-edit-user input').removeAttr('disabled');
+        //     }
+        // });
 
-        $('.toggle-form-edit-user').change(function() {
-            $('#form-edit-user').toggle();
-            if (this.checked) {
-                $('#form-edit-user input').removeAttr('disabled');
-                $('#form-edit-user input[type=radio]:last').attr('checked', true);
-            } else {
-                $('#form-edit-user input').attr('disabled', true);
-            }
-        });
+        // $('.toggle-form-edit-user').change(function() {
+        //     $('#form-edit-user').toggle();
+        //     if (this.checked) {
+        //         $('#form-edit-user input').removeAttr('disabled');
+        //         $('#form-edit-user input[type=radio]:last').attr('checked', true);
+        //     } else {
+        //         $('#form-edit-user input').attr('disabled', true);
+        //     }
+        // });
     </script>
 @endsection
