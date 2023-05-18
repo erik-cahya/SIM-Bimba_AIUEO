@@ -374,7 +374,7 @@
                     </div>
                 </li>
 
-                {{-- Data Laporan Pembayaran SPP --}}
+                {{-- Data Paket Bimbel --}}
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#paket" role="button"
                         aria-expanded="false" aria-controls="paket">
@@ -392,6 +392,14 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+
+                {{-- Data Alokasi Murid --}}
+                <li class="nav-item">
+                    <a href="/alokasi" class="nav-link">
+                        <i class="link-icon" data-feather="bookmark"></i>
+                        <span class="link-title">Alokasi Murid</span>
+                    </a>
                 </li>
 
                 <li class="nav-item nav-category">Special Menu</li>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Master\AlokasiMuridController;
 use App\Http\Controllers\Master\JenisPaketController;
 use App\Http\Controllers\Master\MuridController;
 use App\Http\Controllers\Master\PaketBimbelController;
@@ -50,7 +51,6 @@ Route::post('perkembangan/filter', [PerkembanganController::class, 'filter'])->n
 Route::patch('perkembangan/update/{id_perkembangan}', [PerkembanganController::class, 'update'])->name('perkembangan.update');
 
 // ###################################################### Pembayaran
-// Route::get('/pembayaran', [PembayaranController::class, 'showPembayaran'])->name('pembayaran');
 Route::delete('/pembayaran/{id_pembayaran}', [PembayaranController::class, 'destroy'])->name('pembayaran.delete');
 Route::resource('/pembayaran', PembayaranController::class);
 
@@ -61,14 +61,14 @@ Route::post('report/filter', [ReportPembayaranController::class, 'filter'])->nam
 
 
 // ###################################################### Paket Bimbel
-// Route::get('/paket', [PaketBimbelController::class, 'index'])->name('paket');
-// Route::post('/paket', [PaketBimbelController::class, 'store'])->name('paket.store');
 Route::resource('/paket', PaketBimbelController::class);
 
 // ###################################################### Jenis Paket Bimbel
-// Route::resource('/jenis', JenisPaketBimbelController::class);
 Route::delete('/jenis/{id_jenis}', [JenisPaketController::class, 'destroy'])->name('jenis.delete');
 Route::resource('/jenis', JenisPaketController::class);
+
+// ###################################################### Alokasi Murid
+Route::get('/alokasi', [AlokasiMuridController::class, 'index']);
 
 // ###################################################### Data User
 Route::resource('/user', UserController::class);
