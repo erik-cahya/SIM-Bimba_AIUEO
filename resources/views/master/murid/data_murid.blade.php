@@ -105,13 +105,6 @@
                                                                 class="">Edit</span>
                                                         </button>
 
-                                                        <button type="button" data-bs-toggle="modal"
-                                                            class="dropdown-item d-flex align-items-center"
-                                                            data-bs-target="#modalEditData{{ $murid->id_murid }}"><i
-                                                                data-feather="user" class="icon-sm me-2"></i> <span
-                                                                class="">Add User Account</span>
-                                                        </button>
-
                                                         <form method="POST" action="/murid/{{ $murid->id_murid }}"
                                                             class="d-inline">
                                                             {{ csrf_field() }}
@@ -119,7 +112,7 @@
                                                             <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
                                                                 class="dropdown-item d-flex align-items-center"><i
                                                                     data-feather="trash" class="icon-sm me-2"></i>
-                                                                    <span class="">Delete</span></button>
+                                                                <span class="">Delete</span></button>
                                                         </form>
 
                                                     </div>
@@ -161,7 +154,6 @@
                                         @php
                                             $number++;
                                         @endphp
-
                                     @endforeach
                                 </tbody>
                             </table>

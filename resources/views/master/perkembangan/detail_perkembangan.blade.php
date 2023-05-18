@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('styles')
+@endsection
 
 @section('content')
     @include('layouts.sidebar')
@@ -75,7 +77,6 @@
                                     @php
                                         $number = 1;
                                     @endphp
-
                                     @foreach ($data_murid as $perkembangan)
                                         <tr>
                                             <td>{{ $number }}</td>
@@ -158,5 +159,6 @@
                     </div>
                 </div>
             </div>
+            @include('layouts.footer')
         </div>
     @endsection

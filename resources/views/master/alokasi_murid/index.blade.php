@@ -13,8 +13,10 @@
 
                         <div class="d-flex justify-content-between">
                             <h6 class="card-title">Alokasi Murid</h6>
-                            <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i> Alokasikan Murid</button>
+                            {{-- <button type="button" data-bs-toggle="modal" class="btn btn-success"
+                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i>
+                                Alokasikan Murid
+                            </button> --}}
                         </div>
 
                         {{-- Alert Success --}}
@@ -53,7 +55,7 @@
                         <div class="table-responsive mt-3">
                             <table id="dataTableExample" class="table">
                                 <thead>
-                                    <tr >
+                                    <tr>
                                         <th>No</th>
                                         <th>Nama Guru</th>
                                         <th>Jumlah Murid</th>
@@ -62,29 +64,28 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($dataGuru as $guru)
-                                    <tr>
-                                        <td>1</td>
-                                        <td>{{ strtoupper($guru->nama_user) }}</td>
-                                        <td>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>{{ strtoupper($guru->nama_user) }}</td>
+                                            <td>
                                                 <span class="badge text-bg-primary">52 Murid</span>
                                             </td>
                                             <td>
                                                 <div class="dropdown mb-2">
                                                     <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <i class="icon-lg text-muted pb-3px"
-                                                    data-feather="more-vertical">
-                                                    </i>
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        <i class="icon-lg text-muted pb-3px" data-feather="more-vertical">
+                                                        </i>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <a href="{{ route('alokasi.detail', $guru->id_user) }}"
                                                             class="dropdown-item d-flex align-items-center">
                                                             <i data-feather="eye" class="icon-sm me-2"></i>Detail
                                                         </a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
                                     @endforeach
 
                                 </tbody>
@@ -98,5 +99,3 @@
         @include('layouts.footer')
     </div>
 @endsection
-
-
