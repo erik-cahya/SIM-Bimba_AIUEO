@@ -395,10 +395,10 @@
                 </li>
 
                 {{-- Data Alokasi Murid --}}
-                <li class="nav-item">
+                <li class="nav-item {{ request()->segment(1) == 'alokasi' ? 'active' : '' }}">
                     <a href="/alokasi" class="nav-link">
                         <i class="link-icon" data-feather="bookmark"></i>
-                        <span class="link-title">Alokasi Murid</span>
+                        <span class="link-title ">Alokasi Murid</span>
                     </a>
                 </li>
 

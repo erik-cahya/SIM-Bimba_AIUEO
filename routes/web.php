@@ -12,6 +12,7 @@ use App\Http\Controllers\Master\ReportPembayaranController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Wali\WaliPembayaranController;
 use App\Http\Controllers\Wali\WaliPerkembanganContoller;
+use App\Models\AlokasiMurid;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -68,7 +69,8 @@ Route::delete('/jenis/{id_jenis}', [JenisPaketController::class, 'destroy'])->na
 Route::resource('/jenis', JenisPaketController::class);
 
 // ###################################################### Alokasi Murid
-Route::get('/alokasi', [AlokasiMuridController::class, 'index']);
+Route::get('/alokasi', [AlokasiMuridController::class, 'index'])->name('alokasi');
+Route::get('/alokasi/detail/{id_user}', [AlokasiMuridController::class, 'detail'])->name('alokasi.detail');
 
 // ###################################################### Data User
 Route::resource('/user', UserController::class);

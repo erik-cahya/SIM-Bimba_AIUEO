@@ -12,7 +12,7 @@
                         <div class="d-flex justify-content-between">
                             <h6 class="card-title">Data Paket</h6>
                             <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                data-bs-target="#staticBackdrop">Tambah Data Paket</button>
+                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i> Tambah Data Paket</button>
                         </div>
 
                         {{-- Alert Success --}}

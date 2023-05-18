@@ -21,13 +21,12 @@
     <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/demo1/style.css') }}">
 
     {{-- font awesome CSS --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-
-
     {{-- select2 css --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
@@ -37,6 +36,8 @@
     <link rel="stylesheet" href="{{ asset('vendors/flatpickr/flatpickr.min.css') }}">
     <!-- End plugin css for this page -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+
+    @yield('styles')
 
     <style>
         .login_oueter {
@@ -63,29 +64,59 @@
         @yield('content')
     </div>
 
+
+
+
+    {{-- @yield('script') --}}
     <!-- core:js -->
 
+    <script src="{{ asset('/vendors/core/core.js') }}"></script>
+    <!-- endinject -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0.0-alpha.2/dist/js/adminlte.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="{{ asset('vendors/core/core.js') }}"></script>
+    <script src="{{ asset('js/data-table.js') }}"></script>
     <script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script>
-    <script src="{{ asset('vendors/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('js/template.js') }}"></script>
-    <script src="{{ asset('js/data-table.js') }}"></script>
-    <script src="{{ asset('js/dashboard-light.js') }}"></script>
-    <script src="{{ asset('vendors/flatpickr/flatpickr.min.js') }}"></script>
+
+    <!-- Plugin js for this page -->
+    <script src="{{ asset('/vendors/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+    <script src="{{ asset('/vendors/inputmask/jquery.inputmask.min.js') }}"></script>
+    <script src="{{ asset('/vendors/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+    <script src="{{ asset('/vendors/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
+    <script src="{{ asset('/vendors/dropzone/dropzone.min.js') }}"></script>
+    <script src="{{ asset('/vendors/dropify/dist/dropify.min.js') }}"></script>
+    <script src="{{ asset('/vendors/pickr/pickr.min.js') }}"></script>
+    <script src="{{ asset('/vendors/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('/vendors/flatpickr/flatpickr.min.js') }}"></script>
+    <!-- End plugin js for this page -->
+
+    <!-- inject:js -->
+    <script src="{{ asset('/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('/js/template.js') }}"></script>
+    <!-- endinject -->
+
+    <!-- Custom js for this page -->
+    <script src="{{ asset('/js/form-validation.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap-maxlength.js') }}"></script>
+    <script src="{{ asset('/js/inputmask.js') }}"></script>
+    <script src="{{ asset('/js/select2.js') }}"></script>
+    <script src="{{ asset('/js/typeahead.js') }}"></script>
+    <script src="{{ asset('/js/tags-input.js') }}"></script>
+    <script src="{{ asset('/js/dropzone.js') }}"></script>
+    <script src="{{ asset('/js/dropify.js') }}"></script>
+    <script src="{{ asset('/js/pickr.js') }}"></script>
+    <script src="{{ asset('/js/flatpickr.js') }}"></script>
 
 
 
 
-    @yield('script')
+
+
+
+
+
+
 
 
 
