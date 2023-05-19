@@ -132,7 +132,7 @@
         <div class="input-group mb-3">
             <input name="password" type="password"
                 class="input form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="password"
-                aria-label="password" aria-describedby="basic-addon1"/>
+                aria-label="password" aria-describedby="basic-addon1" />
             <div class="input-group-append">
                 <span class="input-group-text" style="height: 100%" onclick="password_show_hide();">
                     <i class="fas fa-eye" id="show_eye"></i>

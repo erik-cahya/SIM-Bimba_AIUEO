@@ -63,7 +63,7 @@
                         @endif
 
                         <div class="table-responsive mt-3">
-                            <table class="table">
+                            <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
                                         <th>Nim</th>

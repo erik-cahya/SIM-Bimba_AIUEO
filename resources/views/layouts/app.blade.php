@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/demo1/style.css') }}">
 
     {{-- font awesome CSS --}}

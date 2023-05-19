@@ -1,5 +1,10 @@
 @extends('layouts.app')
-
+@section('styles')
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('/css/demo1/style.css') }}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
+@endsection
 @section('content')
     @include('layouts.sidebar')
     <div class="page-wrapper">
@@ -27,6 +32,7 @@
                                             <h5 class="modal-title" id="varyingModalLabel">Tambah Data Murid</h5>
                                         </div>
                                         <div class="modal-body">
+
                                             @include('master.murid._form')
                                         </div>
                                         <div class="modal-footer">
@@ -162,9 +168,6 @@
                 </div>
             </div>
         </div>
-
-
-
         @include('layouts.footer')
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
