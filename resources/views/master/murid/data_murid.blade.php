@@ -22,8 +22,9 @@
                                 <i class="btn-icon-prepend" data-feather="user-plus"></i> Tambah Data Murid</button>
                         </div>
                         <!-- Modal Add Data Murid-->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+                        <div class="modal fade AssetsModal" id="staticBackdrop" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                            aria-hidden="false">
                             <form action="/murid" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-dialog modal-lg">

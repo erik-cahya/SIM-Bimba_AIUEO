@@ -8,11 +8,11 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
             <h4 class="mb-3 mb-md-0">Dashboard
                 @if (Auth::user()->hak_akses === 'kepala_staff')
-                        {{ 'Kepala Staff' }}
-                    @elseif (Auth::user()->hak_akses === 'guru')
-                        {{ 'Guru' }}
-                    @else
-                        {{ 'Orang Tua' }}
+                    {{ 'Kepala Staff' }}
+                @elseif (Auth::user()->hak_akses === 'guru')
+                    {{ 'Guru' }}
+                @else
+                    {{ 'Orang Tua' }}
                 @endif
             </h4>
         </div>
@@ -32,7 +32,7 @@
                                             <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                                 aria-haspopup="true" aria-expanded="false">
                                                 <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
-                                             </a>
+                                            </a>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item d-flex align-items-center" href="/murid">
                                                     <i data-feather="eye" class="icon-sm me-2"></i>

@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('styles')
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('/css/demo1/style.css') }}">
+    <!-- End layout styles -->
+
+    <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
+@endsection
 
 @section('content')
     @include('layouts.sidebar')
@@ -13,8 +20,11 @@
                         <div class="d-flex justify-content-between">
                             <h6 class="card-title">Pembayaran SPP</h6>
                             <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i> Tambah Data Pembayaran</button>
+                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i>
+                                Tambah Data Pembayaran</button>
                         </div>
+
+
 
                         {{-- Alert Success --}}
                         @if (session()->has('success'))
@@ -35,8 +45,8 @@
                         @endif
 
                         <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade AssetsModal" id="staticBackdrop" data-bs-backdrop="static"
+                            data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header text-center">
