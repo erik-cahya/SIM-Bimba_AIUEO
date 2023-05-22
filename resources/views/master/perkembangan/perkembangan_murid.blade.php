@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('styles')
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('/css/demo1/style.css') }}">
+    <!-- End layout styles -->
+
+    <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
+@endsection
 
 @section('content')
     @include('layouts.sidebar')
@@ -86,7 +93,7 @@
                             <!-- Modal -->
                             <form action="/perkembangan" method="POST" class="form-horizontal"
                                 enctype="multipart/form-data">
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                <div class="modal fade AssetsModal" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-lg">

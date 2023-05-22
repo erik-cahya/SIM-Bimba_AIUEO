@@ -132,7 +132,7 @@
                                                     {{ method_field('PATCH') }}
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data Murid
+                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data User
                                                             </h5>
                                                         </div>
                                                         <div class="modal-body">

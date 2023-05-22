@@ -105,24 +105,8 @@
     <script src="{{ asset('/js/tags-input.js') }}"></script>
     <script src="{{ asset('/js/dropzone.js') }}"></script>
     <script src="{{ asset('/js/dropify.js') }}"></script>
-    <script src="{{ asset('/js/pickr.js') }}"></script>
+
     <script src="{{ asset('/js/flatpickr.js') }}"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 

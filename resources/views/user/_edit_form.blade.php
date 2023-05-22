@@ -20,7 +20,13 @@
         <select id="hak_akses" name="hak_akses" class="form-control form-select">
 
             <option value="{{ old('hak_akses', $user->hak_akses) }}" selected>
-                {{ old('hak_akses', $user->hak_akses ?? 'Pilih Role User...') }}</option>
+                {{-- {{ old('hak_akses', $user->hak_akses ?? 'Pilih Role User...') }} --}}
+                @php
+                    ($user->hak_akses === 'kepala_staff') ? "Kepala Staff" : $user->hak_akses
+                @endphp
+                {{ $user->hak_akses }}
+
+            </option>
             <option value="kepala_staff">Kepala Staff</option>
             <option value="guru">Guru</option>
 
@@ -49,7 +55,7 @@
         <div class="input-group mb-3">
             <input name="password" type="password"
                 class="input form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="password_edit"
-                 aria-label="password" aria-describedby="basic-addon1" placeholder="Masukkan Password Baru"/>
+                aria-label="password" aria-describedby="basic-addon1" placeholder="Masukkan Password Baru" />
             <div class="input-group-append">
                 <span class="input-group-text" style="height: 100%" onclick="show_hide_password();">
                     <i class="fas fa-eye" id="show_password"></i>
