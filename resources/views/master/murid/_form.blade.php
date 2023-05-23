@@ -96,7 +96,7 @@
     <div class="form-group col mt-3">
         <label for="nama_paket">Nama Paket</label>
 
-        <select id="nama_paket" name="nama_paket" class="js-example-modal form-control form-select">
+        <select id="nama_paket" name="nama_paket" class="js-example-modal form-control form-select col-8 ">
             <option value="{{ old('nama_paket', $murid->nama_paket ?? '') }}" selected readonly>
                 {{ old('nama_paket', $murid->nama_paket ?? 'Pilih Paket...') }}
             </option>
