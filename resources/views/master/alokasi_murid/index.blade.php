@@ -13,10 +13,6 @@
 
                         <div class="d-flex justify-content-between">
                             <h6 class="card-title">Alokasi Murid</h6>
-                            {{-- <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i>
-                                Alokasikan Murid
-                            </button> --}}
                         </div>
 
                         {{-- Alert Success --}}
@@ -27,30 +23,6 @@
                                     aria-label="btn-close"></button>
                             </div>
                         @endif
-
-                        <!-- Modal -->
-                        <form action="/paket" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header text-center">
-                                            <h5 class="modal-title" id="varyingModalLabel">Tambah Data Paket</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            @csrf
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success">Tambah Data Paket</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </form>
 
                         <div class="table-responsive mt-3">
                             <table id="dataTableExample" class="table">
@@ -63,12 +35,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($dataGuru as $guru)
+                                    @php
+                                        $number = 1;
+                                    @endphp
+                                    @foreach ($data_guru as $guru)
                                         <tr>
-                                            <td>1</td>
+                                            <td>{{ $number }}</td>
                                             <td>{{ strtoupper($guru->nama_user) }}</td>
                                             <td>
-                                                <span class="badge text-bg-primary">52 Murid</span>
+                                                <span class="badge text-bg-primary">
+                                                    {{ $data_alokasi->where('id_user', $guru->id_user)->count() }} Murid
+                                                </span>
                                             </td>
                                             <td>
                                                 <div class="dropdown mb-2">
@@ -86,6 +63,9 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        @php
+                                            $number++;
+                                        @endphp
                                     @endforeach
 
                                 </tbody>

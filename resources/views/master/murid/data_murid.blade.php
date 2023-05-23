@@ -33,7 +33,6 @@
                                             <h5 class="modal-title" id="varyingModalLabel">Tambah Data Murid</h5>
                                         </div>
                                         <div class="modal-body">
-
                                             @include('master.murid._form')
                                         </div>
                                         <div class="modal-footer">
