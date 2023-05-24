@@ -48,19 +48,11 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <div class="dropdown mb-2">
-                                                    <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        <i class="icon-lg text-muted pb-3px" data-feather="more-vertical">
-                                                        </i>
-                                                    </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a href="{{ route('alokasi.detail', $guru->id_user) }}"
-                                                            class="dropdown-item d-flex align-items-center">
-                                                            <i data-feather="eye" class="icon-sm me-2"></i>Detail
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                <a href="{{ route('alokasi.detail', $guru->id_user) }}"
+                                                    class="btn btn-success">
+                                                    <i class="btn-icon-prepend" data-feather="eye"></i>
+                                                    Detail
+                                                </a>
                                             </td>
                                         </tr>
                                         @php
