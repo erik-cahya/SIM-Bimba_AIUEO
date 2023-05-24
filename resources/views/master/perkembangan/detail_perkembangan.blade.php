@@ -13,9 +13,9 @@
                 <div class="card">
                     <div class="card-body">
 
-                        @foreach ($get_name as $name)
-                            <h6 class="card-title">Data Perkembangan {{ $name }}</h6>
-                        @endforeach
+
+                        <h6 class="card-title">Data Perkembangan {{ $get_name->nama_murid }}</h6>
+
 
                         <div class="d-flex justift-content-between position-relative">
                             <button type="button" data-bs-toggle="modal" class="btn btn-success"
@@ -77,82 +77,89 @@
                                     @php
                                         $number = 1;
                                     @endphp
-                                    @foreach ($data_murid as $perkembangan)
-                                        <tr>
-                                            <td>{{ $number }}</td>
-                                            <td>{{ $perkembangan->deskripsi }}</td>
-                                            <td>{{ date('d-m-Y', strtotime($perkembangan->tgl_perkembangan)) }}</td>
-                                            <td>
-                                                {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
-                                                <div class="dropdown mb-2">
-                                                    <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        <i class="icon-lg text-muted pb-3px"
-                                                            data-feather="more-vertical"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @if ($data_murid->count() >= 1)
+                                        @foreach ($data_murid as $perkembangan)
+                                            <tr>
+                                                <td>{{ $number }}</td>
+                                                <td>{{ $perkembangan->deskripsi }}</td>
+                                                <td>{{ date('d-m-Y', strtotime($perkembangan->tgl_perkembangan)) }}</td>
+                                                <td>
+                                                    {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
+                                                    <div class="dropdown mb-2">
+                                                        <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                            <i class="icon-lg text-muted pb-3px"
+                                                                data-feather="more-vertical"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                        <button type="button" data-bs-toggle="modal"
-                                                            class="dropdown-item d-flex align-items-center"
-                                                            data-bs-target="#modalEditData{{ $perkembangan->id_perkembangan }}">
-                                                            <i data-feather="edit-2" class="icon-sm me-2"></i>
-                                                            <span class="">Edit</span>
-                                                        </button>
-
-                                                        <form method="POST"
-                                                            action="/perkembangan/{{ $perkembangan->id_perkembangan }}"
-                                                            class="d-inline">
-                                                            {{ csrf_field() }}
-                                                            {{ method_field('DELETE') }}
-                                                            <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
-                                                                class="dropdown-item d-flex align-items-center">
-                                                                <i data-feather="trash" class="icon-sm me-2"></i>
-                                                                <span class="">Delete</span>
+                                                            <button type="button" data-bs-toggle="modal"
+                                                                class="dropdown-item d-flex align-items-center"
+                                                                data-bs-target="#modalEditData{{ $perkembangan->id_perkembangan }}">
+                                                                <i data-feather="edit-2" class="icon-sm me-2"></i>
+                                                                <span class="">Edit</span>
                                                             </button>
-                                                        </form>
 
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                            <form method="POST"
+                                                                action="/perkembangan/{{ $perkembangan->id_perkembangan }}"
+                                                                class="d-inline">
+                                                                {{ csrf_field() }}
+                                                                {{ method_field('DELETE') }}
+                                                                <button
+                                                                    onclick="return confirm('Yakin Ingin Menghapus Data ?')"
+                                                                    class="dropdown-item d-flex align-items-center">
+                                                                    <i data-feather="trash" class="icon-sm me-2"></i>
+                                                                    <span class="">Delete</span>
+                                                                </button>
+                                                            </form>
 
-                                        {{-- Modal edit data --}}
-
-                                        <div class="modal fade" id="modalEditData{{ $perkembangan->id_perkembangan }}"
-                                            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-
-                                                <form
-                                                    action="{{ route('perkembangan.update', $perkembangan->id_perkembangan) }}"
-                                                    method="POST">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('PATCH') }}
-                                                    <div class="modal-content">
-                                                        <div class="modal-header text-center">
-                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data
-                                                                Perkembangan</h5>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                @include('master.perkembangan._editform')
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                            {{-- Modal edit data --}}
+
+                                            <div class="modal fade" id="modalEditData{{ $perkembangan->id_perkembangan }}"
+                                                data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+
+                                                    <form
+                                                        action="{{ route('perkembangan.update', $perkembangan->id_perkembangan) }}"
+                                                        method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('PATCH') }}
+                                                        <div class="modal-content">
+                                                            <div class="modal-header text-center">
+                                                                <h5 class="modal-title" id="varyingModalLabel">Ubah Data
+                                                                    Perkembangan</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    @include('master.perkembangan._editform')
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-success">Ubah
+                                                                    Data</button>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-success">Ubah
-                                                                Data</button>
-                                                        </div>
-                                                    </div>
 
-                                                </form>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
-                                        @php
-                                            $number++;
-                                        @endphp
-                                    @endforeach
+
+                                            @php
+                                                $number++;
+                                            @endphp
+                                        @endforeach
+                                    @else
+                                    @endif
+
                                 </tbody>
                             </table>
                         </div>

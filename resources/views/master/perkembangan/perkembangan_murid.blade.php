@@ -136,7 +136,19 @@
                                                 <td>{{ $murid->nama_murid }}</td>
                                                 <td>
                                                     {{-- {{ date('d-m-Y', strtotime($data_perkembangan->firstWhere('id_murid', $murid->id_murid)->tgl_perkembangan)) }} --}}
-                                                    {{ $murid->id_murid }}
+                                                    {{-- @if ($tgl_perkembangan == null)
+                                                    @else
+                                                        {{ dd($tgl_perkembangan) }}
+                                                    @endif --}}
+                                                    @if ($data_perkembangan->where('id_murid', $murid->id_murid)->count() >= 1)
+                                                        <span class="badge text-bg-primary">
+                                                            {{ $data_perkembangan->where('id_murid', $murid->id_murid)->first()->tgl_perkembangan }}
+                                                        </span>
+                                                    @else
+                                                        <span class="badge text-bg-primary">
+                                                            Tidak ada data perkembangan
+                                                        </span>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('perkembangan.detail', $murid->id_murid) }}"

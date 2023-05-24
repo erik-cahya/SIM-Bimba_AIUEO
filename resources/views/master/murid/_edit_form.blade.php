@@ -107,54 +107,8 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="form-group col mt-3">
-        <details>
-            <summary>Wali Murid Account</summary>
-            <div class="row">
-                <div class="form-group col mt-3">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username"
-                        class="form-control {{ $errors->has('username') ? ' is-invalid' : '' }}">
 
-                    @if ($errors->has('username'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('username') }}</strong>
-                        </span>
-                    @endif
-                </div>
-
-                <div class="form-group col mt-3">
-                    <label for="password">Password</label>
-                    <div class="input-group mb-3">
-                        <input name="password" type="password"
-                            class="input form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="password_edit"
-                            aria-label="password" aria-describedby="basic-addon1"/>
-
-                        <div class="input-group-append">
-                            <span class="input-group-text" style="height: 100%" onclick="password_edit_hide();">
-                                <i class="fas fa-eye" id="show_eye1"></i>
-                                <i class="fas fa-eye-slash d-none" id="hide_eye1"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    @if ($errors->has('password'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-
-                </div>
-            </div>
-
-        </details>
-    </div>
-
-
-</div>
 <script>
-
     // password show hide
     function password_edit_hide() {
         var x = document.getElementById("password_edit");

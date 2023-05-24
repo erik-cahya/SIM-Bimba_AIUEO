@@ -13,7 +13,8 @@
                         <div class="d-flex justify-content-between">
                             <h6 class="card-title">Jenis Paket Bimbel</h6>
                             <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i> Tambah Data Jenis</button>
+                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i>
+                                Tambah Data Jenis</button>
                         </div>
 
                         {{-- Alert Success --}}
@@ -120,7 +121,7 @@
                                                     {{ method_field('PATCH') }}
                                                     <div class="modal-content">
                                                         <div class="modal-header text-center">
-                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data Jenis
+                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Jenis Paket
                                                             </h5>
                                                         </div>
                                                         <div class="modal-body">

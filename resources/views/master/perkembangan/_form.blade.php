@@ -1,10 +1,9 @@
 <div class="row">
     <div class="form-group">
-        <label for="nama_murid">Nama Murid</label>
-        <input class="form-control" id="disabledInput" type="text" placeholder="{{ $data_murid[0]->nama_murid ?? '' }}"
+        <label for="nama_murid">Nama Murid cokk</label>
+        <input class="form-control" id="disabledInput" type="text" placeholder="{{ $get_name->nama_murid ?? '' }}"
             readonly>
-        <input type="hidden" name="id_murid" id="id_murid" value="{{ $data_murid[0]->id_murid ?? '' }}"
-            class="form-control">
+        <input type="hidden" name="id_murid" id="id_murid" value="{{ $get_name->id_murid ?? '' }}" class="form-control">
     </div>
 </div>
 
