@@ -15,9 +15,20 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        {{-- @foreach ($data_user as $user)
-                            <h6 class="card-title">{{ $user->nama_user }}</h6>
-                            @endforeach --}}
+
+
+                        @if (session()->has('success'))
+                            <div class="alert alert-success col-lg-12 mt-2" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session()->has('delete'))
+                            <div class="alert alert-danger col-lg-12 mt-2" role="alert">
+                                {{ session('delete') }}
+                            </div>
+                        @endif
+
                         <h6 class="card-title">{{ $data_user[0]->nama_user }}</h6>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">

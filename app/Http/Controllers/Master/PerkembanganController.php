@@ -20,14 +20,33 @@ class PerkembanganController extends Controller
     public function index()
     {
         $data['data_murid'] = DB::table('murid')->get();
+
         // $data['get_name'] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->select('perkembangan.id_murid', 'perkembangan.id_user', 'nama_murid', DB::raw('count(`nama_murid`) as muridname'))->groupBy('nama_murid', 'id_user', 'id_murid')->having('muridname', '>=', 1)->where('perkembangan.id_user', Auth::user()->id_user)->get();
 
-        $data['get_name'] = AlokasiMurid::join('murid', 'murid.id_murid', '=', 'alokasi_murid.id_murid')->where('alokasi_murid.id_user', Auth::user()->id_user)->get();
 
-        $data["data_perkembangan"] = DB::table('perkembangan')->orderBy('tgl_perkembangan', 'DESC')->get();
-        $data['get_data_perkembangan'] = DB::table('perkembangan')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->orderBy('tgl_perkembangan', 'DESC')->get();
+
+        $data['get_name'] = Perkembangan::where('perkembangan.id_user', Auth::user()->id_user)->count();
+
+        // check jka data di perkembangan 0
+        if(Perkembangan::where('perkembangan.id_user', Auth::user()->id_user)->count() === 0){
+
+            $data['get_name'] = DB::table('alokasi_murid')->join('murid', 'murid.id_murid', '=', 'alokasi_murid.id_murid')->where('alokasi_murid.id_user', Auth::user()->id_user)->first();
+            $data['tgl_perkembangan'] = null;
+
+            // dd($data['get_name']);
+
+
+            $data["data_perkembangan"] = DB::table('perkembangan')->orderBy('tgl_perkembangan', 'DESC')->get();
+
+            $data['get_data_perkembangan'] = DB::table('perkembangan')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->orderBy('tgl_perkembangan', 'DESC')->get();
 
         return view('master.perkembangan.perkembangan_murid', $data);
+
+        }else{
+            dd('data table perkembangan ada datanya');
+        }
+
+
     }
 
 
