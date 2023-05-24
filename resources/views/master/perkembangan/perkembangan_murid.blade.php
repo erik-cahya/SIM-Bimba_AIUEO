@@ -124,7 +124,6 @@
                                             <th>Nama Murid</th>
                                             <th>Perkembangan Terakhir</th>
                                             <th>Aksi</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -136,7 +135,8 @@
                                                 <td>{{ $number }}</td>
                                                 <td>{{ $murid->nama_murid }}</td>
                                                 <td>
-                                                    {{ date('d-m-Y', strtotime($data_perkembangan->firstWhere('id_murid', $murid->id_murid)->tgl_perkembangan)) }}
+                                                    {{-- {{ date('d-m-Y', strtotime($data_perkembangan->firstWhere('id_murid', $murid->id_murid)->tgl_perkembangan)) }} --}}
+                                                    {{ $murid->id_murid }}
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('perkembangan.detail', $murid->id_murid) }}"

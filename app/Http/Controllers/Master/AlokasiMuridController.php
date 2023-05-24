@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
+use App\Models\AlokasiMurid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,8 +26,9 @@ class AlokasiMuridController extends Controller
         return view('master.alokasi_murid.detail', $data);
     }
 
-    public function addMurid(Request $request)
+    public function store(Request $request)
     {
-        dd($request->all());
+        AlokasiMurid::create($request->all());
+        return back()->with('success', 'Data Murid Berhasil Ditambahkan');
     }
 }

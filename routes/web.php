@@ -71,7 +71,7 @@ Route::resource('/jenis', JenisPaketController::class);
 // ###################################################### Alokasi Murid
 Route::get('/alokasi', [AlokasiMuridController::class, 'index'])->name('alokasi');
 Route::get('/alokasi/detail/{id_user}', [AlokasiMuridController::class, 'detail'])->name('alokasi.detail');
-Route::post('/alokasi/addmurid', [AlokasiMuridController::class, 'addMurid'])->name('alokasi.addmurid');
+Route::post('/alokasi/store', [AlokasiMuridController::class, 'store'])->name('alokasi.addmurid');
 
 // ###################################################### Data User
 Route::resource('/user', UserController::class);
