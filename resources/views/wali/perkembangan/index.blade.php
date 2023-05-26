@@ -12,7 +12,7 @@
                     <div class="card-body">
 
 
-                        <h6 class="card-title">Data Perkembangan Gede Putu Jaya</h6>
+                        <h6 class="card-title">Data Perkembangan {{ $murid[0]->nama_murid }}</h6>
 
 
                         <div class="table-responsive mt-3">
@@ -26,27 +26,20 @@
                                 </thead>
                                 <tbody>
 
+                                    @php
+                                        $number = 1;
+                                    @endphp
+                                    @foreach ($data_perkembangan as $perkembangan)
+                                        <tr>
+                                            <td>{{ $number }}</td>
+                                            <td>{{ $perkembangan->deskripsi }}</td>
+                                            <td>{{ $perkembangan->tgl_perkembangan }}</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Sudah Bisa Membaca</td>
-                                        <td>12/01/2022</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Sudah Bisa Membaca</td>
-                                        <td>12/01/2022</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Sudah Bisa Membaca</td>
-                                        <td>12/01/2022</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Sudah Bisa Membaca</td>
-                                        <td>12/01/2022</td>
-                                    </tr>
+                                        @php
+                                            $number++;
+                                        @endphp
+                                    @endforeach
 
                         </div>
 

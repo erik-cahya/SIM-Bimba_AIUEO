@@ -13,15 +13,15 @@
     <div class="sidebar-body">
         <ul class="nav">
 
-            @if (Auth::user()->hak_akses === 'kepala_staff' || Auth::user()->hak_akses === 'guru')
-                <li class="nav-item nav-category">Main</li>
-                <li class="nav-item">
-                    <a href="/dashboard" class="nav-link">
-                        <i class="link-icon" data-feather="box"></i>
-                        <span class="link-title">Dashboard</span>
-                    </a>
-                </li>
-            @endif
+            {{-- @if (Auth::user()->hak_akses === 'kepala_staff' || Auth::user()->hak_akses === 'guru') --}}
+            <li class="nav-item nav-category">Main</li>
+            <li class="nav-item">
+                <a href="/dashboard" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Dashboard</span>
+                </a>
+            </li>
+            {{-- @endif --}}
 
             {{-- ######################################################################## master --}}
             @if (Auth::user()->hak_akses === 'master')
@@ -368,7 +368,7 @@
                             <li class="nav-item">
                                 <a href="/report"
                                     class="nav-link {{ request()->segment(1) == 'report' ? 'active' : '' }}">Laporan
-                                    SPP Tahunan</a>
+                                    SPP Bimbel</a>
                             </li>
                         </ul>
                     </div>
@@ -431,13 +431,13 @@
             @if (Auth::user()->hak_akses === 'wali_murid')
                 <li class="nav-item nav-category">master apps</li>
                 {{-- Data Bimbel --}}
-                <li class="nav-item {{ request()->segment(1) == 'perkembangan' ? 'active' : '' }}">
+                <li class="nav-item {{ request()->segment(1) == 'perkembanganwali' ? 'active' : '' }}">
                     <a href="{{ '/perkembanganwali' }}" class="nav-link">
                         <i class="link-icon" data-feather="book-open"></i>
                         <span class="link-title">Data Perkembangan Murid</span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->segment(1) == 'pembayaran' ? 'active' : '' }}">
+                <li class="nav-item {{ request()->segment(1) == 'pembayaranwali' ? 'active' : '' }}">
                     <a href="{{ '/pembayaranwali' }}" class="nav-link">
                         <i class="link-icon" data-feather="credit-card"></i>
                         <span class="link-title">Data Pembayaran Murid</span>

@@ -72,6 +72,7 @@ Route::resource('/jenis', JenisPaketController::class);
 Route::get('/alokasi', [AlokasiMuridController::class, 'index'])->name('alokasi');
 Route::get('/alokasi/detail/{id_user}', [AlokasiMuridController::class, 'detail'])->name('alokasi.detail');
 Route::post('/alokasi/store', [AlokasiMuridController::class, 'store'])->name('alokasi.addmurid');
+Route::delete('/alokasi/{id_alokasi}', [AlokasiMuridController::class, 'destroy']);
 
 // ###################################################### Data User
 Route::resource('/user', UserController::class);
@@ -80,3 +81,4 @@ Route::resource('/user', UserController::class);
 // ###################################################### Data Perkembangan Murid
 Route::get('/perkembanganwali', [WaliPerkembanganContoller::class, 'index']);
 Route::get('/pembayaranwali', [WaliPembayaranController::class, 'index']);
+Route::post('/pembayaranwali/filter', [WaliPembayaranController::class, 'filter'])->name('wali.pembayaran.filter');

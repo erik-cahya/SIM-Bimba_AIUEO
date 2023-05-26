@@ -1,6 +1,6 @@
 <div class="row">
     <div class="form-group">
-        <label for="nama_murid">Nama Murid cokk</label>
+        <label for="nama_murid">Nama Murid</label>
         <input class="form-control" id="disabledInput" type="text" placeholder="{{ $get_name->nama_murid ?? '' }}"
             readonly>
         <input type="hidden" name="id_murid" id="id_murid" value="{{ $get_name->id_murid ?? '' }}" class="form-control">

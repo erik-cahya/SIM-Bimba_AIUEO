@@ -97,7 +97,7 @@
         <label for="nama_paket">Nama Paket</label>
 
         <select id="nama_paket" name="nama_paket" class="form-control form-select">
-            <option value="{{ old('nama_paket', $murid->nama_paket) }}" selected>
+            <option value="{{ old('nama_paket', $murid->id_paket) }}" selected>
                 {{ old('nama_paket', $murid->nama_paket ?? 'Pilih Paket...') }}
             </option>
             @foreach ($data_paket as $paket)

@@ -37,9 +37,9 @@
                                 @csrf
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                        <div class="modal-header justify-content-center">
+                                        <div class="modal-header ">
                                             <h5 class="modal-title" id="varyingModalLabel">
-                                                Tambah Perkembangan
+                                                Tambah Data Perkembangan
                                             </h5>
                                         </div>
                                         <div class="modal-body">

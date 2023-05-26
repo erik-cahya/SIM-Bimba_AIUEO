@@ -15,5 +15,10 @@ $(function () {
             dropdownParent: $('.AssetsModal')
         });
     }
+    if ($(".js-example-modal2").length) {
+        $(".js-example-modal2").select2({
+            dropdownParent: $('.AssetsModal2')
+        });
+    }
 
 });

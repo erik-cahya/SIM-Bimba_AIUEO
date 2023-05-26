@@ -11,24 +11,23 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Pembayaran Gede Putu Jaya</h6>
+                        <h6 class="card-title">Pembayaran {{ $murid[0]->nama_murid }}</h6>
 
                         <div class="d-flex justift-content-between position-relative">
 
-
-                            <form action="{{ route('perkembangan.filter') }}" method="POST" class="d-flex">
+                            <form action="{{ route('wali.pembayaran.filter') }}" method="POST" class="d-flex">
                                 {{ csrf_field() }}
                                 <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
-                                    <span class="input-group-text input-group-addon bg-transparent border-dark border-end-0"
-                                        data-toggle><i data-feather="calendar" class="text-dark"></i></span>
-                                    <input type="text" class="form-control bg-transparent border-dark"
-                                        placeholder="Select date" name="filter_date" data-input>
+
+                                    <input type="month" class="form-control bg-transparent border-dark"
+                                        placeholder="Select date" name="filter_date" value="{{ date('Y-m') }}">
                                 </div>
                                 <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">
-                                    <i class="btn-icon-prepend" data-feather="search"></i>
-                                    Cari
+                                    <i class="btn-icon-prepend" data-feather="filter"></i>
+                                    Filter
                                 </button>
                             </form>
+
                         </div>
 
                         <div class="table-responsive mt-3">
@@ -44,15 +43,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i = 1; $i <= 3; $i++)
+                                    @php
+                                        $number = 1;
+                                    @endphp
+                                    @foreach ($data_pembayaran as $bayar)
                                         <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>Gede Putu Jaya</td>
-                                            <td>Rp.310.000</td>
-                                            <td>02/12/2022</td>
-                                            <td>Standard 4</td>
+                                            <td>{{ $number }}</td>
+                                            <td>{{ $bayar->nama_murid }}</td>
+                                            <td>Rp. {{ number_format($bayar->jumlah_bayar, 0, '', '.') }}</td>
+                                            <td>{{ date('d-m-Y', strtotime($bayar->tanggal_bayar)) }}</td>
+                                            <td>{{ $bayar->nama_paket }}</td>
                                         </tr>
-                                    @endfor
+                                        @php
+                                            $number++;
+                                        @endphp
+                                    @endforeach
+
 
                                 </tbody>
                             </table>

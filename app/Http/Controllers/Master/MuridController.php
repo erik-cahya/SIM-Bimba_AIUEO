@@ -44,7 +44,8 @@ class MuridController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+
+        //dd($request->all());
         $request->validate(
             [
                 'nama_murid'    => 'required|unique:murid',
@@ -81,6 +82,7 @@ class MuridController extends Controller
                 'nama_ortu' => $request->nama_ortu,
                 'no_telp' => $request->no_telp,
                 'nama_paket' => $request->nama_paket,
+                'status_alokasi' => 0
             ];
 
             Murid::create($request);
@@ -103,6 +105,7 @@ class MuridController extends Controller
                 'nama_ortu' => $request->nama_ortu,
                 'no_telp' => $request->no_telp,
                 'nama_paket' => $request->nama_paket,
+                'status_alokasi' => 0
             ]);
             return redirect('/murid')->with('success', 'Data Murid Berhasil Ditambahkan');
         }

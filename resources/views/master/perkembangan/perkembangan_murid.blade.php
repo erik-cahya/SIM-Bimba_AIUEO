@@ -84,14 +84,10 @@
 
                             <div class="d-flex justify-content-between">
                                 <h6 class="card-title">Data Perkembangan</h6>
-                                <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                    data-bs-target="#staticBackdrop">
-                                    <i class="btn-icon-prepend" data-feather="plus"></i>
-                                    Tambah Data Perkembangan</button>
                             </div>
 
                             <!-- Modal -->
-                            <form action="/perkembangan" method="POST" class="form-horizontal"
+                            {{-- <form action="/perkembangan" method="POST" class="form-horizontal"
                                 enctype="multipart/form-data">
                                 <div class="modal fade AssetsModal" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
@@ -114,7 +110,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </form> --}}
 
                             <div class="table-responsive mt-3">
                                 <table id="dataTableExample" class="table">

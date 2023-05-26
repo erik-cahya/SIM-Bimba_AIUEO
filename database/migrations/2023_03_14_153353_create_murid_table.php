@@ -24,6 +24,7 @@ class CreateMuridTable extends Migration
             $table->string('nama_ortu');
             $table->string('no_telp');
             $table->unsignedInteger('nama_paket');
+            $table->boolean('status_alokasi');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');

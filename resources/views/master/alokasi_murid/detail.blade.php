@@ -75,12 +75,23 @@
                                                                 <i class="icon-lg text-muted pb-3px"
                                                                     data-feather="more-vertical"></i>
                                                             </a>
-                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                <a href="#"
-                                                                    class="dropdown-item d-flex align-items-center">
-                                                                    <i data-feather="trash" class="icon-sm me-2"></i>Delete
-                                                                </a>
-                                                            </div>
+                                                            <form action="/alokasi/{{ $alokasi->id_alokasi }}"
+                                                                method="POST">
+                                                                {{ csrf_field() }}
+                                                                {{ method_field('DELETE') }}
+                                                                <input type="hidden" name="id_alokasi"
+                                                                    value="{{ $alokasi->id_alokasi }}">
+                                                                <input type="hidden" name="id_murid"
+                                                                    value="{{ $alokasi->id_murid }}">
+                                                                <div class="dropdown-menu"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    <button class="dropdown-item d-flex align-items-center">
+                                                                        <i data-feather="trash"
+                                                                            class="icon-sm me-2"></i>Delete
+                                                                    </button>
+                                                                    </a>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -97,7 +108,8 @@
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h4 class="card-title">Tambah Alokasi Murid</h4>
 
-                                <form action="{{ route('alokasi.addmurid') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('alokasi.addmurid') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="row mb-3">
                                         <input type="hidden" name="id_user" id="id_user"
@@ -109,7 +121,8 @@
                                             <select class="js-example-basic-single form-select" data-width="100%"
                                                 name="id_murid">
                                                 @foreach ($dataMurid as $murid)
-                                                    <option value="{{ $murid->id_murid }}">{{ $murid->nama_murid }}</option>
+                                                    <option value="{{ $murid->id_murid }}">{{ $murid->nama_murid }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>

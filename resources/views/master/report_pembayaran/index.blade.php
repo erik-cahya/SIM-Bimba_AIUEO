@@ -9,7 +9,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Laporan SPP Tahunan</h6>
+                        <h6 class="card-title">Laporan SPP Bimbel</h6>
                         <div class="d-flex justift-content-between position-relative">
 
                             <form action="{{ route('report.filter') }}" method="POST" class="d-flex">
