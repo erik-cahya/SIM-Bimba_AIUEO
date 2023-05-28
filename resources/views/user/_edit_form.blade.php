@@ -21,10 +21,11 @@
 
             <option value="{{ old('hak_akses', $user->hak_akses) }}" selected>
                 {{-- {{ old('hak_akses', $user->hak_akses ?? 'Pilih Role User...') }} --}}
-                @php
-                    ($user->hak_akses === 'kepala_staff') ? "Kepala Staff" : $user->hak_akses
-                @endphp
-                {{ $user->hak_akses }}
+                @if ($user->hak_akses == 'wali_murid')
+                    {{ $hak_akses = 'Wali Murid' }}
+                @elseif ($user->hak_akses == 'kepala_staff')
+                    {{ $hak_akses = 'Kepala Staff' }}
+                @endif
 
             </option>
             <option value="kepala_staff">Kepala Staff</option>

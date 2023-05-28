@@ -17,7 +17,6 @@
     <div class="form-group col mt-3">
         <label for="hak_akses" disabled>Hak Akses</label>
         <select id="hak_akses" name="hak_akses" class="form-control form-select">
-
             <option value="{{ old('hak_akses', $user->hak_akses ?? '') }}" selected>
                 {{ old('hak_akses', $user->hak_akses ?? 'Pilih Role User...') }}</option>
             <option value="kepala_staff">Kepala Staff</option>

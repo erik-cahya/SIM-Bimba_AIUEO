@@ -168,80 +168,82 @@
         </div> <!-- row -->
         @include('layouts.footer')
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-        const ctx = document.getElementById('chartPerkembangan');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: [
-                    'Januari',
-                    'Februari',
-                    'Maret',
-                    'April',
-                    'Mei',
-                    'Juni',
-                    'Juli',
-                    'Agustus',
-                    'September',
-                    'Oktober',
-                    'November',
-                    'Desember',
-                ],
-                datasets: [{
-                    label: 'Data Perkembangan Murid',
-                    data: [
-                        {{ $perkembangan_januari }},
-                        {{ $perkembangan_februari }},
-                        {{ $perkembangan_maret }},
-                        {{ $perkembangan_april }},
-                        {{ $perkembangan_mei }},
-                        {{ $perkembangan_juni }},
-                        {{ $perkembangan_juli }},
-                        {{ $perkembangan_agustus }},
-                        {{ $perkembangan_september }},
-                        {{ $perkembangan_oktober }},
-                        {{ $perkembangan_november }},
-                        {{ $perkembangan_desember }},
+    @if (Auth::user()->hak_akses === 'wali_murid')
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx = document.getElementById('chartPerkembangan');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember',
                     ],
-                    borderWidth: 1,
-                    backgroundColor: '#36A2EB'
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    datasets: [{
+                        label: 'Data Perkembangan Murid',
+                        data: [
+                            {{ $perkembangan_januari }},
+                            {{ $perkembangan_februari }},
+                            {{ $perkembangan_maret }},
+                            {{ $perkembangan_april }},
+                            {{ $perkembangan_mei }},
+                            {{ $perkembangan_juni }},
+                            {{ $perkembangan_juli }},
+                            {{ $perkembangan_agustus }},
+                            {{ $perkembangan_september }},
+                            {{ $perkembangan_oktober }},
+                            {{ $perkembangan_november }},
+                            {{ $perkembangan_desember }},
+                        ],
+                        borderWidth: 1,
+                        backgroundColor: '#36A2EB'
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    </script>
-    <script>
-        const pembayaran = document.getElementById('chartPembayaran');
-        new Chart(pembayaran, {
-            type: 'bar',
-            data: {
-                labels: [
-                    @foreach ($data_murid_wali as $murid)
-                        "{{ $murid->nama_murid }}",
-                    @endforeach
-                ],
-                datasets: [{
-                    label: 'Data Pembayaran Murid',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1,
-                    backgroundColor: '#FF6384'
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            });
+        </script>
+        <script>
+            const pembayaran = document.getElementById('chartPembayaran');
+            new Chart(pembayaran, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        @foreach ($data_murid_wali as $murid)
+                            "{{ $murid->nama_murid }}",
+                        @endforeach
+                    ],
+                    datasets: [{
+                        label: 'Data Pembayaran Murid',
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderWidth: 1,
+                        backgroundColor: '#FF6384'
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
-    </script>
+            });
+        </script>
+    @endif
 @endsection
