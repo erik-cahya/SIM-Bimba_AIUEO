@@ -33,10 +33,16 @@
                                         Filter
                                     </button>
                                 </form>
-                                <button class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
-                                    <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                                    Unduh
-                                </button>
+
+                                <form action="{{ route('perkembangan.convert') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="filter" value="{{ $date_filter }}">
+                                    <button type="submit"
+                                        class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
+                                        <i class="btn-icon-prepend" data-feather="download-cloud"></i>
+                                        Unduh
+                                    </button>
+                                </form>
                             </div>
 
                             <div class="table-responsive mt-3">

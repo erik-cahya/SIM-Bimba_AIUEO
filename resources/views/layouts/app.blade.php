@@ -86,7 +86,7 @@
     <script src="{{ asset('/vendors/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
     <script src="{{ asset('/vendors/dropzone/dropzone.min.js') }}"></script>
     <script src="{{ asset('/vendors/dropify/dist/dropify.min.js') }}"></script>
-    <script src="{{ asset('/vendors/pickr/pickr.min.js') }}"></script>
+    {{-- <script src="{{ asset('/vendors/pickr/pickr.min.js') }}"></script> --}}
     <script src="{{ asset('/vendors/moment/moment.min.js') }}"></script>
     <script src="{{ asset('/vendors/flatpickr/flatpickr.min.js') }}"></script>
     <!-- End plugin js for this page -->

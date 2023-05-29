@@ -42,6 +42,7 @@ class PerkembanganController extends Controller
 
         $data['get_name'] = DB::table('alokasi_murid')->join('murid', 'murid.id_murid', '=', 'alokasi_murid.id_murid')->where('alokasi_murid.id_user', Auth::user()->id_user)->get();
         $data['tgl_perkembangan'] = null;
+        $data['date_filter'] = null;
         $data["data_perkembangan"] = DB::table('perkembangan')->orderBy('tgl_perkembangan', 'DESC')->get();
         $data['get_data_perkembangan'] = DB::table('perkembangan')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->orderBy('tgl_perkembangan', 'DESC')->get();
 
@@ -160,10 +161,10 @@ class PerkembanganController extends Controller
 
     public function filter(Request $request)
     {
-
         // convert format date
         $filter_date = date('Y-m', strtotime($request->filter_date));
 
+        $data['date_filter'] = date('Y-m', strtotime($request->filter_date));
         $data["get_data_perkembangan"] = DB::table('perkembangan')->join('murid', 'murid.id_murid', '=', 'perkembangan.id_murid')->join('users', 'users.id_user', '=', 'perkembangan.id_user')->where('tgl_perkembangan', 'LIKE', $filter_date . '%')->get();
 
         return view('master.perkembangan.perkembangan_murid', $data);

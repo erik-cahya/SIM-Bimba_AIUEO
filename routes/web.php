@@ -9,6 +9,7 @@ use App\Http\Controllers\Master\PaketBimbelController;
 use App\Http\Controllers\Master\PembayaranController;
 use App\Http\Controllers\Master\PerkembanganController;
 use App\Http\Controllers\Master\ReportPembayaranController;
+use App\Http\Controllers\PdfGeneratorContoller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Wali\WaliPembayaranController;
 use App\Http\Controllers\Wali\WaliPerkembanganContoller;
@@ -82,3 +83,6 @@ Route::resource('/user', UserController::class);
 Route::get('/perkembanganwali', [WaliPerkembanganContoller::class, 'index']);
 Route::get('/pembayaranwali', [WaliPembayaranController::class, 'index']);
 Route::post('/pembayaranwali/filter', [WaliPembayaranController::class, 'filter'])->name('wali.pembayaran.filter');
+
+// Generate PDF
+Route::POST('/reportPerkembangan', [PdfGeneratorContoller::class, 'index'])->name('perkembangan.convert');
