@@ -34,10 +34,10 @@
                                     </button>
                                 </form>
 
-                                <form action="{{ route('perkembangan.convert') }}" method="POST">
+                                <form action="{{ route('perkembangan.convert') }}" method="POST" target="_blank">
                                     @csrf
                                     <input type="hidden" name="filter" value="{{ $date_filter }}">
-                                    <button type="submit"
+                                    <button type="submit" target="_blank"
                                         class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
                                         <i class="btn-icon-prepend" data-feather="download-cloud"></i>
                                         Unduh

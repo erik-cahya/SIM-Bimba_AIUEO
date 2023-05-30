@@ -37,7 +37,6 @@ class AlokasiMuridController extends Controller
 
     public function destroy(Request $request)
     {
-
         AlokasiMurid::destroy($request->id_alokasi);
         DB::table('murid')->where('id_murid', $request->id_murid)->update(['status_alokasi' => 0]);
         return back()->with('delete', 'Data Murid Berhasil Dihapus');

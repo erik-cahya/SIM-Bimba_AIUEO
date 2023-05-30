@@ -24,10 +24,15 @@
                                     Filter
                                 </button>
                             </form>
-                            <button class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
-                                <i class="btn-icon-prepend" data-feather="download-cloud"></i>
-                                Unduh
-                            </button>
+                            <form action="{{ route('pembayaran.convert') }}" method="POST" target="_blank">
+                                @csrf
+                                <input type="hidden" name="filter" value="{{ $date_filter }}">
+                                <button type="submit"
+                                    class="btn btn-success position-absolute top-50 end-0 translate-middle-y">
+                                    <i class="btn-icon-prepend" data-feather="download-cloud"></i>
+                                    Unduh
+                                </button>
+                            </form>
                         </div>
 
                         <div class="table-responsive mt-3">
@@ -39,7 +44,6 @@
                                         <th>Jumlah Uang</th>
                                         <th>Tgl Bayar</th>
                                         <th>Nama Paket</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>

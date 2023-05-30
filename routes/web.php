@@ -85,4 +85,5 @@ Route::get('/pembayaranwali', [WaliPembayaranController::class, 'index']);
 Route::post('/pembayaranwali/filter', [WaliPembayaranController::class, 'filter'])->name('wali.pembayaran.filter');
 
 // Generate PDF
-Route::POST('/reportPerkembangan', [PdfGeneratorContoller::class, 'index'])->name('perkembangan.convert');
+Route::POST('/reportPerkembangan', [PdfGeneratorContoller::class, 'generatePerkembangan'])->name('perkembangan.convert');
+Route::POST('/reportPembayaran', [PdfGeneratorContoller::class, 'generatePembayaran'])->name('pembayaran.convert');
