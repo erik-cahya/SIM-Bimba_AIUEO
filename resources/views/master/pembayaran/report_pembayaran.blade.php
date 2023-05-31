@@ -47,14 +47,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $number = 1;
+                                    @endphp
                                     @foreach ($get_data_pembayaran as $pembayaran)
                                         <tr>
-                                            <td>1</td>
+                                            <td>{{ $number }}</td>
                                             <td>{{ $pembayaran->nama_murid }}</td>
                                             <td>Rp. {{ number_format($pembayaran->jumlah_bayar, 0, '', '.') }}</td>
                                             <td>{{ date('d-m-Y', strtotime($pembayaran->tanggal_bayar)) }}</td>
                                             <td>{{ $pembayaran->nama_paket }}</td>
                                         </tr>
+                                        @php
+                                            $number++;
+                                        @endphp
                                     @endforeach
 
 

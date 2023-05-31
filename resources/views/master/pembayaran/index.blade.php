@@ -85,10 +85,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @php
+                                        $number = 1;
+                                    @endphp
                                     @foreach ($data_pembayaran as $bayar)
                                         <tr>
-                                            <td>1</td>
+                                            <td>{{ $number }}</td>
                                             <td>{{ $bayar->nama_murid }}</td>
                                             <td>Rp. {{ number_format($bayar->jumlah_bayar, 0, '', '.') }}</td>
                                             <td>{{ date('d-m-Y', strtotime($bayar->tanggal_bayar)) }}</td>
@@ -162,6 +164,9 @@
                                                 </form>
                                             </div>
                                         </div>
+                                        @php
+                                            $number++;
+                                        @endphp
                                     @endforeach
 
 
