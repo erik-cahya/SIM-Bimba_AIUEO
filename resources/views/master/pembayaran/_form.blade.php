@@ -1,11 +1,9 @@
 <div class="row">
     <div class="form-group col ">
         <label for="id_murid">Nama Murid</label>
-        <select id="id_murid" name="id_murid" class="js-example-modal form-control form-select" data-width="100%" required>
-            @foreach ($data_murid as $murid)
-                <option style="height: 500px;" value="{{ $murid->id_murid }}">{{ $murid->nama_murid }}</option>
-            @endforeach
-        </select>
+        <input type="text" class="form-control" value="{{ $bayar->nama_murid }}" disabled readonly>
+        <input type="hidden" class="form-control" value="{{ $bayar->id_murid }}" name="id_murid">
+
     </div>
 </div>
 
@@ -15,8 +13,8 @@
     </div>
     <div class="input-group">
         <div class="input-group-text">Rp.</div>
-        <input type="text" class="form-control" id="jumlah_bayar" name="jumlah_bayar"
-            placeholder="Masukkan Jumlah yang Dibayarkan" required />
+        <input type="text" name="jumlah_bayar" id="jumlah_bayar" value="{{ $bayar->harga }}" class="form-control"
+            readonly>
     </div>
 </div>
 
@@ -25,7 +23,7 @@
         <label for="tanggal_bayar">Tanggal Pembayaran</label>
         <div class="input-group flatpickr " id="dashboardDate">
             <input type="date" id="tanggal_bayar" name="tanggal_bayar" class="form-control bg-transparent"
-                placeholder="Select date" data-input>
+                placeholder="Select date" data-input required>
 
         </div>
     </div>

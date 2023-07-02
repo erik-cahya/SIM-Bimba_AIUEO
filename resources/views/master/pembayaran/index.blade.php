@@ -19,11 +19,20 @@
 
                         <div class="d-flex justify-content-between">
                             <h6 class="card-title">Pembayaran SPP</h6>
-                            <button type="button" data-bs-toggle="modal" class="btn btn-success"
-                                data-bs-target="#staticBackdrop"><i class="btn-icon-prepend" data-feather="user-plus"></i>
-                                Tambah Data Pembayaran</button>
                         </div>
 
+                        <form action="{{ route('pembayaran.filter') }}" method="POST" class="d-flex">
+                            {{ csrf_field() }}
+                            <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
+                                <input type="month" class="form-control bg-transparent border-dark"
+                                    placeholder="Select date" name="filter_date"
+                                    value="{{ $tanggal_filter ?? date('Y-m') }}">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-icon-text mb-2 mb-md-0">
+                                <i class="btn-icon-prepend" data-feather="filter"></i>
+                                Filter
+                            </button>
+                        </form>
 
 
                         {{-- Alert Success --}}
@@ -44,56 +53,48 @@
                             </div>
                         @endif
 
-                        <!-- Modal -->
-                        <div class="modal fade AssetsModal" id="staticBackdrop" data-bs-backdrop="static"
-                            data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header text-center">
-                                        <h5 class="modal-title" id="varyingModalLabel">Tambah Data Pembayaran</h5>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <form action="" method="POST" class="form-horizontal"
-                                            enctype="multipart/form-data">
-                                            @csrf
-                                            @include('master.pembayaran._form')
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-success">Tambah Pembayaran</button>
-                                    </div>
-                                </div>
-                                </form>
-
-                            </div>
-                        </div>
-
-
                         <div class="table-responsive mt-3">
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
                                         <th>Nim</th>
                                         <th>Nama Murid</th>
-                                        <th>Jumlah Uang</th>
+                                        <th>Status Pembayaran</th>
                                         <th>Tanggal Bayar</th>
                                         <th>Nama Paket</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{-- Coding show data pembayaran --}}
                                     @php
                                         $number = 1;
                                     @endphp
-                                    @foreach ($data_pembayaran as $bayar)
+                                    @foreach ($data_murid as $bayar)
+                                        @php
+                                            
+                                        @endphp
                                         <tr>
                                             <td>{{ $number }}</td>
                                             <td>{{ $bayar->nama_murid }}</td>
-                                            <td>Rp. {{ number_format($bayar->jumlah_bayar, 0, '', '.') }}</td>
-                                            <td>{{ date('d-m-Y', strtotime($bayar->tanggal_bayar)) }}</td>
+                                            <td>
+                                                @if (App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->where('tanggal_bayar', 'LIKE', $tanggal_filter . '-%')->exists())
+                                                    <span class="badge text-bg-success">Lunas</span>
+                                                @else
+                                                    <span class="badge text-bg-danger">Belum Lunas</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if (App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->where('tanggal_bayar', 'LIKE', $tanggal_filter . '-%')->exists())
+                                                    @php
+                                                        $dataBayar = App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->get('tanggal_bayar');
+                                                    @endphp
+                                                    @foreach ($dataBayar as $byr)
+                                                        {{ $byr->tanggal_bayar }}
+                                                    @endforeach
+                                                @else
+                                                @endif
+                                            </td>
                                             <td>{{ $bayar->nama_paket }}</td>
                                             <td>
                                                 {{-- <button type="button" class="btn btn-warning">Ubah</button> --}}
@@ -109,75 +110,111 @@
 
                                                         <button type="button" data-bs-toggle="modal"
                                                             class="dropdown-item d-flex align-items-center"
-                                                            data-bs-target="#modalEditData{{ $bayar->id_pembayaran }}"><i
+                                                            data-bs-target="#modalEditData{{ $bayar->id_murid }}"><i
                                                                 data-feather="edit-2" class="icon-sm me-2"></i> <span
                                                                 class="">Edit</span>
                                                         </button>
 
-                                                        <form method="POST"
-                                                            action="{{ route('pembayaran.delete', $bayar->id_pembayaran) }}"
-                                                            class="d-inline">
-                                                            {{ csrf_field() }}
-                                                            {{ method_field('DELETE') }}
-                                                            <input type="hidden" name="id_pembayaran"
-                                                                value="{{ $bayar->id_pembayaran }}">
-                                                            <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
-                                                                class="dropdown-item d-flex align-items-center"><i
-                                                                    data-feather="trash" class="icon-sm me-2"></i> <span
-                                                                    class="">Delete</span></button>
-                                                        </form>
+
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
 
                                         {{-- Modal edit data --}}
-
-                                        <div class="modal fade" id="modalEditData{{ $bayar->id_pembayaran }}"
+                                        <div class="modal fade" id="modalEditData{{ $bayar->id_murid }}"
                                             data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
 
-                                                <form action="{{ route('pembayaran.update', $bayar->id_pembayaran) }}"
-                                                    method="POST">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('PATCH') }}
-                                                    <div class="modal-content">
-                                                        <div class="modal-header text-center">
-                                                            <h5 class="modal-title" id="varyingModalLabel">Ubah Data
-                                                                Pembayaran
-                                                            </h5>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                @include('master.pembayaran._editform')
+                                                @if (App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->where('tanggal_bayar', 'LIKE', $tanggal_filter . '-%')->exists())
+                                                    {{-- Form Edit Data --}}
+                                                    <form action="{{ route('pembayaran.update', $bayar->id_murid) }}"
+                                                        method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('PATCH') }}
+                                                        <div class="modal-content">
+                                                            <div class="modal-header text-center">
+                                                                <h5 class="modal-title" id="varyingModalLabel">Ubah Data
+                                                                    Pembayaran
+                                                                </h5>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-success">Ubah
-                                                                Data Pembayaran</button>
-                                                        </div>
-                                                    </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    @include('master.pembayaran._editform')
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-success">
+                                                                    Ubah Data Pembayaran
+                                                                </button>
+                                                    </form>
+                                                    @php
+                                                        $deleteBayar = App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->get('id_pembayaran');
+                                                    @endphp
 
-                                                </form>
+                                                    @foreach ($deleteBayar as $byr)
+                                                        <form method="POST" action="/pembayaran/{{ $byr->id_pembayaran }}"
+                                                            class="d-inline">
+                                                            {{ csrf_field() }}
+                                                            {{ method_field('DELETE') }}
+                                                            <input type="hidden" name="id_pembayaran"
+                                                                value="{{ $byr->id_pembayaran }}">
+                                                            <button onclick="return confirm('Yakin Ingin Menghapus Data ?')"
+                                                                class="btn btn-danger" data-bs-dismiss="modal"><i
+                                                                    class="btn-icon-prepend"
+                                                                    data-feather="trash"></i></button>
+                                                        </form>
+                                                    @endforeach
                                             </div>
                                         </div>
-                                        @php
-                                            $number++;
-                                        @endphp
-                                    @endforeach
 
+                                        {{-- /. Form Edit Data --}}
+                                    @else
+                                        {{-- Form Add Data --}}
+                                        <form action="" method="POST" enctype="multipart/form-data">
+                                            {{ csrf_field() }}
 
-                                </tbody>
-                            </table>
+                                            <div class="modal-content">
+                                                <div class="modal-header text-center">
+                                                    <h5 class="modal-title" id="varyingModalLabel">Tambah Data
+                                                    </h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        @include('master.pembayaran._form')
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-success">Tambah
+                                                        Data Pembayaran </button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                        {{-- /. Form Add Data --}}
+                                    @endif
                         </div>
                     </div>
+                    @php
+                        $number++;
+                    @endphp
+                    @endforeach
+                    {{-- /. coding show data pembayaran --}}
+
+
+                    </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 
-        @include('layouts.footer')
+    @include('layouts.footer')
     </div>
 @endsection

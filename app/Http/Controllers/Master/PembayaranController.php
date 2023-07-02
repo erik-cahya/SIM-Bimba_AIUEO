@@ -11,16 +11,23 @@ use Illuminate\Support\Facades\DB;
 class PembayaranController extends Controller
 {
     // show pembayaran SPP
-    public function index()
+    public function index(Request $request)
     {
-        $data['data_murid'] = DB::table('murid')->get();
+        $data['data_murid'] = DB::table('murid')->join('paket', 'paket.id_paket', '=', 'murid.nama_paket')->get();
         $data['data_pembayaran'] = DB::table('pembayaran')->join('murid', 'murid.id_murid', '=', 'pembayaran.id_murid')->join('paket', 'paket.id_paket', '=', 'murid.nama_paket')->get();
+
+        $data['tanggal_filter'] = $request['filter_date'];
+        if ($data['tanggal_filter'] === null) {
+            $data['tanggal_filter'] = date('Y-m');
+        }
 
         return view('master.pembayaran.index', $data);
     }
 
     public function store(Request $request)
     {
+        // dd($request->all());
+
         $getIdPaket = DB::table('murid')->where('id_murid', $request->id_murid)->select('nama_paket')->first();
 
         $form_data = [
@@ -37,13 +44,12 @@ class PembayaranController extends Controller
 
     public function update(Request $request)
     {
+        // dd($request->all());
         DB::table('pembayaran')->where('id_pembayaran', $request->id_pembayaran)->update(
             [
-                'jumlah_bayar' => $request->jumlah_bayar,
                 'tanggal_bayar' => $request->tanggal_bayar
             ]
         );
-
         return back()->with('success', 'Data Pembayaran Berhasil Diubah');
     }
 
@@ -51,5 +57,9 @@ class PembayaranController extends Controller
     {
         Pembayaran::destroy($request->id_pembayaran);
         return back()->with('delete', 'Data Pembayaran Berhasil Dihapus');
+    }
+
+    public function pembayaranFilter(Request $request)
+    {
     }
 }
