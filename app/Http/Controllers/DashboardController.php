@@ -29,7 +29,6 @@ class DashboardController extends Controller
         $data["data_murid_wali"] = DB::table('murid')->where('id_user', Auth::user()->id_user)->get();
 
 
-
         if (Auth::user()->hak_akses === 'wali_murid') {
             $murid = DB::table('murid')->select('id_murid')->where('id_user', Auth::user()->id_user)->get()[0];
             $data['perkembangan_januari'] = DB::table('perkembangan')->where('id_murid', $murid->id_murid)->where('tgl_perkembangan', 'LIKE', '%-01-%')->count();

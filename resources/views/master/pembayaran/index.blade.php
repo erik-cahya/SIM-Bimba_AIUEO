@@ -81,18 +81,21 @@
                                                 @if (App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->where('tanggal_bayar', 'LIKE', $tanggal_filter . '-%')->exists())
                                                     <span class="badge text-bg-success">Lunas</span>
                                                 @else
-                                                    <span class="badge text-bg-danger">Belum Lunas</span>
+                                                    <span class="badge text-bg-danger">Belum Lunas </span>
                                                 @endif
                                             </td>
                                             <td>
                                                 @if (App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->where('tanggal_bayar', 'LIKE', $tanggal_filter . '-%')->exists())
                                                     @php
-                                                        $dataBayar = App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->get('tanggal_bayar');
+                                                        $dataBayar = App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)
+                                                            ->where('tanggal_bayar', 'LIKE', $tanggal_filter . '-%')
+                                                            ->get('tanggal_bayar');
                                                     @endphp
                                                     @foreach ($dataBayar as $byr)
-                                                        {{ $byr->tanggal_bayar }}
+                                                        {{ date('d-m-Y', strtotime($byr->tanggal_bayar)) }}
                                                     @endforeach
                                                 @else
+                                                    -
                                                 @endif
                                             </td>
                                             <td>{{ $bayar->nama_paket }}</td>
@@ -152,7 +155,9 @@
                                                                 </button>
                                                     </form>
                                                     @php
-                                                        $deleteBayar = App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)->get('id_pembayaran');
+                                                        $deleteBayar = App\Models\Pembayaran::where('id_murid', '=', $bayar->id_murid)
+                                                            ->where('tanggal_bayar', 'LIKE', $tanggal_filter . '-%')
+                                                            ->get('id_pembayaran');
                                                     @endphp
 
                                                     @foreach ($deleteBayar as $byr)
@@ -174,7 +179,7 @@
                                         {{-- /. Form Edit Data --}}
                                     @else
                                         {{-- Form Add Data --}}
-                                        <form action="" method="POST" enctype="multipart/form-data">
+                                        <form action="/pembayaran" method="POST" enctype="multipart/form-data">
                                             {{ csrf_field() }}
 
                                             <div class="modal-content">

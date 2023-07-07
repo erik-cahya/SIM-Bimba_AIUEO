@@ -7,6 +7,7 @@ use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PDO;
 
 class PembayaranController extends Controller
 {
@@ -26,10 +27,17 @@ class PembayaranController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
+        if (Pembayaran::where('tanggal_bayar', 'LIKE', date('Y-m', strtotime($request->tanggal_bayar)) . '-%')->exists()) {
+            $getIdPembayaran = DB::table('pembayaran')->where('tanggal_bayar', 'LIKE', date('Y-m', strtotime($request->tanggal_bayar)) . '-%')->select('id_pembayaran')->first();
+            DB::table('pembayaran')->where('id_pembayaran', $getIdPembayaran->id_pembayaran)->update(
+                [
+                    'tanggal_bayar' => $request->tanggal_bayar
+                ]
+            );
+            return back()->with('success', 'Data Pembayaran pada tanggal ' . date('d-m-Y', strtotime($request->tanggal_bayar)) . ' berhasil diubah');
+        }
 
         $getIdPaket = DB::table('murid')->where('id_murid', $request->id_murid)->select('nama_paket')->first();
-
         $form_data = [
             "id_murid" => $request->id_murid,
             "id_user" => Auth::user()->id_user,
@@ -37,13 +45,22 @@ class PembayaranController extends Controller
             "tanggal_bayar" => date('Y-m-d', strtotime($request->tanggal_bayar)),
             "id_paket" => $getIdPaket->nama_paket
         ];
-
+        // dd($form_data);
         Pembayaran::create($form_data);
         return back()->with('success', 'Data Pembayaran Berhasil Ditambahkan');
     }
 
     public function update(Request $request)
     {
+        if (Pembayaran::where('tanggal_bayar', 'LIKE', date('Y-m', strtotime($request->tanggal_bayar)) . '-%')->exists()) {
+            $getIdPembayaran = DB::table('pembayaran')->where('tanggal_bayar', 'LIKE', date('Y-m', strtotime($request->tanggal_bayar)) . '-%')->select('id_pembayaran')->first();
+            DB::table('pembayaran')->where('id_pembayaran', $getIdPembayaran->id_pembayaran)->update(
+                [
+                    'tanggal_bayar' => $request->tanggal_bayar
+                ]
+            );
+            return back()->with('success', 'Data Pembayaran pada tanggal ' . date('d-m-Y', strtotime($request->tanggal_bayar)) . ' berhasil diubah');
+        }
         // dd($request->all());
         DB::table('pembayaran')->where('id_pembayaran', $request->id_pembayaran)->update(
             [

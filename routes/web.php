@@ -54,6 +54,7 @@ Route::patch('perkembangan/update/{id_perkembangan}', [PerkembanganController::c
 
 // ###################################################### Pembayaran
 Route::delete('/pembayaran/{id_pembayaran}', [PembayaranController::class, 'destroy'])->name('pembayaran.delete');
+Route::get('/pembayaran/filter', [PembayaranController::class, 'index']);
 Route::post('pembayaran/filter', [PembayaranController::class, 'index'])->name('pembayaran.filter');
 Route::resource('/pembayaran', PembayaranController::class);
 Route::delete('/pembayaran/{id_pembayaran}', [PembayaranController::class, 'destroy']);
