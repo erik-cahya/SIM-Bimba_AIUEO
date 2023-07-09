@@ -21,13 +21,13 @@ class PembayaranController extends Controller
         if ($data['tanggal_filter'] === null) {
             $data['tanggal_filter'] = date('Y-m');
         }
-
         return view('master.pembayaran.index', $data);
     }
 
     public function store(Request $request)
     {
-        if (Pembayaran::where('tanggal_bayar', 'LIKE', date('Y-m', strtotime($request->tanggal_bayar)) . '-%')->exists()) {
+        // dd($request->all());
+        if (Pembayaran::where('tanggal_bayar', 'LIKE', date('Y-m', strtotime($request->tanggal_bayar)) . '-%')->where('id_murid', $request->id_murid)->exists()) {
             $getIdPembayaran = DB::table('pembayaran')->where('tanggal_bayar', 'LIKE', date('Y-m', strtotime($request->tanggal_bayar)) . '-%')->select('id_pembayaran')->first();
             DB::table('pembayaran')->where('id_pembayaran', $getIdPembayaran->id_pembayaran)->update(
                 [

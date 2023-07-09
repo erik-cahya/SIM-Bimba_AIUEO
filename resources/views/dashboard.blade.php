@@ -24,7 +24,6 @@
 
                     <div class="card col-8">
                         <div class="card-body">
-
                             {{-- Chart JS --}}
                             <div>
                                 <canvas id="chartPerkembangan"></canvas>
@@ -98,12 +97,26 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row justify-content-center">
+
+                    <div class="card col-7">
+                        <div class="card-body">
+                            <h5 class="card-title">Grafik Pendapatan Pembayaran SPP</h5>
+                            {{-- Chart JS --}}
+                            <div>
+                                <canvas id="chartPembayaranKepalaStaff"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endif
 
             {{-- ################################################ Guru --}}
             @if (Auth::user()->hak_akses === 'guru')
                 <div class="col-12 col-xl-12 stretch-card">
                     <div class="row flex-grow-1 justify-content-center">
+
                         {{-- Total Murid --}}
                         <div class="col-md-4 grid-margin stretch-card">
                             <div class="card">
@@ -164,13 +177,87 @@
 
                     </div>
                 </div>
+
+                <div class="row justify-content-center">
+                    <div class="card col-7">
+                        <div class="card-body">
+                            <h5 class="card-title">Grafik Perkembangan Murid</h5>
+                            {{-- Chart JS --}}
+                            <div>
+                                <canvas id="chartPerkembanganGuru"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endif
         </div> <!-- row -->
         @include('layouts.footer')
     </div>
 
-    @if (Auth::user()->hak_akses === 'wali_murid')
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {{-- Chart Master --}}
+    @if (Auth::user()->hak_akses === 'kepala_staff')
+        <script>
+            const chartPembayaranKepalaStaff = document.getElementById('chartPembayaranKepalaStaff');
+            new Chart(chartPembayaranKepalaStaff, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember',
+                    ],
+                    datasets: [{
+                        data: [
+                            {{ $pembayaran_januari }},
+                            {{ $pembayaran_februari }},
+                            {{ $pembayaran_maret }},
+                            {{ $pembayaran_april }},
+                            {{ $pembayaran_mei }},
+                            {{ $pembayaran_juni }},
+                            {{ $pembayaran_juli }},
+                            {{ $pembayaran_agustus }},
+                            {{ $pembayaran_september }},
+                            {{ $pembayaran_oktober }},
+                            {{ $pembayaran_november }},
+                            {{ $pembayaran_desember }},
+
+                        ],
+                        backgroundColor: '#36A2EB'
+                    }]
+                },
+                options: {
+                    responsives: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Total Pendapatan : Rp. {{ $total_pendapatan }}'
+                        }
+                    }
+                }
+            });
+        </script>
+
+        {{-- Chart Wali Murid --}}
+    @elseif (Auth::user()->hak_akses === 'wali_murid')
         <script>
             const ctx = document.getElementById('chartPerkembangan');
             new Chart(ctx, {
@@ -240,6 +327,58 @@
                     scales: {
                         y: {
                             beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    @elseif(Auth::user()->hak_akses === 'guru')
+        <script>
+            const chartPerkembanganGuru = document.getElementById('chartPerkembanganGuru');
+
+            new Chart(chartPerkembanganGuru, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        @foreach ($data_alokasi as $alokasi)
+                            @php
+                                $data_murid = Illuminate\Support\Facades\DB::table('murid')
+                                    ->where('id_murid', $alokasi->id_murid)
+                                    ->get('nama_murid');
+                            @endphp
+                            @foreach ($data_murid as $dtMurid)
+                                '{{ $dtMurid->nama_murid }}',
+                            @endforeach
+                        @endforeach
+                    ],
+                    datasets: [{
+                        data: [
+                            @foreach ($data_alokasi as $alokasi)
+                                @php
+                                    $data_perkembangan = Illuminate\Support\Facades\DB::table('perkembangan')
+                                        ->where('id_murid', $alokasi->id_murid)
+                                        ->count();
+                                @endphp
+                                {{ $data_perkembangan }},
+                            @endforeach
+                        ],
+                        backgroundColor: '#36A2EB'
+                    }]
+                },
+                options: {
+                    responsives: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        title: {
+                            display: false,
+                            text: 'Total Pendapatan : Rp. '
                         }
                     }
                 }
