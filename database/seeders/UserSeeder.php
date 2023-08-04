@@ -36,11 +36,24 @@ class UserSeeder extends Seeder
         //     User::insert($row);
         // }
 
-        User::create([
-            'nama_user' => 'master',
-            'username' => 'master',
-            'password' => bcrypt('master'),
-            'hak_akses' => 'kepala_staff'
-        ]);
+
+        $data_jenis = [
+            [
+                'nama_user' => 'master',
+                'username' => 'master',
+                'password' => bcrypt('master'),
+                'hak_akses' => 'kepala_staff'
+            ],
+            [
+                'nama_user' => 'guru',
+                'username' => 'guru',
+                'password' => bcrypt('guru'),
+                'hak_akses' => 'guru'
+            ]
+
+        ];
+        foreach ($data_jenis as $row) {
+            User::create($row);
+        }
     }
 }
