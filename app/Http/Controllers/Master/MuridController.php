@@ -19,7 +19,7 @@ class MuridController extends Controller
      */
     public function index()
     {
-        $data["data_murid"] = DB::table('murid')->join('paket', 'paket.id_paket', '=', 'murid.nama_paket')->orderBy('id_murid', 'ASC')->get();
+        $data["data_murid"] = DB::table('murid')->join('paket', 'paket.id_paket', '=', 'murid.id_paket')->orderBy('id_murid', 'ASC')->get();
         $data["data_paket"] = Paket::all();
         return view('master.murid.data_murid', $data);
     }
@@ -44,7 +44,7 @@ class MuridController extends Controller
      */
     public function store(Request $request)
     {
-
+        // dd($request->all());
         //dd($request->all());
         $request->validate(
             [
@@ -81,7 +81,7 @@ class MuridController extends Controller
                 'alamat' => $request->alamat,
                 'nama_ortu' => $request->nama_ortu,
                 'no_telp' => $request->no_telp,
-                'nama_paket' => $request->nama_paket,
+                'id_paket' => $request->nama_paket,
                 'status_alokasi' => 0
             ];
 
@@ -104,7 +104,7 @@ class MuridController extends Controller
                 'alamat' => $request->alamat,
                 'nama_ortu' => $request->nama_ortu,
                 'no_telp' => $request->no_telp,
-                'nama_paket' => $request->nama_paket,
+                'id_paket' => $request->nama_paket,
                 'status_alokasi' => 0
             ]);
             return redirect('/murid')->with('success', 'Data Murid Berhasil Ditambahkan');

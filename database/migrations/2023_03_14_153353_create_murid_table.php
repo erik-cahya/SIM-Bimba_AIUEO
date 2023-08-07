@@ -23,12 +23,12 @@ class CreateMuridTable extends Migration
             $table->string('alamat');
             $table->string('nama_ortu');
             $table->string('no_telp');
-            $table->unsignedInteger('nama_paket');
+            $table->unsignedInteger('id_paket');
             $table->boolean('status_alokasi');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('nama_paket')->references('id_paket')->on('paket')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_paket')->references('id_paket')->on('paket')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
