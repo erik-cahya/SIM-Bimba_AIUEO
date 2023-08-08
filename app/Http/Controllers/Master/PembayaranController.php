@@ -14,8 +14,8 @@ class PembayaranController extends Controller
     // show pembayaran SPP
     public function index(Request $request)
     {
-        $data['data_murid'] = DB::table('murid')->join('paket', 'paket.id_paket', '=', 'murid.nama_paket')->get();
-        $data['data_pembayaran'] = DB::table('pembayaran')->join('murid', 'murid.id_murid', '=', 'pembayaran.id_murid')->join('paket', 'paket.id_paket', '=', 'murid.nama_paket')->get();
+        $data['data_murid'] = DB::table('murid')->join('paket', 'paket.id_paket', '=', 'murid.id_paket')->get();
+        $data['data_pembayaran'] = DB::table('pembayaran')->join('murid', 'murid.id_murid', '=', 'pembayaran.id_murid')->join('paket', 'paket.id_paket', '=', 'murid.id_paket')->get();
 
         $data['tanggal_filter'] = $request['filter_date'];
         if ($data['tanggal_filter'] === null) {
@@ -37,13 +37,13 @@ class PembayaranController extends Controller
             return back()->with('success', 'Data Pembayaran pada tanggal ' . date('d-m-Y', strtotime($request->tanggal_bayar)) . ' berhasil diubah');
         }
 
-        $getIdPaket = DB::table('murid')->where('id_murid', $request->id_murid)->select('nama_paket')->first();
+        $getIdPaket = DB::table('murid')->where('id_murid', $request->id_murid)->select('id_paket')->first();
         $form_data = [
             "id_murid" => $request->id_murid,
             "id_user" => Auth::user()->id_user,
             "jumlah_bayar" => $request->jumlah_bayar,
             "tanggal_bayar" => date('Y-m-d', strtotime($request->tanggal_bayar)),
-            "id_paket" => $getIdPaket->nama_paket
+            "id_paket" => $getIdPaket->id_paket
         ];
         // dd($form_data);
         Pembayaran::create($form_data);
